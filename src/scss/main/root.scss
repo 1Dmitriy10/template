@@ -1,0 +1,73 @@
+@use "./mixins-vars"as *;
+
+:root {
+
+    //===========Шрифты============
+    --font-family: "Manrope", sans-serif;
+    --second-family: "Montserrat", sans-serif;
+    --third-family: "Inter", sans-serif;
+    --font3: "Open Sans", sans-serif;
+    --font4: "Stolzl", sans-serif;
+    //===========Цвета===========
+    --white: #FFFFFF;
+    --black: #1D222F;
+    --gray: #646978;
+    --gray-2: #EFF1F3;
+    --red: #E33624;
+    --text: #171717;
+    --text-2: #737373;
+
+    --white01: #fff;
+    --red01: #e33624;
+    --grey01: #f8f8f8;
+    --grey02: #eff1f3;
+    --grey03: #9399a9;
+    --grey04: #646978;
+    --grey05: #30333d;
+    --grey06: #1d222f;
+
+
+    // ===========gap===========
+    --gap: 20px;
+
+
+
+    body {
+        overflow-x: hidden;
+    }
+
+    //container
+    .container {
+        max-width: 1300px;
+        margin: 0 auto;
+
+        @include respond-to("pc") {
+            max-width: 1210px;
+        }
+
+        @include respond-to("pc-old") {
+            max-width: 1010px;
+        }
+
+        @include respond-to("nout") {
+            max-width: 800px;
+        }
+
+        @include respond-to("tab") {
+            max-width: 650px;
+        }
+
+        @include respond-to("tel") {
+            max-width: 410px;
+        }
+
+        @include respond-to("tel-old") {
+            // max-width: 325px;
+            max-width: 100%;
+        }
+    }
+
+    section {
+        padding: 0 clamp-px(16, 20);
+    }
+}
