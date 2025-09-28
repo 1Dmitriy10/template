@@ -9,6 +9,7 @@ import {
 
 export function gitNav() {
     let block = document.querySelector(".git-nav-box");
+    if(!block) {return null}
     let ul = document.querySelector(".git-nav-box>ul");
     let check = false;
     let path = 'https://1dmitriy10.github.io/owenkomplekt/';
