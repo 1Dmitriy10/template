@@ -25,7 +25,44 @@
     <title>Главная</title>
   <script type="module" crossorigin src="./assets/vendor-BpJTUdAv.js"></script>
   <script type="module" crossorigin src="./assets/main-st0Bhjmf.js"></script>
-  <link rel="stylesheet" crossorigin href="./assets/main-DgPViPe3.css">
+  <!-- CSS loaded asynchronously -->
+<link rel="preload" href="./assets/main-DgPViPe3.css" as="style" onload="this.onload=null;this.rel="stylesheet'">
+<noscript><link rel="stylesheet" href="./assets/main-DgPViPe3.css"></noscript>
+<script>
+  // Fallback for async CSS loading
+  document.addEventListener('DOMContentLoaded', function() {
+    var link = document.createElement('link');
+    link.rel = 'stylesheet';
+    link.href = '../assets/main-DgPViPe3.css';
+    document.head.appendChild(link);
+  });
+</script>
+<!-- CSS Loading State Handler -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  // Mark critical content as visible
+  setTimeout(function() {
+    document.body.classList.add('critical-visible');
+  }, 50);
+  
+  // Load full CSS after critical render
+  var fullCSS = document.createElement('link');
+  fullCSS.rel = 'stylesheet';
+  fullCSS.href = '$1';
+  fullCSS.onload = function() {
+    document.body.classList.add('full-css-loaded');
+    // Initialize components that depend on full CSS
+    if (typeof window.initLazyComponents === 'function') {
+      window.initLazyComponents();
+    }
+  };
+  
+  // Load full CSS with smart delay
+  setTimeout(function() {
+    document.head.appendChild(fullCSS);
+  }, 200);
+});
+</script>
 </head>
 <body>
   <header class="header">

@@ -128,6 +128,228 @@ function getFormat(ext) {
   return formats[ext] || ext;
 }
 
+// ✅ ПРОСТОЙ ПЛАГИН ДЛЯ ЗАМЕНЫ CSS ССЫЛКИ
+const simpleAsyncCSSPlugin = () => {
+  return {
+    name: 'simple-async-css',
+    apply: 'build',
+    
+    transformIndexHtml(html) {
+      console.log('🎯 Making CSS async...');
+      
+      // Простая замена синхронной загрузки на асинхронную
+      return html.replace(
+        /<link rel="stylesheet"[^>]*?href="([^"]*?main[^"]*?\.css)"[^>]*?>/i,
+        `<!-- CSS loaded asynchronously -->
+<link rel="preload" href="$1" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="$1"></noscript>
+<script>
+  // Fallback for async CSS loading
+  document.addEventListener('DOMContentLoaded', function() {
+    var link = document.createElement('link');
+    link.rel = 'stylesheet';
+    link.href = '$1';
+    document.head.appendChild(link);
+  });
+</script>`
+      );
+    }
+  };
+};
+
+// ✅ ФУНКЦИЯ ДЛЯ ИЗВЛЕЧЕНИЯ CRITICAL CSS (ВЫНЕСЕНА ОТДЕЛЬНО)
+function extractCriticalCSS(fullCSS) {
+  // Базовые критические стили
+  let criticalCSS = `/* Critical CSS - Above The Fold Content */
+/* Generated automatically during build */
+
+/* Reset and base styles */
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { 
+  margin: 0; 
+  font-family: system-ui, -apple-system, sans-serif;
+  line-height: 1.5;
+}
+
+/* Critical layout components */
+header, nav, .header, .navigation, 
+.hero, .banner, .first-screen,
+h1, h2, h3, .title, .subtitle {
+  /* Ensure critical elements are styled */
+}
+
+/* Critical typography */
+h1, h2, h3, h4, h5, h6 {
+  margin-top: 0;
+  margin-bottom: 0.5em;
+  line-height: 1.2;
+}
+
+/* Critical images */
+img { max-width: 100%; height: auto; }
+
+/* Critical buttons and links */
+a { color: inherit; text-decoration: none; }
+button { cursor: pointer; }
+
+/* Loading states */
+.critical-loading { opacity: 0; }
+.critical-loaded { opacity: 1; transition: opacity 0.3s ease; }
+`;
+
+  // Извлекаем критические стили из основного CSS
+  const criticalPatterns = [
+    // Глобальные стили
+    /(\*\{[^}]*\})/g,
+    /(html[^{]*\{[^}]*\})/g,
+    /(body[^{]*\{[^}]*\})/g,
+    
+    // Шрифты
+    /(@font-face[^{]*\{[^}]*\})/g,
+    
+    // Критические селекторы
+    /(\.(header|nav|hero|banner|first-screen|logo)[^{]*\{[^}]*\})/g,
+    /(\.(btn|button|primary|main)[^{]*\{[^}]*\})/g,
+    /(\.(title|heading|h[1-6])[^{]*\{[^}]*\})/g,
+    
+    // Медиа-запросы для мобильных
+    /(@media[^{]*\{[^}]{1,500}\})/g
+  ];
+
+  criticalPatterns.forEach(pattern => {
+    const matches = fullCSS.match(pattern);
+    if (matches) {
+      matches.forEach(match => {
+        if (match.length < 800) { // Ограничиваем длину критических правил
+          criticalCSS += '\n' + match + '\n';
+        }
+      });
+    }
+  });
+
+  return criticalCSS;
+}
+
+// ✅ ПЛАГИН ДЛЯ АВТОМАТИЧЕСКОГО СОЗДАНИЯ CRITICAL CSS И ОТЛОЖЕННОЙ ЗАГРУЗКИ
+const criticalCSSPlugin = () => {
+  let isProduction = false;
+  
+  return {
+    name: 'critical-css-plugin',
+    
+    config(config, { command }) {
+      isProduction = command === 'build';
+    },
+    
+    transformIndexHtml(html) {
+      if (!isProduction) return html;
+      
+      console.log('🎯 Injecting critical CSS optimization...');
+      
+      // Создаем оптимизированную структуру для загрузки CSS
+      const optimizedHTML = html
+        .replace(
+          /<link rel="stylesheet" href="(.*?main.*?\.css)">/g,
+          `<!-- Critical CSS Optimization -->
+<style>
+/* Critical CSS will be inlined during build process */
+/* Base critical styles for above-the-fold content */
+.critical-hidden { opacity: 0; }
+.critical-visible { opacity: 1; transition: opacity 0.3s ease-in-out; }
+</style>
+
+<!-- Preload critical resources -->
+<link rel="preload" href="$1" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="$1"></noscript>
+
+<!-- Load non-critical CSS with smart delay -->
+<script>
+(function() {
+  var loadDeferredStyles = function() {
+    var addStylesNode = document.getElementById('deferred-styles');
+    var replacement = document.createElement('div');
+    replacement.innerHTML = addStylesNode.textContent;
+    document.body.appendChild(replacement);
+    addStylesNode.parentElement.removeChild(addStylesNode);
+  };
+  
+  var raf = requestAnimationFrame || mozRequestAnimationFrame ||
+      webkitRequestAnimationFrame || msRequestAnimationFrame;
+  if (raf) raf(function() { window.setTimeout(loadDeferredStyles, 0); });
+  else window.addEventListener('load', loadDeferredStyles);
+})();
+</script>
+
+<div id="deferred-styles">
+  <link rel="stylesheet" href="$1" media="print" onload="this.media='all'">
+</div>`
+        )
+        .replace(
+          /<\/head>/,
+          `<!-- CSS Loading State Handler -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  // Mark critical content as visible
+  setTimeout(function() {
+    document.body.classList.add('critical-visible');
+  }, 50);
+  
+  // Load full CSS after critical render
+  var fullCSS = document.createElement('link');
+  fullCSS.rel = 'stylesheet';
+  fullCSS.href = '$1';
+  fullCSS.onload = function() {
+    document.body.classList.add('full-css-loaded');
+    // Initialize components that depend on full CSS
+    if (typeof window.initLazyComponents === 'function') {
+      window.initLazyComponents();
+    }
+  };
+  
+  // Load full CSS with smart delay
+  setTimeout(function() {
+    document.head.appendChild(fullCSS);
+  }, 200);
+});
+</script>
+</head>`
+        );
+
+      return optimizedHTML;
+    },
+    
+    async generateBundle(options, bundle) {
+      if (!isProduction) return;
+      
+      console.log('🔧 Processing CSS for critical optimization...');
+      
+      // Находим все CSS файлы
+      const cssFiles = Object.keys(bundle).filter(key => key.endsWith('.css'));
+      
+      for (const cssFile of cssFiles) {
+        const cssAsset = bundle[cssFile];
+        const cssContent = cssAsset.source;
+        
+        // Создаем упрощенную версию CSS для критических стилей
+        if (cssFile.includes('main') || cssFile.includes('index')) {
+          const criticalCSS = extractCriticalCSS(cssContent);
+          
+          // Сохраняем критический CSS как отдельный asset
+          const criticalFileName = cssFile.replace('.css', '-critical.css');
+          this.emitFile({
+            type: 'asset',
+            fileName: criticalFileName,
+            source: criticalCSS
+          });
+          
+          console.log(`✅ Generated critical CSS: ${criticalFileName}`);
+        }
+      }
+    }
+  };
+};
+
 // Улучшенный плагин для копирования dist в docs с исправлением HTML
 const copyDistToDocs = () => {
   return {
@@ -202,11 +424,9 @@ const copyDistToDocs = () => {
               .replace(/(src|href|data-src|srcset)=["']\.(?!\.)\//g, '$1="./');
 
             // 2. Исправляем проблему с кавычками в picture тегах
-            // Первый проход: исправляем смешанные кавычки в source тегах
             content = content.replace(
               /<picture>\s*<source\s+srcset=("|')([^"']+)("|')\s+type=("|')image\/webp("|')\s*>/gi,
               (match, quote1, srcset, quote2, quote3, quote4) => {
-                // Унифицируем кавычки - используем двойные везде
                 return `<picture><source srcset="${srcset}" type="image/webp">`;
               }
             );
@@ -215,7 +435,6 @@ const copyDistToDocs = () => {
             content = content.replace(
               /<picture>\s*<source\s+srcset=([^\s>]+)\s+type=([^\s>]+)\s*>/gi,
               (match, srcset, type) => {
-                // Добавляем кавычки, если их нет
                 const fixedSrcset = srcset.includes('"') ? srcset : `"${srcset}"`;
                 const fixedType = type.includes('"') ? type : `"${type}"`;
                 return `<picture><source srcset=${fixedSrcset} type=${fixedType}>`;
@@ -226,8 +445,6 @@ const copyDistToDocs = () => {
             content = content.replace(
               /<img([^>]*?)src=("|')([^"']+)("|')([^>]*?)>/gi,
               (match, before, quote1, src, quote2, after) => {
-                // Унифицируем кавычки - всегда используем двойные
-                // Также проверяем другие атрибуты на смешанные кавычки
                 let fixedAfter = after.replace(/(\w+)=("|')([^"']+)("|')/g, '$1="$3"');
                 return `<img${before}src="${src}"${fixedAfter}>`;
               }
@@ -259,7 +476,6 @@ const copyDistToDocs = () => {
             content = content.replace(
               /<picture><source srcset=("|')([^"']+)("|') type=("|')image\/webp("|')><img([^>]*?)src=("|')([^"']+)("|')([^>]*?)><\/picture>/gi,
               (match, quote1, webpSrc, quote2, quote3, quote4, imgAttrs, quote5, imgSrc, quote6, imgAfter) => {
-                // Унифицируем все кавычки в picture блоке
                 return `<picture><source srcset="${webpSrc}" type="image/webp"><img${imgAttrs}src="${imgSrc}"${imgAfter}></picture>`;
               }
             );
@@ -269,10 +485,9 @@ const copyDistToDocs = () => {
               /<(\w+)([^>]*?)>/gi,
               (match, tagName, attributes) => {
                 if (tagName.toLowerCase() === 'script' || tagName.toLowerCase() === 'style') {
-                  return match; // Не трогаем script и style теги
+                  return match;
                 }
                 
-                // Исправляем все атрибуты в теге
                 const fixedAttributes = attributes.replace(
                   /(\w+)=("|')([^"']*)("|')/g,
                   '$1="$3"'
@@ -614,18 +829,19 @@ export default defineConfig({
     imagesPlugin(),
     pictureWebpPlugin(),
     tailwindcss(),
+    
+    // ✅ ДОБАВЛЯЕМ CRITICAL CSS ПЛАГИН
+    criticalCSSPlugin(),
+    simpleAsyncCSSPlugin(),
     copyDistToDocs(),
   ],
 
   build: {
-    // ✅ ИСПРАВЛЕННЫЙ rollupOptions - ОДИН блок
     rollupOptions: {
       input: rollupInputs,
       output: {
-        // ✅ manualChunks для разделения JavaScript
-       manualChunks: {
+        manualChunks: {
           vendor: ['swiper', 'inputmask'],
-          // utils: ['./src/js/libs/*']
         },
         assetFileNames: (assetInfo) => {
           if (assetInfo.name && /\.(woff|woff2|eot|ttf|otf)$/i.test(assetInfo.name)) {
@@ -633,6 +849,13 @@ export default defineConfig({
           }
           if (assetInfo.name && /\.(jpg|jpeg|png|gif|svg|ico)$/i.test(assetInfo.name)) {
             return `images/[name][extname]`;
+          }
+          // Разделяем CSS файлы
+          if (assetInfo.name && /\.css$/i.test(assetInfo.name)) {
+            if (assetInfo.name.includes('critical')) {
+              return `assets/critical-[name]-[hash][extname]`;
+            }
+            return `assets/[name]-[hash][extname]`;
           }
           return `assets/[name]-[hash][extname]`;
         },
@@ -643,10 +866,14 @@ export default defineConfig({
     
     chunkSizeWarningLimit: 1000,
     minify: true,
-    sourcemap: 'true',
+    sourcemap: false, // Отключаем для production
     outDir: path.resolve(__dirname, 'dist'),
-    assetsInlineLimit: 0,
+    assetsInlineLimit: 4096, // Включаем инлайнинг мелких файлов
     emptyOutDir: true,
+    
+    // ✅ ОПТИМИЗАЦИЯ CSS
+    cssCodeSplit: true,
+    cssMinify: true,
   },
 
   server: {
