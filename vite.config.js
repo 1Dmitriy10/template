@@ -5,7 +5,6 @@ import fs from 'fs';
 import sharp from 'sharp';
 import tailwindcss from '@tailwindcss/vite';
 import { fileURLToPath } from 'url';
-import purgeCSS from 'vite-plugin-purgecss';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -98,8 +97,6 @@ export default rollupInputs;
 
 // ВЫЗЫВАЕМ ФУНКЦИЮ ЭКСПОРТА СРАЗУ ЖЕ
 exportInputsToFile();
-
-// Остальной код конфига остается без изменений...
 
 // Хелпер для определения веса шрифта
 function getFontWeight(style) {
@@ -604,30 +601,6 @@ export default defineConfig({
   },
 
   plugins: [
-    purgeCSS({
-      content: [
-        '**/*.html',
-        '**/*.js',
-        '**/*.hbs', // если используете handlebars
-      ],
-      safelist: [
-        /swiper/, // сохранить классы swiper
-        /js-/,    // сохранить js- классы
-        /active/,  // сохранить active классы
-        /open/,    // сохранить open классы
-        /visible/, // сохранить visible классы
-        /loading/, // сохранить loading классы
-        /loaded/,  // сохранить loaded классы
-        /^bg-/,    // сохранить классы начинающиеся с bg-
-        /^text-/,  // сохранить классы начинающиеся с text-
-        /scroll-snap/, // сохранить классы для скролла
-      ],
-      safelistPatternsChildren: [
-        /swiper/, // сохранить дочерние классы swiper
-      ],
-      variables: true, // сохранить CSS переменные
-      keyframes: true, // сохранить анимации
-    }),
     fontAutoPlugin(),
     handlebars({
       partialDirectory: path.resolve(__dirname, 'src/html/partials'),
@@ -645,13 +618,15 @@ export default defineConfig({
   ],
 
   build: {
-    minify: true,
-    sourcemap: 'inline',
-    outDir: path.resolve(__dirname, 'dist'),
-    
-    assetsInlineLimit: 0,
+    // ✅ ИСПРАВЛЕННЫЙ rollupOptions - ОДИН блок
     rollupOptions: {
+      input: rollupInputs,
       output: {
+        // ✅ manualChunks для разделения JavaScript
+       manualChunks: {
+          vendor: ['swiper', 'inputmask'],
+          // utils: ['./src/js/libs/*']
+        },
         assetFileNames: (assetInfo) => {
           if (assetInfo.name && /\.(woff|woff2|eot|ttf|otf)$/i.test(assetInfo.name)) {
             return `files/fonts/[name][extname]`;
@@ -664,10 +639,13 @@ export default defineConfig({
         chunkFileNames: 'assets/[name]-[hash].js',
         entryFileNames: 'assets/[name]-[hash].js',
       },
-      
-      input: rollupInputs, // Используем наш объект
     },
     
+    chunkSizeWarningLimit: 1000,
+    minify: false,
+    sourcemap: 'inline',
+    outDir: path.resolve(__dirname, 'dist'),
+    assetsInlineLimit: 0,
     emptyOutDir: true,
   },
 
