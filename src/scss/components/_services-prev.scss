@@ -1,0 +1,78 @@
+@use "../main/mixins-vars"as *;
+
+.services-prev {}
+
+.services-prev__container {
+    display: flex;
+    flex-direction: column;
+}
+
+.services-prev__subtitle {
+    color: var(--text-color);
+    text-align: center;
+    font-size: clamp-px(16, 20);
+    line-height: 140%;
+    font-weight: 400;
+    margin-bottom: clamp-px(30, 48);
+}
+
+.services-prev__card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    background-color: red;
+    box-shadow: 0 4px 4px #83838373;
+    padding: clamp-px(15, 24);
+    border-radius: var(--border-radius-primary);
+    background-color: var(--bg-color-primary);
+    transition: 0.3s;
+
+    &:hover {
+        transition: 0.3s;
+        transform: translateY(-5px);
+    }
+}
+
+.services-prev__card-link {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.services-prev__card-icon {
+    align-self: center;
+    margin-bottom: 16px;
+
+    &>svg {
+        width: clamp-px(35, 50);
+        height: clamp-px(35, 50);
+        fill: var(--tertiary-color);
+
+        & path {
+            fill: var(--tertiary-color);
+        }
+    }
+}
+
+.services-prev__card-title {
+    color: var(--text-color);
+    font-weight: 700;
+    font-size: clamp-px(18, 20);
+    line-height: 140%;
+    margin-bottom: 10px;
+}
+
+.services-prev__card-text {
+    color: var(--text-color);
+    line-height: 150%;
+    font-size: clamp-px(14, 16);
+    font-weight: 500;
+}
+
+.services-prev__more-link {
+    align-self: center;
+}

@@ -1,0 +1,54 @@
+@use "../main/mixins-vars"as *;
+
+.faq-prev {}
+
+.faq-prev__container {
+    display: flex;
+    flex-direction: column;
+}
+
+.faq-prev__box {
+    display: flex;
+    flex-direction: column;
+    gap: clamp-px(10, 20);
+    margin-bottom: 20px;
+}
+
+.spoiler-content {
+    margin-top: 20px;
+    color: var(--text-color-second);
+    font-size: clamp-px(14, 16);
+    line-height: 140%;
+    font-weight: 400;
+}
+
+.faq-prev__spoiler-wrap {
+    padding: clamp-px(10, 20);
+    background-color: var(--secondary-color);
+    border-radius: var(--border-radius-primary);
+}
+
+.faq-prev__spoiler-js {
+    color: var(--text-color-second);
+    font-size: clamp-px(18, 20);
+    font-weight: 500;
+    line-height: 130%;
+    cursor: pointer;
+
+    &::after {
+        transition: 0.3s;
+        color: var(--text-color-second);
+        margin-left: auto;
+        font-size: clamp-px(18, 20);
+    }
+
+    &.active {
+
+        &::after {
+            transition: 0.3s;
+            color: var(--tertiary-color);
+
+        }
+
+    }
+}

@@ -9,8 +9,8 @@
 
 import { Spoilers } from "../vendor/spoilers.js";
 
-export const spoilers = new Spoilers({
-    item: '_spoiler-js', /*класс споилера*/
+export const faqPrevSpoilers = new Spoilers({
+    item: 'faq-prev__spoiler-js', /*класс споилера*/
     timeAnimation: 300, /*время анимации*/
     accordion: true,    /*Режим аккордиона*/
     firstOpen: true,    /*Первый элемент всегда открыт*/

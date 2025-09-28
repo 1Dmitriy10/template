@@ -14,8 +14,28 @@
 //================Импорты компонентов=====================
 @use "./components/header.scss";
 @use "./components/footer.scss";
+@use "./components/hero.scss";
+@use "./components/services-prev.scss";
+@use "./components/advantages-prev.scss";
+@use "./components/portfolio-prev.scss";
+@use "./components/reviews-prev.scss";
+@use "./components/call.scss";
+@use "./components/blog-prev.scss";
+@use "./components/team-prev.scss";
+@use "./components/faq-prev.scss";
+@use "./components/contacts-prev.scss";
 
 //================Атомарные стили=====================
 @use "./vendor/atomar.scss";
 
 //========основные стили============
+body {
+    font-family: var(--font-family);
+    background-color: var(--background-color);
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    gap: clamp-px(50, 120);
+}

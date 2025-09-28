@@ -4,6 +4,15 @@ h1 {}
 
 h2 {}
 
+h2.block-title {
+    color: var(--text-color);
+    font-weight: 700;
+    font-size: clamp-px(22, 36);
+    line-height: 130%;
+    margin-bottom: clamp-px(20, 30);
+    text-align: center;
+}
+
 h3 {}
 
 h4 {}

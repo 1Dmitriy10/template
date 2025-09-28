@@ -1,0 +1,69 @@
+@use "../main/mixins-vars"as *;
+
+.advantages-prev {
+    background-color: var(--secondary-color);
+
+}
+
+.advantages-prev__container {
+    padding: clamp-px(30, 50) 0;
+
+    & .block-title {
+        color: var(--text-color-second);
+    }
+}
+
+
+.advantages-prev__card {
+    position: relative;
+    display: flex;
+    gap: 20px;
+    height: 100%;
+    padding: clamp(0.9375rem, 0.7394366197rem + 0.8450704225vw, 1.5rem);
+    border-radius: var(--border-radius-primary);
+    transition: 0.3s;
+
+    @include respond-to("nout") {
+        flex-direction: column;
+        flex: 0 0 fit-content !important;
+        min-width: 200px !important;
+    }
+
+}
+
+.advantages-prev__card-img {
+    width: 80px;
+    min-width: 80px;
+    height: 80px;
+    position: relative;
+    align-self: center;
+    border-radius: 100%;
+    overflow: hidden;
+
+    &>.img-bg {
+        object-fit: cover;
+    }
+
+    @include respond-to("nout") {
+        align-self: flex-start;
+    }
+}
+
+
+
+.advantages-prev__card-title {
+    color: var(--text-color-second);
+    font-weight: 700;
+    font-size: clamp(1.125rem, 1.0809859155rem + 0.1877934272vw, 1.25rem);
+    line-height: 140%;
+    margin-bottom: 10px;
+
+}
+
+.advantages-prev__card-text {
+    color: var(--text-color-second);
+    line-height: 150%;
+    font-size: clamp(0.875rem, 0.8309859155rem + 0.1877934272vw, 1rem);
+    font-weight: 500;
+
+}

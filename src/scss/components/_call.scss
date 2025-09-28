@@ -1,0 +1,28 @@
+@use "../main/mixins-vars"as *;
+
+.call {
+    background-color: var(--secondary-color);
+
+}
+
+.call__container {
+    padding: clamp-px(50, 80) 0;
+    color: var(--text-color-second);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    & .block-title {
+        color: var(--text-color-second);
+
+    }
+}
+
+
+
+.call__subtitle {
+    font-size: clamp-px(16, 18);
+    margin-bottom: 20px;
+    text-align: center;
+}

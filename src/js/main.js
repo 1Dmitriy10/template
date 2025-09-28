@@ -5,7 +5,7 @@ import '../scss/tailwind.css';
 import '../scss/style.scss';
 
 //------------------------Спойлеры-----------------------
-import { spoilers } from "./libs/spoilers.js";
+import { faqPrevSpoilers } from "./libs/spoilers.js";
 
 // // ------------- Мобильное меню -------------------------
 import { mobMenu } from "./libs/burgerMenu.js";
@@ -26,7 +26,7 @@ import { tabs } from "./libs/tabs.js";
 
 
 // ---------------------Слайдер swiper-----------------
-import { casesPrevSlider } from "./libs/slider.js";
+import { reviewsPrevSlider } from "./libs/slider.js";
 
 
 //---------------------Модальные окна------------------
@@ -86,8 +86,11 @@ import { gitNav } from "./libs/gitNav.js";
 //------------Ввод одноразового кода из смс---------------
 // import { pincode } from "./libs/getPincode.js";
 
-//------------Звездный рейтинг---------------
+//------------Звездный рейтинг (заполнение при клике)---------------
 // import { starRating } from "./libs/starRating.js";
+
+//------------Звездный рейтинг (управление дробным значением)---------------
+// import { setRating } from "./libs/starRatingFractional.js";
 
 
 
