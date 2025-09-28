@@ -8,7 +8,7 @@
         <div class="blog-prev__card-box scroll-snap-mob">
             <div class="blog-prev__card scroll-snap__item">
                 <div class="blog-prev__card-img">
-                    <img class='img-bg' src='@img' alt='' loading='lazy'>
+                    <img class='img-bg' src='@img/blog-prev-img-1.jpg' alt='' loading='lazy'>
                 </div>
 
                 <div class="blog-prev__card-text-box">
@@ -42,7 +42,7 @@
 
             <div class="blog-prev__card scroll-snap__item">
                 <div class="blog-prev__card-img">
-                    <img class='img-bg' src='@img' alt='' loading='lazy'>
+                    <img class='img-bg' src='@img/blog-prev-img-2.jpg' alt='' loading='lazy'>
                 </div>
 
                 <div class="blog-prev__card-text-box">
@@ -76,7 +76,9 @@
 
             <div class="blog-prev__card scroll-snap__item">
                 <div class="blog-prev__card-img">
-                    <img class='img-bg' src='@img' alt='' loading='lazy'>
+                    <div class="blog-prev__card-img">
+                        <img class='img-bg' src='@img/blog-prev-img-3.jpg' alt='' loading='lazy'>
+                    </div>
                 </div>
 
                 <div class="blog-prev__card-text-box">
@@ -110,7 +112,7 @@
 
             <div class="blog-prev__card scroll-snap__item">
                 <div class="blog-prev__card-img">
-                    <img class='img-bg' src='@img' alt='' loading='lazy'>
+                    <img class='img-bg' src='@img/blog-prev-img-4.jpg' alt='' loading='lazy'>
                 </div>
 
                 <div class="blog-prev__card-text-box">
@@ -144,7 +146,7 @@
 
             <div class="blog-prev__card scroll-snap__item">
                 <div class="blog-prev__card-img">
-                    <img class='img-bg' src='@img' alt='' loading='lazy'>
+                    <img class='img-bg' src='@img/blog-prev-img-5.jpg' alt='' loading='lazy'>
                 </div>
 
                 <div class="blog-prev__card-text-box">
@@ -178,7 +180,7 @@
 
             <div class="blog-prev__card scroll-snap__item">
                 <div class="blog-prev__card-img">
-                    <img class='img-bg' src='@img' alt='' loading='lazy'>
+                    <img class='img-bg' src='@img/blog-prev-img-6.jpg' alt='' loading='lazy'>
                 </div>
 
                 <div class="blog-prev__card-text-box">
@@ -215,3 +217,28 @@
 
     </div>
 </section>
+
+<script>
+    // Анимация появления при скролле
+    function animateOnScroll() {
+        const cards = document.querySelectorAll('.blog-prev__card');
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        });
+
+        cards.forEach(card => {
+            observer.observe(card);
+        });
+    }
+
+    // Запуск после загрузки DOM
+    document.addEventListener('DOMContentLoaded', animateOnScroll);
+</script>

@@ -8,15 +8,16 @@
     //===========Цвета===========
     --white: #FFFFFF;
     --black: #1D222F;
-    --text-color: #1D222F;
+    --text-color: #1E293B;
     --text-color-second: #FFFFFF;
     --background-color: #D9D9D9;
     --primary-color: #D9D9D9;
     --secondary-color: #4E6075;
-    --tertiary-color: #D5FF5F;
+    --tertiary-color: #3f91b8;
+    --btn-color: #FFFFFF;
 
     //===========Фон блоков===========
-    --bg-color-primary: #FFFFFF;
+    --bg-color-primary: #FAFAFA;
 
     // ------header
     --header-color: #FFFFFF;
@@ -29,6 +30,14 @@
 
     // ------radius
     --border-radius-primary: clamp(0.375rem, 0.329rem + 0.2vw, 0.5rem);
+
+    // ------call-------
+    --gradient-call-start: #667eea;
+    --gradient-call-stop: #764ba2;
+
+    // ------hero-------
+    --gradient-hero-start: #212a35;
+    --gradient-hero-stop: #4e6075;
     // ===========gap===========
     --gap: 20px;
 

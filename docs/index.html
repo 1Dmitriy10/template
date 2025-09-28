@@ -23,8 +23,8 @@
     <meta name="msapplication-TileColor" content="#da532c">
     <meta name="theme-color" content="#ffffff">
     <title>Главная</title>
-  <script type="module" crossorigin src="./assets/main-MP98v_Nj.js"></script>
-  <link rel="stylesheet" crossorigin href="./assets/main-B7ECD3mw.css">
+  <script type="module" crossorigin src="./assets/main-kgG78QF5.js"></script>
+  <link rel="stylesheet" crossorigin href="./assets/main-DgPViPe3.css">
 </head>
 <body>
   <header class="header">
@@ -263,16 +263,16 @@
       </ul>
   </div>  <main>
     <section class="hero">
-        <picture><source srcset="./images/webp/hero-bg.webp" type="image/webp"><img class="img-bg" src="./images/hero-bg.png" alt="" loading="lazy"></picture>
+        <!-- <picture><source srcset="./images/webp/hero-bg.webp" type="image/webp"><img class="img-bg" src="./images/hero-bg.png" alt="" loading="lazy"></picture> -->
     
         <div class="container hero__container">
     
             <h1>
-                Профессиональные услуги для вашего бизнеса
+                Разработка сайтов для роста вашего бизнеса
             </h1>
     
             <div class="hero__subtitle">
-                Решаем задачи быстро, качественно и с гарантией результата
+                Создаем современные сайты, которые приносят клиентов
             </div>
     
             <div class="hero__btn-box">
@@ -280,12 +280,39 @@
                     Заказать консультацию
                 </button>
     
-                <button class="btn btn__second">
+                <button class="btn btn__second btn__shadow">
                     Посмотреть работы
                 </button>
             </div>
         </div>
-    </section>    <section class="services-prev">
+    
+        <!-- Плавающие элементы -->
+        <div class="floating-elements">
+            <div class="floating-element element-1"></div>
+            <div class="floating-element element-2"></div>
+            <div class="floating-element element-3"></div>
+            <div class="floating-element element-4"></div>
+            <div class="floating-element element-5"></div>
+            <div class="floating-element element-6"></div>
+        </div>
+    </section>
+    
+    <script>
+        // Параллакс эффект при движении мыши
+        document.addEventListener('mousemove', (e) => {
+            const floatingElements = document.querySelectorAll('.floating-element');
+            const mouseX = e.clientX / window.innerWidth;
+            const mouseY = e.clientY / window.innerHeight;
+    
+            floatingElements.forEach((element, index) => {
+                const speed = (index + 1) * 0.5;
+                const x = (mouseX - 0.5) * speed * 20;
+                const y = (mouseY - 0.5) * speed * 20;
+    
+                element.style.transform = `translate(${x}px, ${y}px)`;
+            });
+        });
+    </script>    <section class="services-prev">
         <div class="container services-prev__container">
             <h2 class="block-title">
                 Наши услуги
@@ -454,7 +481,7 @@
                 <div class="advantages-prev__card scroll-snap__item">
     
                     <div class="advantages-prev__card-img">
-                        <picture><source srcset="./images/webp/advantages-prev-img.webp" type="image/webp"><picture><source srcset="./images/webp/advantages-prev-img.webp" type="image/webp"><picture><source srcset="./images/webp/advantages-prev-img.webp" type="image/webp"><img class="img-bg" src="./images/advantages-prev-img.jpg" alt="" loading="lazy"></picture></picture></picture>
+                        <picture><source srcset="./images/webp/advantages-prev-img-1.webp" type="image/webp"><img class="img-bg" src="./images/advantages-prev-img-1.jpg" alt="" loading="lazy"></picture>
                     </div>
     
                     <div class="dvantages-prev__card-text-box">
@@ -471,7 +498,7 @@
                 <div class="advantages-prev__card scroll-snap__item">
     
                     <div class="advantages-prev__card-img">
-                        <img class="img-bg" src="./images/advantages-prev-img.jpg" alt="" loading="lazy">
+                        <picture><source srcset="./images/webp/advantages-prev-img-2.webp" type="image/webp"><img class="img-bg" src="./images/advantages-prev-img-2.jpg" alt="" loading="lazy"></picture>
                     </div>
     
                     <div class="dvantages-prev__card-text-box">
@@ -488,7 +515,7 @@
                 <div class="advantages-prev__card scroll-snap__item">
     
                     <div class="advantages-prev__card-img">
-                        <img class="img-bg" src="./images/advantages-prev-img.jpg" alt="" loading="lazy">
+                        <picture><source srcset="./images/webp/advantages-prev-img-3.webp" type="image/webp"><img class="img-bg" src="./images/advantages-prev-img-3.jpg" alt="" loading="lazy"></picture>
                     </div>
     
                     <div class="dvantages-prev__card-text-box">
@@ -517,7 +544,7 @@
                 <div class="portfolio-prev__card">
                     <a class="portfolio-prev__card-link" href="#"></a>
     
-                    <picture><source srcset="./images/webp/portfolio-prev-img-1.webp" type="image/webp"><picture><source srcset="./images/webp/portfolio-prev-img-1.webp" type="image/webp"><picture><source srcset="./images/webp/portfolio-prev-img-1.webp" type="image/webp"><picture><source srcset="./images/webp/portfolio-prev-img-1.webp" type="image/webp"><picture><source srcset="./images/webp/portfolio-prev-img-1.webp" type="image/webp"><picture><source srcset="./images/webp/portfolio-prev-img-1.webp" type="image/webp"><img class="portfolio-prev__card-img img-bg" src="./images/portfolio-prev-img-1.png" alt="" loading="lazy"></picture></picture></picture></picture></picture></picture>
+                    <picture><source srcset="./images/webp/portfolio-prev-img-1.webp" type="image/webp"><img class="portfolio-prev__card-img img-bg" src="./images/portfolio-prev-img-1.jpg" alt="" loading="lazy"></picture>
     
                     <div class="portfolio-prev__card-title">
                         Лендинг для стартапа
@@ -528,10 +555,10 @@
                 <div class="portfolio-prev__card">
                     <a class="portfolio-prev__card-link" href="#"></a>
     
-                    <img class="portfolio-prev__card-img img-bg" src="./images/portfolio-prev-img-1.png" alt="" loading="lazy">
+                    <picture><source srcset="./images/webp/portfolio-prev-img-2.webp" type="image/webp"><img class="portfolio-prev__card-img img-bg" src="./images/portfolio-prev-img-2.jpg" alt="" loading="lazy"></picture>
     
                     <div class="portfolio-prev__card-title">
-                        Лендинг для стартапа
+                        Корпоративный сайт
                     </div>
     
                 </div>
@@ -539,10 +566,10 @@
                 <div class="portfolio-prev__card">
                     <a class="portfolio-prev__card-link" href="#"></a>
     
-                    <img class="portfolio-prev__card-img img-bg" src="./images/portfolio-prev-img-1.png" alt="" loading="lazy">
+                    <picture><source srcset="./images/webp/portfolio-prev-img-3.webp" type="image/webp"><img class="portfolio-prev__card-img img-bg" src="./images/portfolio-prev-img-3.jpg" alt="" loading="lazy"></picture>
     
                     <div class="portfolio-prev__card-title">
-                        Лендинг для стартапа
+                        E-commerce платформа
                     </div>
     
                 </div>
@@ -550,10 +577,10 @@
                 <div class="portfolio-prev__card">
                     <a class="portfolio-prev__card-link" href="#"></a>
     
-                    <img class="portfolio-prev__card-img img-bg" src="./images/portfolio-prev-img-1.png" alt="" loading="lazy">
+                    <picture><source srcset="./images/webp/portfolio-prev-img-4.webp" type="image/webp"><img class="portfolio-prev__card-img img-bg" src="./images/portfolio-prev-img-4.jpg" alt="" loading="lazy"></picture>
     
                     <div class="portfolio-prev__card-title">
-                        Лендинг для стартапа
+                        Мобильное приложение
                     </div>
     
                 </div>
@@ -561,10 +588,10 @@
                 <div class="portfolio-prev__card">
                     <a class="portfolio-prev__card-link" href="#"></a>
     
-                    <img class="portfolio-prev__card-img img-bg" src="./images/portfolio-prev-img-1.png" alt="" loading="lazy">
+                    <picture><source srcset="./images/webp/portfolio-prev-img-5.webp" type="image/webp"><img class="portfolio-prev__card-img img-bg" src="./images/portfolio-prev-img-5.jpg" alt="" loading="lazy"></picture>
     
                     <div class="portfolio-prev__card-title">
-                        Лендинг для стартапа
+                        Веб-приложение SaaS
                     </div>
     
                 </div>
@@ -572,10 +599,10 @@
                 <div class="portfolio-prev__card">
                     <a class="portfolio-prev__card-link" href="#"></a>
     
-                    <img class="portfolio-prev__card-img img-bg" src="./images/portfolio-prev-img-1.png" alt="" loading="lazy">
+                    <picture><source srcset="./images/webp/portfolio-prev-img-6.webp" type="image/webp"><img class="portfolio-prev__card-img img-bg" src="./images/portfolio-prev-img-6.jpg" alt="" loading="lazy"></picture>
     
                     <div class="portfolio-prev__card-title">
-                        Лендинг для стартапа
+                        Портфолио сайт
                     </div>
     
                 </div>
@@ -604,11 +631,11 @@
                     <div class="swiper-slide">
                         <div class="reviews-prev__slide">
                             <div class="reviews-prev__slide-icon">
-                                <img class="img-bg" src="./images/reviews-prev-img.webp" alt="" loading="lazy">
+                                <picture><source srcset="./images/webp/reviews-prev-img-1.webp" type="image/webp"><img class="img-bg" src="./images/reviews-prev-img-1.jpg" alt="" loading="lazy"></picture>
                             </div>
     
                             <div class="reviews-prev__slide-name">
-                                Иван К.
+                                Анна М.
                             </div>
     
                             <div id="starRating" class="rating-box">
@@ -627,6 +654,69 @@
                                             <path
                                                 d="M7.52441 1.08203C7.67409 0.621376 8.32591 0.621375 8.47559 1.08203L9.54492 4.37305C9.74573 4.99108 10.3218 5.41015 10.9717 5.41016H14.4326C14.917 5.41016 15.1184 6.02975 14.7266 6.31445L11.9268 8.34863C11.4011 8.73053 11.1812 9.40745 11.3818 10.0254L12.4512 13.3174C12.6008 13.778 12.0735 14.1616 11.6816 13.877L8.88184 11.8418C8.35614 11.4599 7.64386 11.4599 7.11816 11.8418L4.31836 13.877C3.9265 14.1616 3.39915 13.778 3.54883 13.3174L4.61816 10.0254C4.81877 9.40745 4.59887 8.73052 4.07324 8.34863L1.27344 6.31445C0.881581 6.02975 1.08302 5.41016 1.56738 5.41016H5.02832C5.67816 5.41016 6.25427 4.99108 6.45508 4.37305L7.52441 1.08203Z"
                                                 fill="url(#grad1)" stroke="#e1bc38" />
+    
+    
+                                        </svg>
+                                    </div>
+                                </div>
+    
+                                <div class="rating">
+                                    <div class="star-container">
+                                        <svg class="star" width="20" height="20" viewBox="0 0 16 15">
+                                            <defs>
+                                                <linearGradient id="grad3" x1="0%" y1="0%" x2="100%" y2="0%">
+                                                    <stop offset="0%" stop-color="#e1bc38" />
+                                                    <stop offset="0%" stop-color="#e1bc38" />
+                                                    <stop offset="0%" stop-color="transparent" />
+                                                    <stop offset="100%" stop-color="transparent" />
+                                                </linearGradient>
+                                            </defs>
+    
+                                            <path
+                                                d="M7.52441 1.08203C7.67409 0.621376 8.32591 0.621375 8.47559 1.08203L9.54492 4.37305C9.74573 4.99108 10.3218 5.41015 10.9717 5.41016H14.4326C14.917 5.41016 15.1184 6.02975 14.7266 6.31445L11.9268 8.34863C11.4011 8.73053 11.1812 9.40745 11.3818 10.0254L12.4512 13.3174C12.6008 13.778 12.0735 14.1616 11.6816 13.877L8.88184 11.8418C8.35614 11.4599 7.64386 11.4599 7.11816 11.8418L4.31836 13.877C3.9265 14.1616 3.39915 13.778 3.54883 13.3174L4.61816 10.0254C4.81877 9.40745 4.59887 8.73052 4.07324 8.34863L1.27344 6.31445C0.881581 6.02975 1.08302 5.41016 1.56738 5.41016H5.02832C5.67816 5.41016 6.25427 4.99108 6.45508 4.37305L7.52441 1.08203Z"
+                                                fill="url(#grad3)" stroke="#e1bc38" />
+    
+    
+                                        </svg>
+                                    </div>
+                                </div>
+    
+                                <div class="rating">
+                                    <div class="star-container">
+                                        <svg class="star" width="20" height="20" viewBox="0 0 16 15">
+                                            <defs>
+                                                <linearGradient id="grad3" x1="0%" y1="0%" x2="100%" y2="0%">
+                                                    <stop offset="0%" stop-color="#e1bc38" />
+                                                    <stop offset="0%" stop-color="#e1bc38" />
+                                                    <stop offset="0%" stop-color="transparent" />
+                                                    <stop offset="100%" stop-color="transparent" />
+                                                </linearGradient>
+                                            </defs>
+    
+                                            <path
+                                                d="M7.52441 1.08203C7.67409 0.621376 8.32591 0.621375 8.47559 1.08203L9.54492 4.37305C9.74573 4.99108 10.3218 5.41015 10.9717 5.41016H14.4326C14.917 5.41016 15.1184 6.02975 14.7266 6.31445L11.9268 8.34863C11.4011 8.73053 11.1812 9.40745 11.3818 10.0254L12.4512 13.3174C12.6008 13.778 12.0735 14.1616 11.6816 13.877L8.88184 11.8418C8.35614 11.4599 7.64386 11.4599 7.11816 11.8418L4.31836 13.877C3.9265 14.1616 3.39915 13.778 3.54883 13.3174L4.61816 10.0254C4.81877 9.40745 4.59887 8.73052 4.07324 8.34863L1.27344 6.31445C0.881581 6.02975 1.08302 5.41016 1.56738 5.41016H5.02832C5.67816 5.41016 6.25427 4.99108 6.45508 4.37305L7.52441 1.08203Z"
+                                                fill="url(#grad3)" stroke="#e1bc38" />
+    
+    
+                                        </svg>
+                                    </div>
+                                </div>
+    
+                                <div class="rating">
+                                    <div class="star-container">
+                                        <svg class="star" width="20" height="20" viewBox="0 0 16 15">
+                                            <defs>
+                                                <linearGradient id="grad3" x1="0%" y1="0%" x2="100%" y2="0%">
+                                                    <stop offset="0%" stop-color="#e1bc38" />
+                                                    <stop offset="0%" stop-color="#e1bc38" />
+                                                    <stop offset="0%" stop-color="transparent" />
+                                                    <stop offset="100%" stop-color="transparent" />
+                                                </linearGradient>
+                                            </defs>
+    
+                                            <path
+                                                d="M7.52441 1.08203C7.67409 0.621376 8.32591 0.621375 8.47559 1.08203L9.54492 4.37305C9.74573 4.99108 10.3218 5.41015 10.9717 5.41016H14.4326C14.917 5.41016 15.1184 6.02975 14.7266 6.31445L11.9268 8.34863C11.4011 8.73053 11.1812 9.40745 11.3818 10.0254L12.4512 13.3174C12.6008 13.778 12.0735 14.1616 11.6816 13.877L8.88184 11.8418C8.35614 11.4599 7.64386 11.4599 7.11816 11.8418L4.31836 13.877C3.9265 14.1616 3.39915 13.778 3.54883 13.3174L4.61816 10.0254C4.81877 9.40745 4.59887 8.73052 4.07324 8.34863L1.27344 6.31445C0.881581 6.02975 1.08302 5.41016 1.56738 5.41016H5.02832C5.67816 5.41016 6.25427 4.99108 6.45508 4.37305L7.52441 1.08203Z"
+                                                fill="url(#grad3)" stroke="#e1bc38" />
     
     
                                         </svg>
@@ -656,35 +746,17 @@
                                     </div>
                                 </div>
     
-                                <div class="rating">
-                                    <div class="star-container">
-                                        <svg class="star" width="20" height="20" viewBox="0 0 16 15">
-                                            <defs>
-                                                <linearGradient id="grad3" x1="0%" y1="0%" x2="100%" y2="0%">
-                                                    <stop offset="0%" stop-color="#e1bc38" />
-                                                    <stop offset="0%" stop-color="#e1bc38" />
-                                                    <stop offset="0%" stop-color="transparent" />
-                                                    <stop offset="100%" stop-color="transparent" />
-                                                </linearGradient>
-                                            </defs>
     
-                                            <path
-                                                d="M7.52441 1.08203C7.67409 0.621376 8.32591 0.621375 8.47559 1.08203L9.54492 4.37305C9.74573 4.99108 10.3218 5.41015 10.9717 5.41016H14.4326C14.917 5.41016 15.1184 6.02975 14.7266 6.31445L11.9268 8.34863C11.4011 8.73053 11.1812 9.40745 11.3818 10.0254L12.4512 13.3174C12.6008 13.778 12.0735 14.1616 11.6816 13.877L8.88184 11.8418C8.35614 11.4599 7.64386 11.4599 7.11816 11.8418L4.31836 13.877C3.9265 14.1616 3.39915 13.778 3.54883 13.3174L4.61816 10.0254C4.81877 9.40745 4.59887 8.73052 4.07324 8.34863L1.27344 6.31445C0.881581 6.02975 1.08302 5.41016 1.56738 5.41016H5.02832C5.67816 5.41016 6.25427 4.99108 6.45508 4.37305L7.52441 1.08203Z"
-                                                fill="url(#grad3)" stroke="#e1bc38" />
-    
-    
-                                        </svg>
-                                    </div>
-                                </div>
                             </div>
     
                             <div class="reviews-prev__slide-text">
                                 <p>
-                                    Руководитель отдела маркетинга
+                                    Владелец интернет-магазина
                                 </p>
     
                                 <p>
-                                    Команда справилась за 5 дней! Результат превзошёл ожидания.
+                                    "Сайт запустили за 3 недели, хотя обещали за месяц. Конверсия выросла на 40%!
+                                    Особенно впечатлила скорость загрузки - даже на мобильных всё летает."
                                 </p>
                             </div>
                         </div>
@@ -693,11 +765,11 @@
                     <div class="swiper-slide">
                         <div class="reviews-prev__slide">
                             <div class="reviews-prev__slide-icon">
-                                <img class="img-bg" src="./images/reviews-prev-img.webp" alt="" loading="lazy">
+                                <picture><source srcset="./images/webp/reviews-prev-img-2.webp" type="image/webp"><img class="img-bg" src="./images/reviews-prev-img-2.jpg" alt="" loading="lazy"></picture>
                             </div>
     
                             <div class="reviews-prev__slide-name">
-                                Иван К.
+                                Дмитрий К.
                             </div>
     
                             <div id="starRating" class="rating-box">
@@ -769,11 +841,12 @@
     
                             <div class="reviews-prev__slide-text">
                                 <p>
-                                    Руководитель отдела маркетинга
+                                    Product Manager в FinTech
                                 </p>
     
                                 <p>
-                                    Команда справилась за 5 дней! Результат превзошёл ожидания.
+                                    "Переработали UX нашего приложения с нуля. Пользователи отмечают, что стало
+                                    интуитивно понятно. Ошибок ввода стало на 60% меньше - это впечатляет!"
                                 </p>
                             </div>
                         </div>
@@ -782,11 +855,11 @@
                     <div class="swiper-slide">
                         <div class="reviews-prev__slide">
                             <div class="reviews-prev__slide-icon">
-                                <img class="img-bg" src="./images/reviews-prev-img.webp" alt="" loading="lazy">
+                                <picture><source srcset="./images/webp/reviews-prev-img-3.webp" type="image/webp"><img class="img-bg" src="./images/reviews-prev-img-3.jpg" alt="" loading="lazy"></picture>
                             </div>
     
                             <div class="reviews-prev__slide-name">
-                                Иван К.
+                                Сергей П.
                             </div>
     
                             <div id="starRating" class="rating-box">
@@ -858,11 +931,12 @@
     
                             <div class="reviews-prev__slide-text">
                                 <p>
-                                    Руководитель отдела маркетинга
+                                    IT-директор производственной компании
                                 </p>
     
                                 <p>
-                                    Команда справилась за 5 дней! Результат превзошёл ожидания.
+                                    "Техническая поддержка работает 24/7. Вчера в 2 ночи случился сбой - через
+                                    15 минут уже всё починили. Такая надежность бесценна для бизнеса."
                                 </p>
                             </div>
                         </div>
@@ -871,11 +945,11 @@
                     <div class="swiper-slide">
                         <div class="reviews-prev__slide">
                             <div class="reviews-prev__slide-icon">
-                                <img class="img-bg" src="./images/reviews-prev-img.webp" alt="" loading="lazy">
+                                <picture><source srcset="./images/webp/reviews-prev-img-4.webp" type="image/webp"><img class="img-bg" src="./images/reviews-prev-img-4.jpg" alt="" loading="lazy"></picture>
                             </div>
     
                             <div class="reviews-prev__slide-name">
-                                Иван К.
+                                Мария Л.
                             </div>
     
                             <div id="starRating" class="rating-box">
@@ -947,11 +1021,12 @@
     
                             <div class="reviews-prev__slide-text">
                                 <p>
-                                    Руководитель отдела маркетинга
+                                    Основатель стартапа в сфере образования
                                 </p>
     
                                 <p>
-                                    Команда справилась за 5 дней! Результат превзошёл ожидания.
+                                    "Приложение для iOS и Android сделали за 2 месяца. В App Store попали с первого раза,
+                                    ревьюеры похвалили качество кода. Пользователи в восторге от плавности анимаций."
                                 </p>
                             </div>
                         </div>
@@ -960,11 +1035,11 @@
                     <div class="swiper-slide">
                         <div class="reviews-prev__slide">
                             <div class="reviews-prev__slide-icon">
-                                <img class="img-bg" src="./images/reviews-prev-img.webp" alt="" loading="lazy">
+                                <picture><source srcset="./images/webp/reviews-prev-img-5.webp" type="image/webp"><img class="img-bg" src="./images/reviews-prev-img-5.jpg" alt="" loading="lazy"></picture>
                             </div>
     
                             <div class="reviews-prev__slide-name">
-                                Иван К.
+                                Алексей В.
                             </div>
     
                             <div id="starRating" class="rating-box">
@@ -1036,11 +1111,12 @@
     
                             <div class="reviews-prev__slide-text">
                                 <p>
-                                    Руководитель отдела маркетинга
+                                    Руководитель отдела автоматизации
                                 </p>
     
                                 <p>
-                                    Команда справилась за 5 дней! Результат превзошёл ожидания.
+                                    "Внедрили CRM систему для 200 сотрудников. Обучение заняло всего 2 дня - настолько
+                                    логично всё спроектировано. Эффективность отдела продаж выросла на 35%."
                                 </p>
                             </div>
                         </div>
@@ -1049,11 +1125,11 @@
                     <div class="swiper-slide">
                         <div class="reviews-prev__slide">
                             <div class="reviews-prev__slide-icon">
-                                <img class="img-bg" src="./images/reviews-prev-img.webp" alt="" loading="lazy">
+                                <picture><source srcset="./images/webp/reviews-prev-img-6.webp" type="image/webp"><img class="img-bg" src="./images/reviews-prev-img-6.jpg" alt="" loading="lazy"></picture>
                             </div>
     
                             <div class="reviews-prev__slide-name">
-                                Иван К.
+                                Ольга С.
                             </div>
     
                             <div id="starRating" class="rating-box">
@@ -1125,11 +1201,12 @@
     
                             <div class="reviews-prev__slide-text">
                                 <p>
-                                    Руководитель отдела маркетинга
+                                    Владелец сети кофеен
                                 </p>
     
                                 <p>
-                                    Команда справилась за 5 дней! Результат превзошёл ожидания.
+                                    "Унаследовали старый сайт с кучей проблем. Переписали код, ускорили в 3 раза,
+                                    добавили онлайн-заказ. Техдолг устранили за 2 недели - считали, что работа на месяц."
                                 </p>
                             </div>
                         </div>
@@ -1142,15 +1219,15 @@
         <div class="container call__container">
     
             <h2 class="block-title">
-                Начните ремонт уже завтра!
+                Ваш проект начнется уже завтра!
             </h2>
     
             <div class="call__subtitle">
-                Первый замер — бесплатно и без обязательств
+                Бесплатный аудит проекта и расчет стоимости за 24 часа
             </div>
     
             <button class="btn">
-                Оставить заявку
+                Получить расчет
             </button>
     
         </div>
@@ -1164,7 +1241,7 @@
             <div class="blog-prev__card-box scroll-snap-mob">
                 <div class="blog-prev__card scroll-snap__item">
                     <div class="blog-prev__card-img">
-                        <img class="img-bg" src="@img" alt="" loading="lazy">
+                        <picture><source srcset="./images/webp/blog-prev-img-1.webp" type="image/webp"><img class="img-bg" src="./images/blog-prev-img-1.jpg" alt="" loading="lazy"></picture>
                     </div>
     
                     <div class="blog-prev__card-text-box">
@@ -1198,7 +1275,7 @@
     
                 <div class="blog-prev__card scroll-snap__item">
                     <div class="blog-prev__card-img">
-                        <img class="img-bg" src="@img" alt="" loading="lazy">
+                        <picture><source srcset="./images/webp/blog-prev-img-2.webp" type="image/webp"><img class="img-bg" src="./images/blog-prev-img-2.jpg" alt="" loading="lazy"></picture>
                     </div>
     
                     <div class="blog-prev__card-text-box">
@@ -1232,7 +1309,9 @@
     
                 <div class="blog-prev__card scroll-snap__item">
                     <div class="blog-prev__card-img">
-                        <img class="img-bg" src="@img" alt="" loading="lazy">
+                        <div class="blog-prev__card-img">
+                            <picture><source srcset="./images/webp/blog-prev-img-3.webp" type="image/webp"><img class="img-bg" src="./images/blog-prev-img-3.jpg" alt="" loading="lazy"></picture>
+                        </div>
                     </div>
     
                     <div class="blog-prev__card-text-box">
@@ -1266,7 +1345,7 @@
     
                 <div class="blog-prev__card scroll-snap__item">
                     <div class="blog-prev__card-img">
-                        <img class="img-bg" src="@img" alt="" loading="lazy">
+                        <picture><source srcset="./images/webp/blog-prev-img-4.webp" type="image/webp"><img class="img-bg" src="./images/blog-prev-img-4.jpg" alt="" loading="lazy"></picture>
                     </div>
     
                     <div class="blog-prev__card-text-box">
@@ -1300,7 +1379,7 @@
     
                 <div class="blog-prev__card scroll-snap__item">
                     <div class="blog-prev__card-img">
-                        <img class="img-bg" src="@img" alt="" loading="lazy">
+                        <picture><source srcset="./images/webp/blog-prev-img-5.webp" type="image/webp"><img class="img-bg" src="./images/blog-prev-img-5.jpg" alt="" loading="lazy"></picture>
                     </div>
     
                     <div class="blog-prev__card-text-box">
@@ -1334,7 +1413,7 @@
     
                 <div class="blog-prev__card scroll-snap__item">
                     <div class="blog-prev__card-img">
-                        <img class="img-bg" src="@img" alt="" loading="lazy">
+                        <picture><source srcset="./images/webp/blog-prev-img-6.webp" type="image/webp"><img class="img-bg" src="./images/blog-prev-img-6.jpg" alt="" loading="lazy"></picture>
                     </div>
     
                     <div class="blog-prev__card-text-box">
@@ -1370,7 +1449,32 @@
             <a class="btn self-center" href="#">Все статьи</a>
     
         </div>
-    </section>    <section class="team-prev">
+    </section>
+    
+    <script>
+        // Анимация появления при скролле
+        function animateOnScroll() {
+            const cards = document.querySelectorAll('.blog-prev__card');
+    
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            });
+    
+            cards.forEach(card => {
+                observer.observe(card);
+            });
+        }
+    
+        // Запуск после загрузки DOM
+        document.addEventListener('DOMContentLoaded', animateOnScroll);
+    </script>    <section class="team-prev">
         <div class="container team-prev__container">
     
             <h2 class="block-title">
@@ -1385,84 +1489,84 @@
                         <!-- Слайды -->
                         <div class="swiper-slide">
                             <div class="team-prev__slide">
-                                <picture><source srcset="./images/webp/team-prev-img.webp" type="image/webp"><picture><source srcset="./images/webp/team-prev-img.webp" type="image/webp"><picture><source srcset="./images/webp/team-prev-img.webp" type="image/webp"><picture><source srcset="./images/webp/team-prev-img.webp" type="image/webp"><picture><source srcset="./images/webp/team-prev-img.webp" type="image/webp"><picture><source srcset="./images/webp/team-prev-img.webp" type="image/webp"><img class="img-bg" src="./images/team-prev-img.jpg" alt="" loading="lazy"></picture></picture></picture></picture></picture></picture>
+                                <picture><source srcset="./images/webp/team-prev-img-1.webp" type="image/webp"><img class="img-bg" src="./images/team-prev-img-1.jpg" alt="" loading="lazy"></picture>
     
                                 <div class="team-prev__slide-name">
-                                    Дмитрий Смирнов
+                                    Никита Смирнов
                                 </div>
     
                                 <div class="team-prev__slide-position">
-                                    Технический специалист
+                                    Технический директор
                                 </div>
                             </div>
                         </div>
     
                         <div class="swiper-slide">
                             <div class="team-prev__slide">
-                                <img class="img-bg" src="./images/team-prev-img.jpg" alt="" loading="lazy">
+                                <picture><source srcset="./images/webp/team-prev-img-2.webp" type="image/webp"><img class="img-bg" src="./images/team-prev-img-2.jpg" alt="" loading="lazy"></picture>
     
                                 <div class="team-prev__slide-name">
-                                    Дмитрий Смирнов
+                                    Ангелина Владимировна
                                 </div>
     
                                 <div class="team-prev__slide-position">
-                                    Технический специалист
+                                    Lead UX/UI Designer
                                 </div>
                             </div>
                         </div>
     
                         <div class="swiper-slide">
                             <div class="team-prev__slide">
-                                <img class="img-bg" src="./images/team-prev-img.jpg" alt="" loading="lazy">
+                                <picture><source srcset="./images/webp/team-prev-img-3.webp" type="image/webp"><img class="img-bg" src="./images/team-prev-img-3.jpg" alt="" loading="lazy"></picture>
     
                                 <div class="team-prev__slide-name">
-                                    Дмитрий Смирнов
+                                    Дмитрий Говорунов
                                 </div>
     
                                 <div class="team-prev__slide-position">
-                                    Технический специалист
+                                    Senior Backend Developer
                                 </div>
                             </div>
                         </div>
     
                         <div class="swiper-slide">
                             <div class="team-prev__slide">
-                                <img class="img-bg" src="./images/team-prev-img.jpg" alt="" loading="lazy">
+                                <picture><source srcset="./images/webp/team-prev-img-4.webp" type="image/webp"><img class="img-bg" src="./images/team-prev-img-4.jpg" alt="" loading="lazy"></picture>
     
                                 <div class="team-prev__slide-name">
-                                    Дмитрий Смирнов
+                                    Ольга Смирнова
                                 </div>
     
                                 <div class="team-prev__slide-position">
-                                    Технический специалист
+                                    Frontend Team Lead
                                 </div>
                             </div>
                         </div>
     
                         <div class="swiper-slide">
                             <div class="team-prev__slide">
-                                <img class="img-bg" src="./images/team-prev-img.jpg" alt="" loading="lazy">
+                                <picture><source srcset="./images/webp/team-prev-img-5.webp" type="image/webp"><img class="img-bg" src="./images/team-prev-img-5.jpg" alt="" loading="lazy"></picture>
     
                                 <div class="team-prev__slide-name">
-                                    Дмитрий Смирнов
+                                    Сергей Вавилов
                                 </div>
     
                                 <div class="team-prev__slide-position">
-                                    Технический специалист
+                                    DevOps Engineer
                                 </div>
                             </div>
                         </div>
     
                         <div class="swiper-slide">
                             <div class="team-prev__slide">
-                                <img class="img-bg" src="./images/team-prev-img.jpg" alt="" loading="lazy">
+                                <picture><source srcset="./images/webp/team-prev-img-6.webp" type="image/webp"><img class="img-bg" src="./images/team-prev-img-6.jpg" alt="" loading="lazy"></picture>
     
                                 <div class="team-prev__slide-name">
-                                    Дмитрий Смирнов
+                                    Валентина Наумова
                                 </div>
     
                                 <div class="team-prev__slide-position">
-                                    Технический специалист
+                                    Project Manager
                                 </div>
                             </div>
                         </div>
@@ -1482,67 +1586,67 @@
     
                 <details class="faq-prev__spoiler-wrap">
                     <summary class="faq-prev__spoiler-js">
-                        Lorem ipsum dolor
+                        Как проходит процесс разработки проекта?
                     </summary>
                     <div class="spoiler-content">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo, suscipit excepturi voluptates
-                        voluptas voluptate mollitia maxime, nisi, laboriosam nulla eaque repellat exercitationem. Fugiat
-                        sequi, adipisci doloremque est sint alias enim.
+                        Мы работаем по agile-методологии: анализ → проектирование → разработка → тестирование → запуск.
+                        Каждую неделю демонстрируем прогресс и собираем обратную связь. Средний срок разработки
+                        лендинга - 2-3 недели, сложного веб-сервиса - 2-3 месяца.
                     </div>
                 </details>
     
                 <details class="faq-prev__spoiler-wrap">
                     <summary class="faq-prev__spoiler-js">
-                        Lorem ipsum dolor
+                        Сколько стоит разработка сайта?
                     </summary>
                     <div class="spoiler-content">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo, suscipit excepturi voluptates
-                        voluptas voluptate mollitia maxime, nisi, laboriosam nulla eaque repellat exercitationem. Fugiat
-                        sequi, adipisci doloremque est sint alias enim.
+                        Стоимость зависит от сложности: лендинг - от 50 000 ₽, корпоративный сайт - от 150 000 ₽,
+                        интернет-магазин - от 300 000 ₽. После бесплатного анализа проекта мы предоставляем
+                        детальную смету с фиксированной ценой без скрытых платежей.
                     </div>
                 </details>
     
                 <details class="faq-prev__spoiler-wrap">
                     <summary class="faq-prev__spoiler-js">
-                        Lorem ipsum dolor
+                        Какие сроки разработки?
                     </summary>
                     <div class="spoiler-content">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo, suscipit excepturi voluptates
-                        voluptas voluptate mollitia maxime, nisi, laboriosam nulla eaque repellat exercitationem. Fugiat
-                        sequi, adipisci doloremque est sint alias enim.
+                        Лендинг - 2-3 недели, корпоративный сайт - 4-6 недель, интернет-магазин - 6-10 недель.
+                        Соблюдаем дедлайны благодаря agile-подходу и еженедельным отчетам. За 8 лет работы
+                        ни разу не сорвали сроки по вине команды.
                     </div>
                 </details>
     
                 <details class="faq-prev__spoiler-wrap">
                     <summary class="faq-prev__spoiler-js">
-                        Lorem ipsum dolor
+                        Предоставляете ли вы техническую поддержку?
                     </summary>
                     <div class="spoiler-content">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo, suscipit excepturi voluptates
-                        voluptas voluptate mollitia maxime, nisi, laboriosam nulla eaque repellat exercitationem. Fugiat
-                        sequi, adipisci doloremque est sint alias enim.
+                        Да, после запуска проекта мы предлагаем техподдержку: базовый пакет (обновления, безопасность)
+                        - от 5 000 ₽/мес, расширенный (доработки, консультации) - от 15 000 ₽/мес. Первый месяц
+                        поддержки всегда бесплатный.
                     </div>
                 </details>
     
                 <details class="faq-prev__spoiler-wrap">
                     <summary class="faq-prev__spoiler-js">
-                        Lorem ipsum dolor
+                        Сайт будет работать на мобильных устройствах?
                     </summary>
                     <div class="spoiler-content">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo, suscipit excepturi voluptates
-                        voluptas voluptate mollitia maxime, nisi, laboriosam nulla eaque repellat exercitationem. Fugiat
-                        sequi, adipisci doloremque est sint alias enim.
+                        Все наши проекты полностью адаптивны и проходят тестирование на 20+ устройствах.
+                        Используем mobile-first подход - в 2024 году 65% трафика приходится на мобильные
+                        устройства, поэтому это обязательный стандарт.
                     </div>
                 </details>
     
                 <details class="faq-prev__spoiler-wrap">
                     <summary class="faq-prev__spoiler-js">
-                        Lorem ipsum dolor
+                        Можно ли использовать наш готовый дизайн?
                     </summary>
                     <div class="spoiler-content">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo, suscipit excepturi voluptates
-                        voluptas voluptate mollitia maxime, nisi, laboriosam nulla eaque repellat exercitationem. Fugiat
-                        sequi, adipisci doloremque est sint alias enim.
+                        Конечно! Мы работаем как с готовыми дизайн-макетами, так и создаем дизайн с нуля.
+                        Если у вас есть брендбук или примеры понравившихся сайтов - это ускорит процесс.
+                        При необходимости наш UX/UI дизайнер предложит улучшения для повышения конверсии.
                     </div>
                 </details>
     

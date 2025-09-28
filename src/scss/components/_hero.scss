@@ -3,13 +3,46 @@
 .hero {
     position: relative;
     min-height: 450px;
+    overflow: hidden;
+    // background-color: #4e6075;
 
+    background: linear-gradient(135deg, var(--gradient-hero-start) 0%, var(--gradient-hero-stop) 100%);
 
     & .img-bg {
         filter: brightness(0.5);
         object-fit: cover;
     }
 }
+
+.btn__shadow {
+    box-shadow:
+        0 8px 25px var(--tertiary-color),
+        0 0 0 1px rgba(255, 255, 255, 0.1) inset;
+}
+
+
+// .hero::before {
+//     z-index: 5;
+//     content: '';
+//     position: absolute;
+//     width: 500px;
+//     height: 500px;
+//     border-radius: 50%;
+//     background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1));
+//     animation: float 6s ease-in-out infinite;
+// }
+
+// @keyframes float {
+
+//     0%,
+//     100% {
+//         transform: translateY(0px) rotate(0deg);
+//     }
+
+//     50% {
+//         transform: translateY(-20px) rotate(180deg);
+//     }
+// }
 
 .hero__container {
     position: relative;
@@ -50,5 +83,243 @@
         @include respond-to("tel") {
             width: 100%;
         }
+    }
+}
+
+.floating-elements {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+.floating-element {
+    position: absolute;
+    border-radius: 50%;
+    background: linear-gradient(45deg, transparent, #2563EB);
+    opacity: 0.3;
+    filter: blur(1px);
+}
+
+/* Элемент 1 - Большой, левый верх */
+.element-1 {
+    width: 400px;
+    height: 400px;
+    top: -150px;
+    left: -100px;
+    background: linear-gradient(45deg, var(--tertiary-color), rgba(255, 255, 255, 0.15));
+    animation: float-1 8s ease-in-out infinite;
+}
+
+/* Элемент 2 - Средний, правый верх */
+.element-2 {
+    width: 250px;
+    height: 250px;
+    top: 50px;
+    right: -50px;
+    background: linear-gradient(135deg, var(--tertiary-color), rgba(255, 255, 255, 0.05));
+    animation: float-2 6s ease-in-out infinite 1s;
+}
+
+/* Элемент 3 - Маленький, левый центр */
+.element-3 {
+    width: 150px;
+    height: 150px;
+    top: 40%;
+    left: 10%;
+    background: linear-gradient(225deg, var(--tertiary-color), rgba(255, 255, 255, 0.12));
+    animation: float-3 10s ease-in-out infinite 0.5s;
+}
+
+/* Элемент 4 - Овальный, правый низ */
+.element-4 {
+    width: 300px;
+    height: 200px;
+    bottom: -80px;
+    right: 15%;
+    border-radius: 40%;
+    background: linear-gradient(300deg, var(--tertiary-color), rgba(255, 255, 255, 0.1));
+    animation: float-4 7s ease-in-out infinite 2s;
+}
+
+/* Элемент 5 - Крошечный, центр */
+.element-5 {
+    width: 80px;
+    height: 80px;
+    top: 30%;
+    left: 45%;
+    background: linear-gradient(90deg, var(--tertiary-color), rgba(255, 255, 255, 0.15));
+    animation: float-5 5s ease-in-out infinite 1.5s;
+}
+
+/* Элемент 6 - Средний, левый низ */
+.element-6 {
+    width: 200px;
+    height: 200px;
+    bottom: 20%;
+    left: 5%;
+    background: linear-gradient(180deg, var(--tertiary-color), rgba(255, 255, 255, 0.12));
+    animation: float-6 9s ease-in-out infinite 0.8s;
+}
+
+/* Разные анимации для каждого элемента */
+@keyframes float-1 {
+
+    0%,
+    100% {
+        transform: translateY(0px) rotate(0deg) scale(1);
+    }
+
+    33% {
+        transform: translateY(-20px) rotate(120deg) scale(1.05);
+    }
+
+    66% {
+        transform: translateY(10px) rotate(240deg) scale(0.95);
+    }
+}
+
+@keyframes float-2 {
+
+    0%,
+    100% {
+        transform: translate(0px, 0px) rotate(0deg);
+    }
+
+    25% {
+        transform: translate(15px, -25px) rotate(90deg);
+    }
+
+    50% {
+        transform: translate(-10px, -15px) rotate(180deg);
+    }
+
+    75% {
+        transform: translate(20px, 10px) rotate(270deg);
+    }
+}
+
+@keyframes float-3 {
+
+    0%,
+    100% {
+        transform: translate(0, 0) scale(1);
+        opacity: 0.3;
+    }
+
+    50% {
+        transform: translate(30px, -40px) scale(1.2);
+        opacity: 0.5;
+    }
+}
+
+@keyframes float-4 {
+
+    0%,
+    100% {
+        transform: translateY(0px) rotate(0deg);
+    }
+
+    20% {
+        transform: translateY(-25px) rotate(72deg);
+    }
+
+    40% {
+        transform: translateY(15px) rotate(144deg);
+    }
+
+    60% {
+        transform: translateY(-15px) rotate(216deg);
+    }
+
+    80% {
+        transform: translateY(20px) rotate(288deg);
+    }
+}
+
+@keyframes float-5 {
+
+    0%,
+    100% {
+        transform: translate(0, 0) scale(1);
+    }
+
+    25% {
+        transform: translate(10px, 15px) scale(1.3);
+    }
+
+    50% {
+        transform: translate(-15px, 10px) scale(0.8);
+    }
+
+    75% {
+        transform: translate(5px, -20px) scale(1.1);
+    }
+}
+
+@keyframes float-6 {
+
+    0%,
+    100% {
+        transform: translate(0px, 0px) rotate(0deg);
+    }
+
+    33% {
+        transform: translate(-20px, 25px) rotate(120deg);
+    }
+
+    66% {
+        transform: translate(15px, -15px) rotate(240deg);
+    }
+}
+
+@media (max-width: 768px) {
+    .floating-element {
+        opacity: 0.2;
+        /* Уменьшаем непрозрачность на мобильных */
+    }
+
+    .element-1 {
+        width: 200px;
+        height: 200px;
+        top: -50px;
+        left: -50px;
+    }
+
+    .element-2 {
+        width: 150px;
+        height: 150px;
+        top: 20px;
+        right: -30px;
+    }
+
+    .element-3 {
+        width: 80px;
+        height: 80px;
+        top: 30%;
+        left: 5%;
+    }
+
+    .element-4 {
+        width: 180px;
+        height: 120px;
+        bottom: -40px;
+        right: 10%;
+    }
+
+    .element-5 {
+        width: 50px;
+        height: 50px;
+        top: 25%;
+        left: 40%;
+    }
+
+    .element-6 {
+        width: 120px;
+        height: 120px;
+        bottom: 15%;
+        left: 2%;
     }
 }

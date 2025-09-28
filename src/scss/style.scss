@@ -38,4 +38,11 @@ main {
     display: flex;
     flex-direction: column;
     gap: clamp-px(50, 120);
+
+    &>section,
+    &>div {
+        &:last-child {
+            margin-bottom: clamp-px(50, 120);
+        }
+    }
 }
