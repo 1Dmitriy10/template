@@ -5,6 +5,7 @@ import fs from 'fs';
 import sharp from 'sharp';
 import tailwindcss from '@tailwindcss/vite';
 import { fileURLToPath } from 'url';
+import purgeCSS from 'vite-plugin-purgecss';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -603,6 +604,30 @@ export default defineConfig({
   },
 
   plugins: [
+    purgeCSS({
+      content: [
+        '**/*.html',
+        '**/*.js',
+        '**/*.hbs', // если используете handlebars
+      ],
+      safelist: [
+        /swiper/, // сохранить классы swiper
+        /js-/,    // сохранить js- классы
+        /active/,  // сохранить active классы
+        /open/,    // сохранить open классы
+        /visible/, // сохранить visible классы
+        /loading/, // сохранить loading классы
+        /loaded/,  // сохранить loaded классы
+        /^bg-/,    // сохранить классы начинающиеся с bg-
+        /^text-/,  // сохранить классы начинающиеся с text-
+        /scroll-snap/, // сохранить классы для скролла
+      ],
+      safelistPatternsChildren: [
+        /swiper/, // сохранить дочерние классы swiper
+      ],
+      variables: true, // сохранить CSS переменные
+      keyframes: true, // сохранить анимации
+    }),
     fontAutoPlugin(),
     handlebars({
       partialDirectory: path.resolve(__dirname, 'src/html/partials'),
