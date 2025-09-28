@@ -642,8 +642,8 @@ export default defineConfig({
     },
     
     chunkSizeWarningLimit: 1000,
-    minify: false,
-    sourcemap: 'inline',
+    minify: true,
+    sourcemap: 'true',
     outDir: path.resolve(__dirname, 'dist'),
     assetsInlineLimit: 0,
     emptyOutDir: true,
