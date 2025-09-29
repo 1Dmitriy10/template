@@ -23,58 +23,92 @@
     <meta name="msapplication-TileColor" content="#da532c">
     <meta name="theme-color" content="#ffffff">
     <title>ui-kit</title>
+
+    <style>
+        body,
+        html {
+            margin: 0;
+            padding: 0;
+            font-family: var(--font-family);
+        }
+
+        section {
+            margin-bottom: clamp-px(40, 80);
+        }
+
+        .hero {
+            position: relative;
+            min-height: 450px;
+            overflow: hidden;
+        }
+
+        .hero__container h1 {
+            color: var(--text-color-second);
+            font-size: clamp-px(32, 48);
+            line-height: 130%;
+            margin-bottom: clamp-px(20, 24);
+
+        }
+
+        .hero__subtitle {
+            margin-bottom: clamp-px(25, 32);
+            color: var(--text-color-second);
+            font-size: clamp-px(18, 20);
+        }
+
+        .btn {
+            border-radius: var(--border-radius-primary);
+            padding: clamp-px(8, 12) clamp-px(15, 32);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--tertiary-color);
+            font-weight: 500;
+            font-size: clamp-px(14, 16);
+            line-height: 140%;
+            color: var(--btn-color);
+            border: 1px solid var(--tertiary-color);
+            transition: 0.3s;
+            cursor: pointer;
+        }
+
+        img {
+            height: auto;
+            max-width: 100%;
+        }
+
+        .swiper {
+            min-height: 300px;
+            /* или aspect-ratio */
+            overflow: hidden;
+        }
+    </style>
   <script type="module" crossorigin src="./assets/vendor-BpJTUdAv.js"></script>
-  <script type="module" crossorigin src="./assets/main-B3paCN5z.js"></script>
+  <script type="module" crossorigin src="./assets/main-DGua0YpC.js"></script>
   <!-- CSS loaded asynchronously -->
-<link rel="preload" href="./assets/main-DgPViPe3.css" as="style" onload="this.onload=null;this.rel="stylesheet'">
-<noscript><link rel="stylesheet" href="./assets/main-DgPViPe3.css"></noscript>
+<link rel="preload" href="./assets/main-M_nUa5o5.css" as="style" onload="this.onload=null;this.rel=""stylesheet'">
+<noscript><link rel="stylesheet" href="./assets/main-M_nUa5o5.css"></noscript>
 <script>
   // Fallback for async CSS loading
   document.addEventListener('DOMContentLoaded', function() {
     var link = document.createElement('link');
     link.rel = 'stylesheet';
-    link.href = '../assets/main-DgPViPe3.css';
+    link.href = '../assets/main-M_nUa5o5.css';
     document.head.appendChild(link);
   });
-</script>
-<!-- CSS Loading State Handler -->
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-  // Mark critical content as visible
-  setTimeout(function() {
-    document.body.classList.add('critical-visible');
-  }, 50);
-  
-  // Load full CSS after critical render
-  var fullCSS = document.createElement('link');
-  fullCSS.rel = 'stylesheet';
-  fullCSS.href = '$1';
-  fullCSS.onload = function() {
-    document.body.classList.add('full-css-loaded');
-    // Initialize components that depend on full CSS
-    if (typeof window.initLazyComponents === 'function') {
-      window.initLazyComponents();
-    }
-  };
-  
-  // Load full CSS with smart delay
-  setTimeout(function() {
-    document.head.appendChild(fullCSS);
-  }, 200);
-});
 </script>
 </head>
 <body>
     <header class="header">
         <div class="container header__container">
     
-            <div class="logo-wrap  !mr-[clamp(0.938rem,0.366rem+2.44vw,2.5rem)]">
+            <!-- <div class="logo-wrap  !mr-[clamp(0.938rem,0.366rem+2.44vw,2.5rem)]">
                 <a class="logo" href="/">
                     <picture><source srcset="./images/webp/logo.webp" type="image/webp"><img src="./images/logo.png" alt="logo" loading="lazy"></picture>
                 </a>
     
                 <span>Подпись логотипа</span>
-            </div>
+            </div> -->
     
     
     
@@ -260,7 +294,7 @@ document.addEventListener('DOMContentLoaded', function() {
     <!-- ===========мобильное меню ===============-->
     
     <!-- выезжающее меню -->
-    <nav class="mob-nav" id="mob-menu">
+    <nav class="mob-nav" id="mob-menu" style="transform: translateX(100%);">
     
         <nav>
             <ul class="mob-nav-list">
