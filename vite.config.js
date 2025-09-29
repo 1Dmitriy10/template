@@ -143,15 +143,9 @@ const simpleAsyncCSSPlugin = () => {
         `<!-- CSS loaded asynchronously -->
 <link rel="preload" href="$1" as="style" onload="this.onload=null;this.rel='stylesheet'">
 <noscript><link rel="stylesheet" href="$1"></noscript>
-<script>
-  // Fallback for async CSS loading
-  document.addEventListener('DOMContentLoaded', function() {
-    var link = document.createElement('link');
-    link.rel = 'stylesheet';
-    link.href = '$1';
-    document.head.appendChild(link);
-  });
-</script>`
+`
+
+
       );
     }
   };

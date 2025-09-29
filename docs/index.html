@@ -76,6 +76,7 @@
         img {
             height: auto;
             max-width: 100%;
+
         }
 
         .swiper {
@@ -85,21 +86,13 @@
         }
     </style>
     <script type="module" crossorigin src="./assets/vendor-BpJTUdAv.js"></script>
-    <script type="module" crossorigin src="./assets/main-DGua0YpC.js"></script>
+    <script type="module" crossorigin src="./assets/main-D-zxpd_i.js"></script>
     <!-- CSS loaded asynchronously -->
     <link rel="preload" href="./assets/main-M_nUa5o5.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <noscript>
         <link rel="stylesheet" href="./assets/main-M_nUa5o5.css">
     </noscript>
-    <script>
-        // Fallback for async CSS loading
-        document.addEventListener('DOMContentLoaded', function () {
-            var link = document.createElement('link');
-            link.rel = 'stylesheet';
-            link.href = '../assets/main-M_nUa5o5.css';
-            document.head.appendChild(link);
-        });
-    </script>
+
 </head>
 
 <body>
@@ -377,20 +370,22 @@
         </section>
 
         <script>
-            // Параллакс эффект при движении мыши
-            document.addEventListener('mousemove', (e) => {
-                const floatingElements = document.querySelectorAll('.floating-element');
-                const mouseX = e.clientX / window.innerWidth;
-                const mouseY = e.clientY / window.innerHeight;
-
-                floatingElements.forEach((element, index) => {
-                    const speed = (index + 1) * 0.5;
-                    const x = (mouseX - 0.5) * speed * 20;
-                    const y = (mouseY - 0.5) * speed * 20;
-
-                    element.style.transform = `translate(${x}px, ${y}px)`;
-                });
+            /*
+        // Параллакс эффект при движении мыши
+        document.addEventListener('mousemove', (e) => {
+            const floatingElements = document.querySelectorAll('.floating-element');
+            const mouseX = e.clientX / window.innerWidth;
+            const mouseY = e.clientY / window.innerHeight;
+    
+            floatingElements.forEach((element, index) => {
+                const speed = (index + 1) * 0.5;
+                const x = (mouseX - 0.5) * speed * 20;
+                const y = (mouseY - 0.5) * speed * 20;
+    
+                element.style.transform = `translate(${x}px, ${y}px)`;
             });
+        });
+        */
         </script>
         <section class="services-prev">
             <div class="container services-prev__container">
@@ -1621,31 +1616,6 @@
 
             </div>
         </section>
-
-        <script>
-            // Анимация появления при скролле
-            function animateOnScroll() {
-                const cards = document.querySelectorAll('.blog-prev__card');
-
-                const observer = new IntersectionObserver((entries) => {
-                    entries.forEach(entry => {
-                        if (entry.isIntersecting) {
-                            entry.target.classList.add('visible');
-                        }
-                    });
-                }, {
-                    threshold: 0.1,
-                    rootMargin: '0px 0px -50px 0px'
-                });
-
-                cards.forEach(card => {
-                    observer.observe(card);
-                });
-            }
-
-            // Запуск после загрузки DOM
-            document.addEventListener('DOMContentLoaded', animateOnScroll);
-        </script>
         <section class="team-prev">
             <div class="container team-prev__container">
 

@@ -92,6 +92,9 @@ import { gitNav } from "./libs/gitNav.js";
 //------------Звездный рейтинг (управление дробным значением)---------------
 // import { setRating } from "./libs/starRatingFractional.js";
 
+//------------Анимация blog---------------
+import { animateOnScroll } from "./components/animatBlogPrev.js";
+
 
 
 
