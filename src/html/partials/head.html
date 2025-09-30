@@ -23,269 +23,240 @@
     <title>{{title}}</title>
 
     <!-- critical css-->
-    <!-- <style>
-        body,
-        html {
+    <style>
+        /* Critical CSS для https://1dmitriy10.github.io/template/ */
+        /* Вставьте это в <style> в <head> */
+
+        /* Базовые сбросы */
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
             margin: 0;
             padding: 0;
-            font-family: var(--font-family);
+            scroll-behavior: smooth;
         }
 
-        section {
-            margin-bottom: clamp-px(40, 80);
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            overflow-x: hidden;
         }
 
-        .sub-menu {
-            opacity: 0;
-            overflow: hidden;
+        /* Фиксированные размеры для предотвращения CLS */
+        .header__btn {
+            width: 160px !important;
+            height: 50px !important;
+            min-height: 50px !important;
+            font-size: 16px !important;
+            font-family: Montserrat, Arial, sans-serif !important;
         }
 
-        .hero {
+        /* Размеры для логотипов */
+        .logo-img {
+            width: 200px;
+            height: 50px;
+        }
+
+        /* Хедер - видимая область */
+        .header {
             position: relative;
-            min-height: 450px;
-            overflow: hidden;
+            background: linear-gradient(90deg, #1a2a57 0%, #2d3b6b 100%);
+            color: white;
+            min-height: 100vh;
         }
 
-        .services-prev {
-            min-height: 433px;
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
         }
 
-        .hero__container h1 {
-            color: var(--text-color-second);
-            font-size: 48px;
-            line-height: 130%;
-            margin-bottom: 24px;
+        .nav__logo {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
 
-            @media (width<768px) {
-                font-size: 32px;
-                margin-bottom: 20px;
-            }
+        .nav__logo-text {
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
 
+        .nav__list {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav__link {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        /* Герой секция */
+        .hero {
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+
+        .hero__title {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            line-height: 1.2;
         }
 
         .hero__subtitle {
-            margin-bottom: clamp-px(25, 32);
-            color: var(--text-color-second);
-            font-size: clamp-px(18, 20);
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
         }
 
+        /* Кнопки */
         .btn {
-            border-radius: var(--border-radius-primary);
-            padding: clamp-px(8, 12) clamp-px(15, 32);
-            display: flex;
+            display: inline-flex;
             align-items: center;
             justify-content: center;
-            background: var(--tertiary-color);
-            font-weight: 500;
-            font-size: clamp-px(14, 16);
-            line-height: 140%;
-            color: var(--btn-color);
-            border: 1px solid var(--tertiary-color);
-            transition: 0.3s;
+            padding: 0.75rem 2rem;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            text-decoration: none;
             cursor: pointer;
+            transition: all 0.3s ease;
         }
 
-        .header__btn {
-            min-width: 100px;
-            height: 37px;
+        .btn--primary {
+            background: #4f46e5;
+            color: white;
+        }
 
-            @media (width<768px) {
-                width: 100px;
-                height: 37px;
+        .btn--secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+
+        /* Секции */
+        .section {
+            padding: 4rem 2rem;
+        }
+
+        .section__title {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 3rem;
+            font-weight: 700;
+        }
+
+        /* Карточки услуг */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .service-card {
+            background: white;
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        /* Футер */
+        .footer {
+            background: #1a2a57;
+            color: white;
+            padding: 3rem 2rem;
+            text-align: center;
+        }
+
+        /* Утилиты */
+        .visually-hidden {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border: 0;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        .mb-2 {
+            margin-bottom: 2rem;
+        }
+
+        .mt-2 {
+            margin-top: 2rem;
+        }
+
+        /* Адаптивность */
+        @media (max-width: 768px) {
+            .nav {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .nav__list {
+                gap: 1rem;
+            }
+
+            .hero__title {
+                font-size: 2rem;
+            }
+
+            .section {
+                padding: 2rem 1rem;
             }
         }
 
-        .faq-prev {
-            min-height: 706px;
-        }
-
+        /* Предотвращение смещения макета */
         img {
-            height: auto;
             max-width: 100%;
-
-        }
-
-        .swiper {
-            min-height: 300px;
-            /* или aspect-ratio */
-            overflow: hidden;
-        }
-
-        .contacts-prev__map {
-            width: 637px;
-            height: 269px;
-
-            @media (width<768px) {
-                width: 343px;
-                height: 137px;
-            }
-        }
-
-        .blog-prev {
-            min-height: 937px;
-
-            @media (width<768px) {
-                min-height: 343px;
-
-            }
-        }
-
-        .services-prev__card {
-            height: 183px;
-            width: 318px;
-            background-color: var(--bg-color-primary);
-        }
-
-        header {
-            height: 88px;
-            overflow: hidden;
-
-        }
-
-        .sticky-header {
-            height: 0;
-            overflow: hidden;
-        }
-
-        /* ------------ */
-        header {
-            padding: 0 clamp-px(16, 20);
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            background-color: var(--header-color);
             height: auto;
-            overflow: visible;
         }
 
-        .header__container {
-            display: flex;
-            align-items: center;
-            padding: 15px 0;
-
+        /* Заглушки для изображений до загрузки */
+        img[width][height] {
+            aspect-ratio: attr(width) / attr(height);
         }
 
-        .logo-wrap {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-
-            & span {
-                font-size: 12px;
-                width: fit-content;
-                max-width: 100px;
-                color: var(--text-color);
-            }
-
-            & img {
-                width: clamp-px(49, 69);
+        /* Анимации только при reduced-motion: no-preference */
+        @media (prefers-reduced-motion: no-preference) {
+            .fade-in {
+                animation: fadeIn 0.6s ease-in;
             }
         }
 
-        .logo {}
-
-        .contact-box {
-            display: flex;
-            align-items: center;
-            gap: clamp-px(10, 20);
-            font-size: clamp-px(14, 16);
-            color: var(--text-color);
-            font-weight: 500;
-
-            & a {
-                transition: 0.3s;
-
-                &:hover {
-                    transition: 0.3s;
-                    color: var(--header-text-hover-color);
-                }
-            }
-        }
-
-        .header__mail {
-            @media (width<900px) {
-                display: none;
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
             }
 
-        }
-
-        .header__phone {
-            & span {
-
-                @media (width<1200px) {
-                    display: none;
-                }
+            to {
+                opacity: 1;
+                transform: translateY(0);
             }
         }
-
-        .phone-icon {
-            display: none;
-
-            @media (width<1200px) {
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                border-radius: 8px;
-                border: 1px solid var(--tertiary-color);
-                width: 30px;
-                height: 30px;
-
-                &>svg {
-                    width: 20px;
-                    height: 20px;
-
-                    & path {
-                        fill: var(--tertiary-color);
-                    }
-                }
-            }
-
-        }
-
-        .social-box {
-            display: flex;
-            align-items: center;
-            gap: clamp-px(10, 15);
-
-            & a {
-                width: clamp-px(25, 30);
-                height: clamp-px(25, 30);
-            }
-        }
-
-        .header__btn {
-            &:hover {
-                transition: 0.3s;
-                color: var(--header-text-hover-color);
-            }
-        }
-
-        .menu {
-            @media (width<1200px) {
-                display: none;
-            }
-
-        }
-
-        .header__social-box {
-            margin-right: clamp-px(20, 40);
-
-            @media (width<1200px) {
-                display: none;
-            }
-
-
-        }
-
-        /* --------------------- */
-
-        header {
-            height: 88px;
-            overflow: hidden;
-
-        }
-
-        .sticky-header {
-            height: 0;
-            overflow: hidden;
-        }
-    </style> -->
+    </style>
 </head>
