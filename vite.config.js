@@ -212,44 +212,65 @@ const copyDistToDocs = () => {
           if (fs.existsSync(srcPath)) {
             fs.copyFileSync(srcPath, destPath);
 
-            console.log(`🔧 Fixing HTML paths in: ${htmlFile}`);
+            console.log(`🔧 Fixing HTML in: ${htmlFile}`);
             
             // Читаем содержимое HTML файла
             let content = fs.readFileSync(destPath, 'utf8');
             
-            // ТОЛЬКО исправляем пути, не трогаем кавычки в уже корректных тегах
+            // 1. Исправляем пути
             content = content
               .replace(/(src|href|data-src|srcset)=["']\/(assets|images|files)\//g, '$1="./$2/')
               .replace(/(src|href|data-src|srcset)=["']\.\.\/(assets|images|files)\//g, '$1="./$2/')
               .replace(/(src|href|data-src|srcset)=["']\.(?!\.)\//g, '$1="./');
 
+            // 2. Исправляем проблему со смешанными кавычками в picture тегах
+            content = content.replace(
+              /<picture><source\s+srcset=("|')([^"']+)("|')\s+type=("|')image\/webp("|')>/gi,
+              '<picture><source srcset="$2" type="image/webp">'
+            );
+
+            // 3. Исправляем кавычки в img тегах внутри picture
+            content = content.replace(
+              /<picture>(.*?)<img([^>]*?)src=("|')([^"']+)("|')([^>]*?)><\/picture>/gi,
+              (match, before, imgBefore, quote1, src, quote2, imgAfter) => {
+                // Стандартизируем кавычки в img теге
+                const fixedImg = `<img${imgBefore}src="${src}"${imgAfter}>`;
+                return `<picture>${before}${fixedImg}</picture>`;
+              }
+            );
+
+            // 4. Общее исправление кавычек в img тегах (только для одиночных)
+            content = content.replace(
+              /<img([^>]*?)>/gi,
+              (match, attributes) => {
+                // Если img уже внутри picture, не трогаем
+                if (match.includes('<picture>')) return match;
+                
+                // Стандартизируем кавычки
+                const fixedAttributes = attributes.replace(
+                  /(\w+)=("|')([^"']*)("|')/g,
+                  '$1="$3"'
+                );
+                return `<img${fixedAttributes}>`;
+              }
+            );
+
             // Записываем исправленное содержимое
             fs.writeFileSync(destPath, content, 'utf8');
-            console.log(`✅ Fixed HTML paths in: ${htmlFile}`);
+            console.log(`✅ Fixed HTML in: ${htmlFile}`);
+            
+            // Проверяем результат
+            const finalContent = fs.readFileSync(destPath, 'utf8');
+            const problematicTags = finalContent.match(/srcset=("|')[^"']*("|')/g);
+            if (problematicTags) {
+              console.log(`⚠️  Проверьте теги в ${htmlFile}:`, problematicTags);
+            }
           }
         }
         console.log(`✅ Copied and fixed ${htmlFiles.length} HTML files to docs root`);
       }
 
-      console.log('✅ dist successfully copied to docs with path fixes');
-      
-      // Детальная проверка содержимого
-      console.log('📁 Final docs structure:');
-      if (fs.existsSync(docsDir)) {
-        const items = fs.readdirSync(docsDir);
-        console.log('📋 Docs contents:', items);
-        
-        // Проверяем CSS ссылки в HTML файлах
-        const htmlFiles = items.filter(item => item.endsWith('.html'));
-        for (const htmlFile of htmlFiles) {
-          const filePath = path.join(docsDir, htmlFile);
-          const content = fs.readFileSync(filePath, 'utf8');
-          const cssLinks = content.match(/rel=("|')stylesheet\1[^>]*?href=("|')([^"']*?\.css)\2/gi);
-          if (cssLinks) {
-            console.log(`🔍 CSS links in ${htmlFile}:`, cssLinks);
-          }
-        }
-      }
+      console.log('✅ dist successfully copied to docs with HTML fixes');
     }
   };
 };
@@ -464,7 +485,7 @@ const imagesPlugin = () => {
   };
 };
 
-// Более надежный плагин для обработки изображений
+// ✅ ИСПРАВЛЕННЫЙ ПЛАГИН ДЛЯ PICTURE ТЕГОВ
 const pictureWebpPlugin = () => {
   let isBuild = false;
 
@@ -482,52 +503,32 @@ const pictureWebpPlugin = () => {
 
       console.log('🖼️ Wrapping images in <picture> tags for production...');
       
-      // Универсальное регулярное выражение для поиска img тегов
-      const imgRegex = /<img\b([^>]*?\bsrc\s*=\s*(["'])([^"']+?\.(png|jpe?g|jpg))\2[^>]*?)>/gi;
+      // Более аккуратное регулярное выражение
+      const imgRegex = /<img\b([^>]*?\bsrc\s*=\s*(["'])([^"']+?\.(png|jpe?g))\2[^>]*?)>/gi;
       
-      let result = html;
-      let match;
-      
-      // Обрабатываем каждое совпадение отдельно для лучшего контроля
-      while ((match = imgRegex.exec(html)) !== null) {
-        const fullMatch = match[0];
-        const attributes = match[1];
-        const quote = match[2];
-        const src = match[3];
-        
+      return html.replace(imgRegex, (match, attributes, quote, src) => {
         // Пропускаем изображения, которые уже в picture или имеют data-skip-webp
-        if (fullMatch.includes('data-skip-webp') || 
-            fullMatch.includes('<picture') || 
-            html.substring(match.index - 50, match.index).includes('<picture')) {
-          continue;
+        if (match.includes('data-skip-webp') || 
+            html.substring(0, html.indexOf(match)).includes('<picture')) {
+          return match;
         }
         
+        // Формируем WebP путь
         let webpSrc;
-        
         if (src.startsWith('/images/')) {
-          webpSrc = src.replace('/images/', '/images/webp/').replace(/\.(png|jpe?g|jpg)$/i, '.webp');
+          webpSrc = src.replace('/images/', '/images/webp/').replace(/\.(png|jpe?g)$/i, '.webp');
         } else if (src.startsWith('images/')) {
-          webpSrc = src.replace('images/', 'images/webp/').replace(/\.(png|jpe?g|jpg)$/i, '.webp');
+          webpSrc = src.replace('images/', 'images/webp/').replace(/\.(png|jpe?g)$/i, '.webp');
         } else if (src.startsWith('./images/')) {
-          webpSrc = src.replace('./images/', './images/webp/').replace(/\.(png|jpe?g|jpg)$/i, '.webp');
+          webpSrc = src.replace('./images/', './images/webp/').replace(/\.(png|jpe?g)$/i, '.webp');
         } else {
-          const lastSlashIndex = src.lastIndexOf('/');
-          if (lastSlashIndex !== -1) {
-            const path = src.substring(0, lastSlashIndex);
-            const fileName = src.substring(lastSlashIndex + 1);
-            const webpFileName = fileName.replace(/\.(png|jpe?g|jpg)$/i, '.webp');
-            webpSrc = `${path}/webp/${webpFileName}`;
-          } else {
-            webpSrc = src.replace(/\.(png|jpe?g|jpg)$/i, '.webp');
-          }
+          // Для других случаев
+          webpSrc = src.replace(/\.(png|jpe?g)$/i, '.webp');
         }
         
-        // Используем тот же тип кавычек, что и в оригинальном теге
-        const replacement = `<picture><source srcset=${quote}${webpSrc}${quote} type="image/webp">${fullMatch}</picture>`;
-        result = result.replace(fullMatch, replacement);
-      }
-      
-      return result;
+        // Используем одинаковые кавычки для всего тега
+        return `<picture><source srcset="${webpSrc}" type="image/webp">${match}</picture>`;
+      });
     }
   };
 };

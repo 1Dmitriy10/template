@@ -22,6 +22,7 @@
     <meta name="theme-color" content="#ffffff">
     <title>{{title}}</title>
 
+    <!-- critical css-->
     <style>
         body,
         html {
@@ -80,6 +81,16 @@
             min-height: 300px;
             /* или aspect-ratio */
             overflow: hidden;
+        }
+
+        .contacts-prev__map {
+            width: 637px;
+            height: 269px;
+
+            @media (width<768px) {
+                width: 343px;
+                height: 137px;
+            }
         }
     </style>
 </head>

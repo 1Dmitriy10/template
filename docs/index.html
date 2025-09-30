@@ -24,6 +24,7 @@
     <meta name="theme-color" content="#ffffff">
     <title>Главная</title>
 
+    <!-- critical css-->
     <style>
         body,
         html {
@@ -83,6 +84,16 @@
             /* или aspect-ratio */
             overflow: hidden;
         }
+
+        .contacts-prev__map {
+            width: 637px;
+            height: 269px;
+
+            @media (width<768px) {
+                width: 343px;
+                height: 137px;
+            }
+        }
     </style>
   <script type="module" crossorigin src="./assets/vendor-BpJTUdAv.js"></script>
   <script type="module" crossorigin src="./assets/main-D-zxpd_i.js"></script>
@@ -95,13 +106,13 @@
   <header class="header">
       <div class="container header__container">
   
-          <!-- <div class="logo-wrap  !mr-[clamp(0.938rem,0.366rem+2.44vw,2.5rem)]">
+          <div class="logo-wrap  !mr-[clamp(0.938rem,0.366rem+2.44vw,2.5rem)]">
               <a class="logo" href="/">
-                  <picture><source srcset="./images/webp/logo.webp' type="image/webp"><img src="./images/logo.png' alt='logo' loading='lazy'></picture>
+                  <picture><source srcset="./images/webp/logo.webp" type="image/webp"><img src="./images/logo.png" alt="logo" loading="lazy"></picture>
               </a>
   
               <span>Подпись логотипа</span>
-          </div> -->
+          </div>
   
   
   
@@ -328,7 +339,7 @@
       </ul>
   </div> -->  <main>
     <section class='hero'>
-        <!-- <picture><source srcset="./images/webp/hero-bg.webp' type="image/webp"><img class='img-bg' src="./images/hero-bg.png' alt='' loading='lazy'></picture> -->
+        <!-- <picture><source srcset="./images/webp/hero-bg.webp" type="image/webp"><img class="img-bg" src="./images/hero-bg.png" alt="" loading="lazy"></picture> -->
     
         <div class='container hero__container'>
     
@@ -549,7 +560,7 @@
                 <div class="advantages-prev__card scroll-snap__item">
     
                     <div class="advantages-prev__card-img">
-                        <picture><source srcset="./images/webp/advantages-prev-img-1.webp' type="image/webp"><img class='img-bg' src="./images/advantages-prev-img-1.jpg' alt='' loading='lazy'></picture>
+                        <picture><source srcset="./images/webp/advantages-prev-img-1.webp" type="image/webp"><img class="img-bg" src="./images/advantages-prev-img-1.jpg" alt="" loading="lazy"></picture>
                     </div>
     
                     <div class="dvantages-prev__card-text-box">
@@ -566,7 +577,7 @@
                 <div class="advantages-prev__card scroll-snap__item">
     
                     <div class="advantages-prev__card-img">
-                        <picture><source srcset="./images/webp/advantages-prev-img-2.webp' type="image/webp"><img class='img-bg' src="./images/advantages-prev-img-2.jpg' alt='' loading='lazy'></picture>
+                        <picture><source srcset="./images/webp/advantages-prev-img-2.webp" type="image/webp"><img class="img-bg" src="./images/advantages-prev-img-2.jpg" alt="" loading="lazy"></picture>
                     </div>
     
                     <div class="dvantages-prev__card-text-box">
@@ -583,7 +594,7 @@
                 <div class="advantages-prev__card scroll-snap__item">
     
                     <div class="advantages-prev__card-img">
-                        <picture><source srcset="./images/webp/advantages-prev-img-3.webp' type="image/webp"><img class='img-bg' src="./images/advantages-prev-img-3.jpg' alt='' loading='lazy'></picture>
+                        <picture><source srcset="./images/webp/advantages-prev-img-3.webp" type="image/webp"><img class="img-bg" src="./images/advantages-prev-img-3.jpg" alt="" loading="lazy"></picture>
                     </div>
     
                     <div class="dvantages-prev__card-text-box">
@@ -612,7 +623,7 @@
                 <div class="portfolio-prev__card">
                     <a class="portfolio-prev__card-link" href="#"></a>
     
-                    <picture><source srcset="./images/webp/portfolio-prev-img-1.webp' type="image/webp"><img class="portfolio-prev__card-img img-bg" src="./images/portfolio-prev-img-1.jpg' alt='' loading='lazy'></picture>
+                    <picture><source srcset="./images/webp/portfolio-prev-img-1.webp" type="image/webp"><img class="portfolio-prev__card-img img-bg" src="./images/portfolio-prev-img-1.jpg" alt="" loading="lazy"></picture>
     
                     <div class="portfolio-prev__card-title">
                         Лендинг для стартапа
@@ -623,7 +634,7 @@
                 <div class="portfolio-prev__card">
                     <a class="portfolio-prev__card-link" href="#"></a>
     
-                    <picture><source srcset="./images/webp/portfolio-prev-img-2.webp' type="image/webp"><img class="portfolio-prev__card-img img-bg" src="./images/portfolio-prev-img-2.jpg' alt='' loading='lazy'></picture>
+                    <picture><source srcset="./images/webp/portfolio-prev-img-2.webp" type="image/webp"><img class="portfolio-prev__card-img img-bg" src="./images/portfolio-prev-img-2.jpg" alt="" loading="lazy"></picture>
     
                     <div class="portfolio-prev__card-title">
                         Корпоративный сайт
@@ -634,7 +645,7 @@
                 <div class="portfolio-prev__card">
                     <a class="portfolio-prev__card-link" href="#"></a>
     
-                    <picture><source srcset="./images/webp/portfolio-prev-img-3.webp' type="image/webp"><img class="portfolio-prev__card-img img-bg" src="./images/portfolio-prev-img-3.jpg' alt='' loading='lazy'></picture>
+                    <picture><source srcset="./images/webp/portfolio-prev-img-3.webp" type="image/webp"><img class="portfolio-prev__card-img img-bg" src="./images/portfolio-prev-img-3.jpg" alt="" loading="lazy"></picture>
     
                     <div class="portfolio-prev__card-title">
                         E-commerce платформа
@@ -645,7 +656,7 @@
                 <div class="portfolio-prev__card">
                     <a class="portfolio-prev__card-link" href="#"></a>
     
-                    <picture><source srcset="./images/webp/portfolio-prev-img-4.webp' type="image/webp"><img class="portfolio-prev__card-img img-bg" src="./images/portfolio-prev-img-4.jpg' alt='' loading='lazy'></picture>
+                    <picture><source srcset="./images/webp/portfolio-prev-img-4.webp" type="image/webp"><img class="portfolio-prev__card-img img-bg" src="./images/portfolio-prev-img-4.jpg" alt="" loading="lazy"></picture>
     
                     <div class="portfolio-prev__card-title">
                         Мобильное приложение
@@ -656,7 +667,7 @@
                 <div class="portfolio-prev__card">
                     <a class="portfolio-prev__card-link" href="#"></a>
     
-                    <picture><source srcset="./images/webp/portfolio-prev-img-5.webp' type="image/webp"><img class="portfolio-prev__card-img img-bg" src="./images/portfolio-prev-img-5.jpg' alt='' loading='lazy'></picture>
+                    <picture><source srcset="./images/webp/portfolio-prev-img-5.webp" type="image/webp"><img class="portfolio-prev__card-img img-bg" src="./images/portfolio-prev-img-5.jpg" alt="" loading="lazy"></picture>
     
                     <div class="portfolio-prev__card-title">
                         Веб-приложение SaaS
@@ -667,7 +678,7 @@
                 <div class="portfolio-prev__card">
                     <a class="portfolio-prev__card-link" href="#"></a>
     
-                    <picture><source srcset="./images/webp/portfolio-prev-img-6.webp' type="image/webp"><img class="portfolio-prev__card-img img-bg" src="./images/portfolio-prev-img-6.jpg' alt='' loading='lazy'></picture>
+                    <picture><source srcset="./images/webp/portfolio-prev-img-6.webp" type="image/webp"><img class="portfolio-prev__card-img img-bg" src="./images/portfolio-prev-img-6.jpg" alt="" loading="lazy"></picture>
     
                     <div class="portfolio-prev__card-title">
                         Портфолио сайт
@@ -699,7 +710,7 @@
                     <div class='swiper-slide'>
                         <div class="reviews-prev__slide">
                             <div class="reviews-prev__slide-icon">
-                                <picture><source srcset="./images/webp/reviews-prev-img-1.webp' type="image/webp"><img class='img-bg' src="./images/reviews-prev-img-1.jpg' alt='' loading='lazy'></picture>
+                                <picture><source srcset="./images/webp/reviews-prev-img-1.webp" type="image/webp"><img class="img-bg" src="./images/reviews-prev-img-1.jpg" alt="" loading="lazy"></picture>
                             </div>
     
                             <div class="reviews-prev__slide-name">
@@ -833,7 +844,7 @@
                     <div class='swiper-slide'>
                         <div class="reviews-prev__slide">
                             <div class="reviews-prev__slide-icon">
-                                <picture><source srcset="./images/webp/reviews-prev-img-2.webp' type="image/webp"><img class='img-bg' src="./images/reviews-prev-img-2.jpg' alt='' loading='lazy'></picture>
+                                <picture><source srcset="./images/webp/reviews-prev-img-2.webp" type="image/webp"><img class="img-bg" src="./images/reviews-prev-img-2.jpg" alt="" loading="lazy"></picture>
                             </div>
     
                             <div class="reviews-prev__slide-name">
@@ -923,7 +934,7 @@
                     <div class='swiper-slide'>
                         <div class="reviews-prev__slide">
                             <div class="reviews-prev__slide-icon">
-                                <picture><source srcset="./images/webp/reviews-prev-img-3.webp' type="image/webp"><img class='img-bg' src="./images/reviews-prev-img-3.jpg' alt='' loading='lazy'></picture>
+                                <picture><source srcset="./images/webp/reviews-prev-img-3.webp" type="image/webp"><img class="img-bg" src="./images/reviews-prev-img-3.jpg" alt="" loading="lazy"></picture>
                             </div>
     
                             <div class="reviews-prev__slide-name">
@@ -1013,7 +1024,7 @@
                     <div class='swiper-slide'>
                         <div class="reviews-prev__slide">
                             <div class="reviews-prev__slide-icon">
-                                <picture><source srcset="./images/webp/reviews-prev-img-4.webp' type="image/webp"><img class='img-bg' src="./images/reviews-prev-img-4.jpg' alt='' loading='lazy'></picture>
+                                <picture><source srcset="./images/webp/reviews-prev-img-4.webp" type="image/webp"><img class="img-bg" src="./images/reviews-prev-img-4.jpg" alt="" loading="lazy"></picture>
                             </div>
     
                             <div class="reviews-prev__slide-name">
@@ -1103,7 +1114,7 @@
                     <div class='swiper-slide'>
                         <div class="reviews-prev__slide">
                             <div class="reviews-prev__slide-icon">
-                                <picture><source srcset="./images/webp/reviews-prev-img-5.webp' type="image/webp"><img class='img-bg' src="./images/reviews-prev-img-5.jpg' alt='' loading='lazy'></picture>
+                                <picture><source srcset="./images/webp/reviews-prev-img-5.webp" type="image/webp"><img class="img-bg" src="./images/reviews-prev-img-5.jpg" alt="" loading="lazy"></picture>
                             </div>
     
                             <div class="reviews-prev__slide-name">
@@ -1193,7 +1204,7 @@
                     <div class='swiper-slide'>
                         <div class="reviews-prev__slide">
                             <div class="reviews-prev__slide-icon">
-                                <picture><source srcset="./images/webp/reviews-prev-img-6.webp' type="image/webp"><img class='img-bg' src="./images/reviews-prev-img-6.jpg' alt='' loading='lazy'></picture>
+                                <picture><source srcset="./images/webp/reviews-prev-img-6.webp" type="image/webp"><img class="img-bg" src="./images/reviews-prev-img-6.jpg" alt="" loading="lazy"></picture>
                             </div>
     
                             <div class="reviews-prev__slide-name">
@@ -1309,7 +1320,7 @@
             <div class="blog-prev__card-box scroll-snap-mob">
                 <div class="blog-prev__card scroll-snap__item">
                     <div class="blog-prev__card-img">
-                        <picture><source srcset="./images/webp/blog-prev-img-1.webp' type="image/webp"><img class='img-bg' src="./images/blog-prev-img-1.jpg' alt='' loading='lazy'></picture>
+                        <picture><source srcset="./images/webp/blog-prev-img-1.webp" type="image/webp"><img class="img-bg" src="./images/blog-prev-img-1.jpg" alt="" loading="lazy"></picture>
                     </div>
     
                     <div class="blog-prev__card-text-box">
@@ -1343,7 +1354,7 @@
     
                 <div class="blog-prev__card scroll-snap__item">
                     <div class="blog-prev__card-img">
-                        <picture><source srcset="./images/webp/blog-prev-img-2.webp' type="image/webp"><img class='img-bg' src="./images/blog-prev-img-2.jpg' alt='' loading='lazy'></picture>
+                        <picture><source srcset="./images/webp/blog-prev-img-2.webp" type="image/webp"><img class="img-bg" src="./images/blog-prev-img-2.jpg" alt="" loading="lazy"></picture>
                     </div>
     
                     <div class="blog-prev__card-text-box">
@@ -1378,7 +1389,7 @@
                 <div class="blog-prev__card scroll-snap__item">
                     <div class="blog-prev__card-img">
                         <div class="blog-prev__card-img">
-                            <picture><source srcset="./images/webp/blog-prev-img-3.webp' type="image/webp"><img class='img-bg' src="./images/blog-prev-img-3.jpg' alt='' loading='lazy'></picture>
+                            <picture><source srcset="./images/webp/blog-prev-img-3.webp" type="image/webp"><img class="img-bg" src="./images/blog-prev-img-3.jpg" alt="" loading="lazy"></picture>
                         </div>
                     </div>
     
@@ -1413,7 +1424,7 @@
     
                 <div class="blog-prev__card scroll-snap__item">
                     <div class="blog-prev__card-img">
-                        <picture><source srcset="./images/webp/blog-prev-img-4.webp' type="image/webp"><img class='img-bg' src="./images/blog-prev-img-4.jpg' alt='' loading='lazy'></picture>
+                        <picture><source srcset="./images/webp/blog-prev-img-4.webp" type="image/webp"><img class="img-bg" src="./images/blog-prev-img-4.jpg" alt="" loading="lazy"></picture>
                     </div>
     
                     <div class="blog-prev__card-text-box">
@@ -1447,7 +1458,7 @@
     
                 <div class="blog-prev__card scroll-snap__item">
                     <div class="blog-prev__card-img">
-                        <picture><source srcset="./images/webp/blog-prev-img-5.webp' type="image/webp"><img class='img-bg' src="./images/blog-prev-img-5.jpg' alt='' loading='lazy'></picture>
+                        <picture><source srcset="./images/webp/blog-prev-img-5.webp" type="image/webp"><img class="img-bg" src="./images/blog-prev-img-5.jpg" alt="" loading="lazy"></picture>
                     </div>
     
                     <div class="blog-prev__card-text-box">
@@ -1481,7 +1492,7 @@
     
                 <div class="blog-prev__card scroll-snap__item">
                     <div class="blog-prev__card-img">
-                        <picture><source srcset="./images/webp/blog-prev-img-6.webp' type="image/webp"><img class='img-bg' src="./images/blog-prev-img-6.jpg' alt='' loading='lazy'></picture>
+                        <picture><source srcset="./images/webp/blog-prev-img-6.webp" type="image/webp"><img class="img-bg" src="./images/blog-prev-img-6.jpg" alt="" loading="lazy"></picture>
                     </div>
     
                     <div class="blog-prev__card-text-box">
@@ -1532,7 +1543,7 @@
                         <!-- Слайды -->
                         <div class='swiper-slide'>
                             <div class="team-prev__slide">
-                                <picture><source srcset="./images/webp/team-prev-img-1.webp' type="image/webp"><img class='img-bg' src="./images/team-prev-img-1.jpg' alt='' loading='lazy'></picture>
+                                <picture><source srcset="./images/webp/team-prev-img-1.webp" type="image/webp"><img class="img-bg" src="./images/team-prev-img-1.jpg" alt="" loading="lazy"></picture>
     
                                 <div class="team-prev__slide-name">
                                     Никита Смирнов
@@ -1546,7 +1557,7 @@
     
                         <div class='swiper-slide'>
                             <div class="team-prev__slide">
-                                <picture><source srcset="./images/webp/team-prev-img-2.webp' type="image/webp"><img class='img-bg' src="./images/team-prev-img-2.jpg' alt='' loading='lazy'></picture>
+                                <picture><source srcset="./images/webp/team-prev-img-2.webp" type="image/webp"><img class="img-bg" src="./images/team-prev-img-2.jpg" alt="" loading="lazy"></picture>
     
                                 <div class="team-prev__slide-name">
                                     Ангелина Владимировна
@@ -1560,7 +1571,7 @@
     
                         <div class='swiper-slide'>
                             <div class="team-prev__slide">
-                                <picture><source srcset="./images/webp/team-prev-img-3.webp' type="image/webp"><img class='img-bg' src="./images/team-prev-img-3.jpg' alt='' loading='lazy'></picture>
+                                <picture><source srcset="./images/webp/team-prev-img-3.webp" type="image/webp"><img class="img-bg" src="./images/team-prev-img-3.jpg" alt="" loading="lazy"></picture>
     
                                 <div class="team-prev__slide-name">
                                     Дмитрий Говорунов
@@ -1574,7 +1585,7 @@
     
                         <div class='swiper-slide'>
                             <div class="team-prev__slide">
-                                <picture><source srcset="./images/webp/team-prev-img-4.webp' type="image/webp"><img class='img-bg' src="./images/team-prev-img-4.jpg' alt='' loading='lazy'></picture>
+                                <picture><source srcset="./images/webp/team-prev-img-4.webp" type="image/webp"><img class="img-bg" src="./images/team-prev-img-4.jpg" alt="" loading="lazy"></picture>
     
                                 <div class="team-prev__slide-name">
                                     Ольга Смирнова
@@ -1588,7 +1599,7 @@
     
                         <div class='swiper-slide'>
                             <div class="team-prev__slide">
-                                <picture><source srcset="./images/webp/team-prev-img-5.webp' type="image/webp"><img class='img-bg' src="./images/team-prev-img-5.jpg' alt='' loading='lazy'></picture>
+                                <picture><source srcset="./images/webp/team-prev-img-5.webp" type="image/webp"><img class="img-bg" src="./images/team-prev-img-5.jpg" alt="" loading="lazy"></picture>
     
                                 <div class="team-prev__slide-name">
                                     Сергей Вавилов
@@ -1602,7 +1613,7 @@
     
                         <div class='swiper-slide'>
                             <div class="team-prev__slide">
-                                <picture><source srcset="./images/webp/team-prev-img-6.webp' type="image/webp"><img class='img-bg' src="./images/team-prev-img-6.jpg' alt='' loading='lazy'></picture>
+                                <picture><source srcset="./images/webp/team-prev-img-6.webp" type="image/webp"><img class="img-bg" src="./images/team-prev-img-6.jpg" alt="" loading="lazy"></picture>
     
                                 <div class="team-prev__slide-name">
                                     Валентина Наумова

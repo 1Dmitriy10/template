@@ -24,6 +24,7 @@
     <meta name="theme-color" content="#ffffff">
     <title>404</title>
 
+    <!-- critical css-->
     <style>
         body,
         html {
@@ -83,6 +84,16 @@
             /* или aspect-ratio */
             overflow: hidden;
         }
+
+        .contacts-prev__map {
+            width: 637px;
+            height: 269px;
+
+            @media (width<768px) {
+                width: 343px;
+                height: 137px;
+            }
+        }
     </style>
   <script type="module" crossorigin src="./assets/vendor-BpJTUdAv.js"></script>
   <script type="module" crossorigin src="./assets/main-D-zxpd_i.js"></script>
@@ -95,13 +106,13 @@
     <header class="header">
         <div class="container header__container">
     
-            <!-- <div class="logo-wrap  !mr-[clamp(0.938rem,0.366rem+2.44vw,2.5rem)]">
+            <div class="logo-wrap  !mr-[clamp(0.938rem,0.366rem+2.44vw,2.5rem)]">
                 <a class="logo" href="/">
-                    <picture><source srcset="./images/webp/logo.webp' type="image/webp"><img src="./images/logo.png' alt='logo' loading='lazy'></picture>
+                    <picture><source srcset="./images/webp/logo.webp" type="image/webp"><img src="./images/logo.png" alt="logo" loading="lazy"></picture>
                 </a>
     
                 <span>Подпись логотипа</span>
-            </div> -->
+            </div>
     
     
     
