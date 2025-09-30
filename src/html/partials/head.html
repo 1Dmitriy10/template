@@ -130,6 +130,7 @@
             margin: 0;
             padding: 0;
             gap: 2rem;
+
         }
 
         .header__nav-link {
@@ -170,7 +171,7 @@
         .nav-list,
         .nav-list-sticky {
             display: flex;
-            flex-wrap: wrap;
+            flex-wrap: nowrap;
             gap: clamp-px(15, 26);
             justify-content: space-between;
             position: relative;
@@ -418,6 +419,10 @@
             transform: translateX(0);
             z-index: 10;
 
+        }
+
+        .logo-wrap {
+            width: 179px;
         }
 
         .logo-wrap>span {
