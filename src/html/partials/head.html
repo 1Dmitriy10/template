@@ -35,7 +35,10 @@
             margin-bottom: clamp-px(40, 80);
         }
 
-
+        .sub-menu {
+            opacity: 0;
+            overflow: hidden;
+        }
 
         .hero {
             position: relative;
@@ -83,7 +86,7 @@
         }
 
         .header__btn {
-            width: 100px;
+            min-width: 100px;
             height: 37px;
 
             @media (width<768px) {
@@ -115,10 +118,10 @@
         }
 
         .blog-prev {
-            height: 937px;
+            min-height: 937px;
 
             @media (width<768px) {
-                width: 343px;
+                min-height: 343px;
 
             }
         }
