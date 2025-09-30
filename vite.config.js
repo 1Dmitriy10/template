@@ -128,7 +128,7 @@ function getFormat(ext) {
   return formats[ext] || ext;
 }
 
-// ✅ ПРОСТОЙ ПЛАГИН ДЛЯ ЗАМЕНЫ CSS ССЫЛКИ
+// ✅ ИСПРАВЛЕННЫЙ ПЛАГИН ДЛЯ ЗАМЕНЫ CSS ССЫЛКИ
 const simpleAsyncCSSPlugin = () => {
   return {
     name: 'simple-async-css',
@@ -137,15 +137,13 @@ const simpleAsyncCSSPlugin = () => {
     transformIndexHtml(html) {
       console.log('🎯 Making CSS async...');
       
-      // Простая замена синхронной загрузки на асинхронную
+      // Исправленное регулярное выражение для обработки разных типов кавычек
       return html.replace(
-        /<link rel="stylesheet"[^>]*?href="([^"]*?main[^"]*?\.css)"[^>]*?>/i,
+        /<link\s+rel=("|')stylesheet\1[^>]*?href=("|')([^"']*?main[^"']*?\.css)\2[^>]*?>/gi,
         `<!-- CSS loaded asynchronously -->
-<link rel="preload" href="$1" as="style" onload="this.onload=null;this.rel='stylesheet'">
-<noscript><link rel="stylesheet" href="$1"></noscript>
+<link rel="preload" href="$3" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="$3"></noscript>
 `
-
-
       );
     }
   };
@@ -214,100 +212,26 @@ const copyDistToDocs = () => {
           if (fs.existsSync(srcPath)) {
             fs.copyFileSync(srcPath, destPath);
 
-            console.log(`🔧 Fixing HTML quotes in: ${htmlFile}`);
+            console.log(`🔧 Fixing HTML paths in: ${htmlFile}`);
             
             // Читаем содержимое HTML файла
             let content = fs.readFileSync(destPath, 'utf8');
             
-            // 1. Исправляем пути в HTML файлах
+            // ТОЛЬКО исправляем пути, не трогаем кавычки в уже корректных тегах
             content = content
               .replace(/(src|href|data-src|srcset)=["']\/(assets|images|files)\//g, '$1="./$2/')
               .replace(/(src|href|data-src|srcset)=["']\.\.\/(assets|images|files)\//g, '$1="./$2/')
               .replace(/(src|href|data-src|srcset)=["']\.(?!\.)\//g, '$1="./');
 
-            // 2. Исправляем проблему с кавычками в picture тегах
-            content = content.replace(
-              /<picture>\s*<source\s+srcset=("|')([^"']+)("|')\s+type=("|')image\/webp("|')\s*>/gi,
-              (match, quote1, srcset, quote2, quote3, quote4) => {
-                return `<picture><source srcset="${srcset}" type="image/webp">`;
-              }
-            );
-
-            // Второй проход: исправляем случай, когда кавычки вообще отсутствуют
-            content = content.replace(
-              /<picture>\s*<source\s+srcset=([^\s>]+)\s+type=([^\s>]+)\s*>/gi,
-              (match, srcset, type) => {
-                const fixedSrcset = srcset.includes('"') ? srcset : `"${srcset}"`;
-                const fixedType = type.includes('"') ? type : `"${type}"`;
-                return `<picture><source srcset=${fixedSrcset} type=${fixedType}>`;
-              }
-            );
-
-            // 3. Исправляем проблему с mixed quotes в img тегах
-            content = content.replace(
-              /<img([^>]*?)src=("|')([^"']+)("|')([^>]*?)>/gi,
-              (match, before, quote1, src, quote2, after) => {
-                let fixedAfter = after.replace(/(\w+)=("|')([^"']+)("|')/g, '$1="$3"');
-                return `<img${before}src="${src}"${fixedAfter}>`;
-              }
-            );
-
-            // 4. Дополнительное исправление для атрибутов alt, loading и class
-            content = content.replace(
-              /<img([^>]*?)alt=("|')([^"']*)("|')([^>]*?)>/gi,
-              (match, before, quote1, alt, quote2, after) => {
-                return `<img${before}alt="${alt}"${after}>`;
-              }
-            );
-
-            content = content.replace(
-              /<img([^>]*?)loading=("|')([^"']*)("|')([^>]*?)>/gi,
-              (match, before, quote1, loading, quote2, after) => {
-                return `<img${before}loading="${loading}"${after}>`;
-              }
-            );
-
-            content = content.replace(
-              /<img([^>]*?)class=("|')([^"']*)("|')([^>]*?)>/gi,
-              (match, before, quote1, className, quote2, after) => {
-                return `<img${before}class="${className}"${after}>`;
-              }
-            );
-
-            // 5. Исправляем конкретную проблему из примера
-            content = content.replace(
-              /<picture><source srcset=("|')([^"']+)("|') type=("|')image\/webp("|')><img([^>]*?)src=("|')([^"']+)("|')([^>]*?)><\/picture>/gi,
-              (match, quote1, webpSrc, quote2, quote3, quote4, imgAttrs, quote5, imgSrc, quote6, imgAfter) => {
-                return `<picture><source srcset="${webpSrc}" type="image/webp"><img${imgAttrs}src="${imgSrc}"${imgAfter}></picture>`;
-              }
-            );
-
-            // 6. Общее исправление для всех тегов с атрибутами
-            content = content.replace(
-              /<(\w+)([^>]*?)>/gi,
-              (match, tagName, attributes) => {
-                if (tagName.toLowerCase() === 'script' || tagName.toLowerCase() === 'style') {
-                  return match;
-                }
-                
-                const fixedAttributes = attributes.replace(
-                  /(\w+)=("|')([^"']*)("|')/g,
-                  '$1="$3"'
-                );
-                
-                return `<${tagName}${fixedAttributes}>`;
-              }
-            );
-
             // Записываем исправленное содержимое
             fs.writeFileSync(destPath, content, 'utf8');
-            console.log(`✅ Fixed HTML quotes in: ${htmlFile}`);
+            console.log(`✅ Fixed HTML paths in: ${htmlFile}`);
           }
         }
         console.log(`✅ Copied and fixed ${htmlFiles.length} HTML files to docs root`);
       }
 
-      console.log('✅ dist successfully copied to docs with HTML fixes');
+      console.log('✅ dist successfully copied to docs with path fixes');
       
       // Детальная проверка содержимого
       console.log('📁 Final docs structure:');
@@ -315,10 +239,15 @@ const copyDistToDocs = () => {
         const items = fs.readdirSync(docsDir);
         console.log('📋 Docs contents:', items);
         
-        const imagesDir = path.join(docsDir, 'images');
-        if (fs.existsSync(imagesDir)) {
-          const images = fs.readdirSync(imagesDir);
-          console.log('🖼️ Images in docs:', images.length, 'files');
+        // Проверяем CSS ссылки в HTML файлах
+        const htmlFiles = items.filter(item => item.endsWith('.html'));
+        for (const htmlFile of htmlFiles) {
+          const filePath = path.join(docsDir, htmlFile);
+          const content = fs.readFileSync(filePath, 'utf8');
+          const cssLinks = content.match(/rel=("|')stylesheet\1[^>]*?href=("|')([^"']*?\.css)\2/gi);
+          if (cssLinks) {
+            console.log(`🔍 CSS links in ${htmlFile}:`, cssLinks);
+          }
         }
       }
     }
