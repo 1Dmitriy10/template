@@ -603,7 +603,7 @@ export default defineConfig({
     
     // ✅ ОПТИМИЗАЦИЯ CSS
     cssCodeSplit: true,
-    cssMinify: true,
+    cssMinify: false,
   },
 
   server: {
