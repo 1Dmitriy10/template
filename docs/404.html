@@ -85,8 +85,19 @@
         }
 
         img {
-            width: 100%;
             height: auto;
+            /* Сохраняет пропорции */
+            max-width: 100%;
+            /* Адаптивность */
+        }
+
+        section {
+            padding: 0 clamp-px(16, 20);
+        }
+
+        .btn {
+            height: 48px;
+            width: 200px;
         }
     </style>
 
