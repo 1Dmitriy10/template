@@ -27,6 +27,8 @@ main.ui-kit {
     border: 1px solid var(--tertiary-color);
     transition: 0.3s;
     cursor: pointer;
+    width: auto;
+    height: auto;
 
     &:hover {
         transition: 0.3s;

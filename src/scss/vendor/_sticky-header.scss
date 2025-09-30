@@ -13,6 +13,8 @@
     opacity: 0;
     visibility: hidden;
     z-index: 100;
+    height: auto;
+    overflow: visible;
 }
 
 .sticky-header__container {

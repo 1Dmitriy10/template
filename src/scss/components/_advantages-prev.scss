@@ -1,7 +1,7 @@
 @use "../main/mixins-vars"as *;
 
 .advantages-prev {
-    background-color: var(--secondary-color);
+    background: linear-gradient(135deg, #f6faff 0%, #6a8db5 100%);
 
 }
 
@@ -9,7 +9,7 @@
     padding: clamp-px(30, 50) 0;
 
     & .block-title {
-        color: var(--text-color-second);
+        color: var(--text-color-advantages);
     }
 }
 
@@ -52,7 +52,7 @@
 
 
 .advantages-prev__card-title {
-    color: var(--text-color-second);
+    color: var(--text-color-advantages);
     font-weight: 700;
     font-size: clamp(1.125rem, 1.0809859155rem + 0.1877934272vw, 1.25rem);
     line-height: 140%;
@@ -61,7 +61,7 @@
 }
 
 .advantages-prev__card-text {
-    color: var(--text-color-second);
+    color: var(--text-color-advantages);
     line-height: 150%;
     font-size: clamp(0.875rem, 0.8309859155rem + 0.1877934272vw, 1rem);
     font-weight: 500;

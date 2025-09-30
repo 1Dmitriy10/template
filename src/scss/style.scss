@@ -31,18 +31,18 @@
 //========основные стили============
 body {
     font-family: var(--font-family);
-    background-color: var(--background-color);
+    // background-color: var(--background-color);
 }
 
 main {
-    display: flex;
-    flex-direction: column;
-    gap: clamp-px(50, 120);
+    // display: flex;
+    // flex-direction: column;
+    // gap: clamp-px(50, 120);
 
     &>section,
     &>div {
-        &:last-child {
-            margin-bottom: clamp-px(50, 120);
-        }
+        margin-bottom: clamp-px(50, 120);
+
+        &:last-child {}
     }
 }

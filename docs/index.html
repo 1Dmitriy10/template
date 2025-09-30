@@ -37,6 +37,8 @@
             margin-bottom: clamp-px(40, 80);
         }
 
+
+
         .hero {
             position: relative;
             min-height: 450px;
@@ -45,9 +47,14 @@
 
         .hero__container h1 {
             color: var(--text-color-second);
-            font-size: clamp-px(32, 48);
+            font-size: 48px;
             line-height: 130%;
-            margin-bottom: clamp-px(20, 24);
+            margin-bottom: 24px;
+
+            @media (width<768px) {
+                font-size: 32px;
+                margin-bottom: 20px;
+            }
 
         }
 
@@ -71,6 +78,16 @@
             border: 1px solid var(--tertiary-color);
             transition: 0.3s;
             cursor: pointer;
+        }
+
+        .header__btn {
+            width: 100px;
+            height: 37px;
+
+            @media (width<768px) {
+                width: 100px;
+                height: 37px;
+            }
         }
 
         img {
@@ -107,9 +124,10 @@
         .services-prev__card {
             height: 183px;
             width: 318px;
+            background-color: var(--bg-color-primary);
         }
 
-        .header {
+        header {
             height: 88px;
             overflow: hidden;
 
@@ -121,10 +139,10 @@
         }
     </style>
   <script type="module" crossorigin src="./assets/vendor-BpJTUdAv.js"></script>
-  <script type="module" crossorigin src="./assets/main-D-zxpd_i.js"></script>
+  <script type="module" crossorigin src="./assets/main-CvmLHtRG.js"></script>
   <!-- CSS loaded asynchronously -->
-<link rel="preload" href="./assets/main-M_nUa5o5.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-<noscript><link rel="stylesheet" href="./assets/main-M_nUa5o5.css"></noscript>
+<link rel="preload" href="./assets/main-C03lHYIN.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="./assets/main-C03lHYIN.css"></noscript>
 
 </head>
 <body>
@@ -133,7 +151,7 @@
   
           <div class="logo-wrap  !mr-[clamp(0.938rem,0.366rem+2.44vw,2.5rem)]">
               <a class="logo" href="/">
-                  <picture><source srcset="./images/webp/logo.webp" type="image/webp"><img src="./images/logo.png" alt="logo" loading="lazy"></picture>
+                  <picture><source srcset="./images/webp/logo.webp" type="image/webp"><img width="200" height="50" src="./images/logo.png" alt="logo" loading="lazy"></picture>
               </a>
   
               <span>Подпись логотипа</span>

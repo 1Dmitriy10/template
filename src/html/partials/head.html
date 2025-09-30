@@ -35,6 +35,8 @@
             margin-bottom: clamp-px(40, 80);
         }
 
+
+
         .hero {
             position: relative;
             min-height: 450px;
@@ -43,9 +45,14 @@
 
         .hero__container h1 {
             color: var(--text-color-second);
-            font-size: clamp-px(32, 48);
+            font-size: 48px;
             line-height: 130%;
-            margin-bottom: clamp-px(20, 24);
+            margin-bottom: 24px;
+
+            @media (width<768px) {
+                font-size: 32px;
+                margin-bottom: 20px;
+            }
 
         }
 
@@ -69,6 +76,16 @@
             border: 1px solid var(--tertiary-color);
             transition: 0.3s;
             cursor: pointer;
+        }
+
+        .header__btn {
+            width: 100px;
+            height: 37px;
+
+            @media (width<768px) {
+                width: 100px;
+                height: 37px;
+            }
         }
 
         img {
@@ -105,9 +122,10 @@
         .services-prev__card {
             height: 183px;
             width: 318px;
+            background-color: var(--bg-color-primary);
         }
 
-        .header {
+        header {
             height: 88px;
             overflow: hidden;
 

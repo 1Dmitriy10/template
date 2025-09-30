@@ -1,10 +1,5 @@
 @use "../main/mixins-vars"as *;
 
-.call {
-    background-color: var(--secondary-color);
-
-}
-
 .call__container {
     padding: clamp-px(50, 80) 0;
     color: var(--text-color-second);
@@ -14,7 +9,7 @@
     justify-content: center;
 
     & .block-title {
-        color: var(--text-color-second);
+        color: var(--text-color-call);
 
     }
 }
@@ -25,15 +20,16 @@
     font-size: clamp-px(16, 18);
     margin-bottom: 20px;
     text-align: center;
+    color: var(--text-color-call);
 }
 
 .call {
-    background: linear-gradient(135deg, var(--gradient-call-start) 0%, var(--gradient-call-stop) 100%);
+    background: linear-gradient(135deg, #f6faff 0%, #6a8db5 100%);
     position: relative;
     overflow: hidden;
     padding: 80px 0;
     text-align: center;
-    color: white;
+    color: var(--text-color-call);
 }
 
 /* Декоративные элементы на фоне */
