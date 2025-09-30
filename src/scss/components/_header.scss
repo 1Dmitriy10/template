@@ -26,6 +26,10 @@ header {
         max-width: 100px;
         color: var(--text-color);
     }
+
+    & img {
+        width: clamp-px(49, 69);
+    }
 }
 
 .logo {}
