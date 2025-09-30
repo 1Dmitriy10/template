@@ -5,6 +5,10 @@ header {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     background-color: var(--header-color);
     height: auto;
+    z-index: 3;
+}
+
+.header {
     overflow: visible;
 }
 

@@ -21,14 +21,7 @@
     display: flex;
     align-items: center;
 
-    & .logo-2 {
-        width: clamp-px(115, 120) !important;
-        display: none;
 
-        @include respond-to("tab") {
-            display: block;
-        }
-    }
 }
 
 .sticky-header-logo {

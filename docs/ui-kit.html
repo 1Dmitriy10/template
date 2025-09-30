@@ -77,18 +77,18 @@
 
         /* Хедер - критичные стили */
         .header {
-            position: fixed;
             top: 0;
             left: 0;
             width: 100%;
-            z-index: 1000;
             background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(10px);
             border-bottom: 1px solid rgba(0, 0, 0, 0.1);
             transition: all 0.3s ease;
+            height: 95px;
+            overflow: hidden;
         }
 
-        .header__container {
+        */ .header__container {
             display: flex;
             align-items: center;
             justify-content: space-between;
@@ -200,9 +200,8 @@
             box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
         }
 
-        /* Запасное место для фиксированного хедера */
-        body {
-            padding-top: 80px;
+        .sticky-header {
+            opacity: 0;
         }
 
         /* Адаптивность */
@@ -444,10 +443,10 @@
         }
     </style>
   <script type="module" crossorigin src="./assets/vendor-BpJTUdAv.js"></script>
-  <script type="module" crossorigin src="./assets/main-Ce_IDiIi.js"></script>
+  <script type="module" crossorigin src="./assets/main-DMoeWioW.js"></script>
   <!-- CSS loaded asynchronously -->
-<link rel="preload" href="./assets/main-Ceke7jBk.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-<noscript><link rel="stylesheet" href="./assets/main-Ceke7jBk.css"></noscript>
+<link rel="preload" href="./assets/main-CUkhtKR7.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="./assets/main-CUkhtKR7.css"></noscript>
 
 </head>
 <body>
@@ -588,7 +587,7 @@
             </button>    </div>
     </header>
     
-    <div class="sticky-header" style="opacity: 0">
+    <div class="sticky-header">
         <div class="container sticky-header__container">
     
             <nav class="nav-sticky">
