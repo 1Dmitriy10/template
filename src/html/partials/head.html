@@ -83,8 +83,14 @@
         }
 
         img {
-            width: 100%;
             height: auto;
+            /* Сохраняет пропорции */
+            max-width: 100%;
+            /* Адаптивность */
+        }
+
+        section {
+            padding: 0 clamp-px(16, 20);
         }
     </style>
 
