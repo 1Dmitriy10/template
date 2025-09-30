@@ -110,15 +110,34 @@
             height: 331px;
         }
 
-        /* .swiper {
-            height: clamp(21.875rem, 15.015rem + 29.27vw, 40.625rem);
-        } */
-
+        /* Предотвращение смещения макета */
         img {
-            height: auto;
-            /* Сохраняет пропорции */
-            max-width: 100%;
-            /* Адаптивность */
+            max-width: 400px;
+            height: 300px;
+        }
+
+        /* Заглушки для изображений до загрузки */
+        img[width][height] {
+            aspect-ratio: attr(width) / attr(height);
+        }
+
+        /* Анимации только при reduced-motion: no-preference */
+        @media (prefers-reduced-motion: no-preference) {
+            .fade-in {
+                animation: fadeIn 0.6s ease-in;
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         section {
