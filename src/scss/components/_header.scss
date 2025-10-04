@@ -10,39 +10,82 @@ header {
 
 .header {
     overflow: visible;
+    height: auto;
 }
 
 .header__container {
     display: flex;
-    align-items: center;
-    padding: 15px 0;
+    flex-direction: column;
+    padding: clamp-px(10, 15) 0;
+}
 
+.header-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid var(--secondary-color);
+    padding-bottom: 5px;
+
+    @include respond-to("tab") {
+        border-bottom: none;
+        padding-bottom: 0;
+    }
+}
+
+.header-bottom {
+    display: flex;
+    align-items: center;
+    padding-top: 5px;
+
+    @include respond-to("tab") {
+        display: none;
+    }
 }
 
 .logo-wrap {
     display: flex;
     align-items: center;
     gap: 10px;
+    width: auto;
+    height: auto;
 
     & span {
         font-size: 12px;
         width: fit-content;
         max-width: 100px;
         color: var(--text-color);
+
+        @include respond-to("nout") {
+            display: none;
+        }
     }
 
     & img {
-        width: clamp-px(49, 69);
+        max-width: fit-content;
+
+        @include respond-to("pc-old") {
+            width: 90%;
+        }
+
+        @include respond-to("tel") {
+            width: 80%;
+        }
+
+
     }
 }
 
-.logo {}
+.logo {
+    width: fit-content;
+    display: contents;
+}
 
 .contact-box {
     display: flex;
     align-items: center;
-    gap: clamp-px(10, 20);
-    font-size: clamp-px(14, 16);
+    justify-content: space-between;
+    gap: clamp-px(15, 25);
+    font-size: clamp-px(12, 14);
     color: var(--text-color);
     font-weight: 500;
 
@@ -56,16 +99,51 @@ header {
     }
 }
 
-.header__mail {
-    @include respond-to('nout') {
+.contact-box__header {
+    width: 100%;
+    margin-right: clamp-px(20, 40);
+
+    &>div {
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
+
+        &>span {
+            font-size: clamp-px(10, 12);
+            color: var(--text-color);
+            font-weight: 500;
+        }
+    }
+
+    @include respond-to("tab") {
         display: none;
     }
+
+}
+
+.header__mail {
+    // @include respond-to('nout') {
+    //     display: none;
+    // }
 }
 
 .header__phone {
-    & span {
-        @include respond-to('pc-old') {
-            display: none;
+    display: none;
+
+    @include respond-to("tab") {
+        display: block;
+        margin-left: auto;
+    }
+
+    &.phone {
+        margin-left: 0;
+
+        & span {
+            @include respond-to('tab') {
+                display: none;
+            }
+
+
         }
     }
 }
@@ -73,23 +151,33 @@ header {
 .phone-icon {
     display: none;
 
-    @include respond-to('pc-old') {
+    @include respond-to('tab') {
         display: flex;
         align-items: center;
         justify-content: center;
         border-radius: 8px;
         border: 1px solid var(--tertiary-color);
-        width: 30px;
-        height: 30px;
+        width: clamp-px(25, 30);
+        height: clamp-px(25, 30);
 
         &>svg {
-            width: 20px;
-            height: 20px;
+            width: clamp-px(18, 23);
+            height: clamp-px(18, 23);
 
             & path {
                 fill: var(--tertiary-color);
             }
         }
+    }
+
+    @include respond-to('tel') {
+        width: 39px;
+        height: 39px;
+
+        // &>svg {
+        //     width: clamp-px(18, 23);
+        //     height: clamp-px(18, 23);
+        // }
     }
 }
 
@@ -99,15 +187,29 @@ header {
     gap: clamp-px(10, 15);
 
     & a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
         width: clamp-px(25, 30);
         height: clamp-px(25, 30);
+
+        &>svg {
+            width: clamp-px(24, 29);
+            height: clamp-px(24, 29);
+        }
     }
 }
 
 .header__btn {
+    margin-left: auto;
+
     &:hover {
         transition: 0.3s;
         color: var(--header-text-hover-color);
+    }
+
+    @include respond-to('tab') {
+        margin-right: 20px;
     }
 }
 
@@ -119,6 +221,12 @@ header {
 
 .header__social-box {
     margin-right: clamp-px(20, 40);
+    width: auto;
+    height: auto;
+
+    @include respond-to('tab') {
+        margin-right: 15px;
+    }
 
     @include respond-to('tel') {
         display: none;

@@ -117,6 +117,11 @@
     opacity: 0;
     transform: translateY(30px);
     transition: all 0.6s ease;
+
+    @include respond-to("nout") {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .blog-prev__card.visible {
