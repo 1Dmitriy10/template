@@ -1,0 +1,219 @@
+/* critical css */
+
+.container {
+    max-width: 1380px;
+    margin: 0 auto;
+}
+
+@media (max-width: 1399.98px) {
+    :root .container {
+        max-width: 1210px;
+    }
+}
+
+@media (max-width: 1199.98px) {
+    :root .container {
+        max-width: 1010px;
+    }
+}
+
+@media (max-width: 991.98px) {
+    :root .container {
+        max-width: 800px;
+    }
+}
+
+@media (max-width: 767.98px) {
+    :root .container {
+        max-width: 650px;
+    }
+}
+
+@media (max-width: 575.98px) {
+    :root .container {
+        max-width: 410px;
+    }
+}
+
+@media (max-width: 419.98px) {
+    :root .container {
+        max-width: 100%;
+    }
+}
+
+.contacts-prev__map {
+    width: 680px;
+    height: 272;
+}
+
+.hero {
+    min-height: 450px;
+}
+
+.faq-prev {
+    height: 706px;
+}
+
+.blog-prev {
+    height: 943px;
+}
+
+.services-prev .grid {
+    display: grid;
+    gap: clamp(0.625rem, 0.396rem + 0.98vw, 1.25rem);
+    grid-template-columns: repeat(4, 1fr);
+}
+
+/* Предотвращение смещения макета */
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Заглушки для изображений до загрузки */
+img[width][height] {
+    aspect-ratio: attr(width) / attr(height);
+}
+
+/* Анимации только при reduced-motion: no-preference */
+@media (prefers-reduced-motion: no-preference) {
+    .fade-in {
+        animation: fadeIn 0.6s ease-in;
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+section {
+    padding: 0 clamp(1rem, 0.911971831rem + 0.3755868545vw, 1.25rem);
+}
+
+.btn {
+    padding: clamp(0.5rem, 0.411971831rem + 0.3755868545vw, 0.75rem)
+        clamp(0.9375rem, 0.5633802817rem + 1.5962441315vw, 2rem);
+}
+
+.services-prev__card {
+    padding: clamp(0.9375rem, 0.7394366197rem + 0.8450704225vw, 1.5rem);
+}
+
+.advantages-prev__card {
+    padding: clamp(0.9375rem, 0.7394366197rem + 0.8450704225vw, 1.5rem);
+}
+
+.advantages-prev__container {
+    padding: clamp(1.875rem, 1.4348591549rem + 1.8779342723vw, 3.125rem) 0;
+}
+
+.call__container {
+    padding: clamp(3.125rem, 2.4647887324rem + 2.8169014085vw, 5rem) 0;
+}
+
+.blog-prev__card {
+    padding: clamp(0.9375rem, 0.6954225352rem + 1.0328638498vw, 1.625rem);
+}
+
+.header__container {
+    display: flex;
+    align-items: center;
+    padding: 15px 0;
+}
+
+.header {
+    height: 93.9;
+}
+
+.menu {
+    width: 614.75px;
+    height: 21.59px;
+}
+
+.logo-wrap {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 174.86px;
+    height: 63.91px;
+    margin-right: 35.6px;
+}
+
+.logo-wrap span {
+    font-size: 12px;
+    width: 100px;
+    color: var(--text-color);
+}
+
+.contact-box {
+    width: 232.93px;
+    height: 23.91px;
+    margin-left: auto;
+    margin-right: clamp(0.938rem 15.008px, 0.366rem + 2.44vw, 2.5rem);
+    display: flex;
+    align-items: center;
+    gap: clamp(0.625rem, 0.4049295775rem + 0.9389671362vw, 1.25rem);
+    font-size: clamp(0.875rem, 0.8309859155rem + 0.1877934272vw, 1rem);
+    color: var(--text-color);
+    font-weight: 500;
+}
+
+.header__social-box {
+    width: 74.49px;
+    height: 29.83px;
+    margin-right: clamp(1.25rem, 0.8098591549rem + 1.8779342723vw, 2.5rem);
+    display: flex;
+    align-items: center;
+    gap: clamp(0.625rem, 0.5149647887rem + 0.4694835681vw, 0.9375rem);
+}
+
+.nav-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: clamp(0.9375rem, 0.6954225352rem + 1.0328638498vw, 1.625rem);
+    justify-content: space-between;
+    position: relative;
+}
+
+.sub-menu {
+    opacity: 0;
+    overflow: hidden;
+}
+
+.sticky-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: white;
+    border-radius: 0;
+    box-shadow: 0px 0px 10px 1px rgba(187, 185, 185, 0.4117647059);
+    padding: clamp(0.9375rem, 0.8274647887rem + 0.4694835681vw, 1.25rem)
+        clamp(0.75rem, 0.573943662rem + 0.7511737089vw, 1.25rem);
+    transition: 0.3s;
+    opacity: 0;
+    visibility: hidden;
+    z-index: 100;
+    height: auto;
+}
+
+.sticky-header__container {
+    display: flex;
+    align-items: center;
+}
+
+.nav-list-sticky {
+    display: flex;
+    flex-wrap: wrap;
+    gap: clamp(0.9375rem, 0.6954225352rem + 1.0328638498vw, 1.625rem 26px);
+    justify-content: space-between;
+    position: relative;
+}

@@ -16,6 +16,52 @@ const rollupInputs = {
   error: path.resolve(__dirname, 'src/html/404.html'),
 };
 
+// Копирует критический css
+const criticalCSSPlugin = () => {
+  return {
+    name: 'critical-css-copy',
+    apply: 'build',
+    
+    generateBundle() {
+      const criticalPath = path.resolve(__dirname, 'src/scss/critical.css');
+      const outputPath = 'assets/critical.css';
+      
+      if (fs.existsSync(criticalPath)) {
+        const content = fs.readFileSync(criticalPath, 'utf8');
+        
+        // Добавляем файл в сборку
+        this.emitFile({
+          type: 'asset',
+          fileName: outputPath,
+          source: content
+        });
+        
+        console.log('✅ Critical CSS copied to:', outputPath);
+      } else {
+        console.log('⚠️ critical.css not found at:', criticalPath);
+      }
+    }
+  };
+};
+
+// Плагин для добавления critical.css в HTML
+const criticalCSSHtmlPlugin = () => {
+  return {
+    name: 'critical-css-html',
+    apply: 'build',
+    
+    transformIndexHtml(html) {
+      console.log('🎯 Adding critical CSS to HTML...');
+      
+      // Добавляем critical.css в head ДО основных стилей
+      return html.replace(
+        /<title>(.*?)<\/title>/i,
+        `<title>$1</title>\n<link rel="stylesheet" href="./assets/critical.css">`
+      );
+    }
+  };
+};
+
 // Функция для экспорта в JS файл (ВЫЗЫВАЕМ СРАЗУ)
 function exportInputsToFile() {
   try {
@@ -561,7 +607,8 @@ export default defineConfig({
     imagesPlugin(),
     pictureWebpPlugin(),
     tailwindcss(),
-  
+    criticalCSSPlugin(),
+    criticalCSSHtmlPlugin(),
     simpleAsyncCSSPlugin(),
     copyDistToDocs(),
   ],
@@ -580,6 +627,7 @@ export default defineConfig({
           if (assetInfo.name && /\.(jpg|jpeg|png|gif|svg|ico)$/i.test(assetInfo.name)) {
             return `images/[name][extname]`;
           }
+          
           // Разделяем CSS файлы
           if (assetInfo.name && /\.css$/i.test(assetInfo.name)) {
             if (assetInfo.name.includes('critical')) {
