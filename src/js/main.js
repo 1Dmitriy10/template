@@ -95,6 +95,19 @@ import { gitNav } from "./libs/gitNav.js";
 //------------Анимация blog---------------
 import { animateOnScroll } from "./components/animatBlogPrev.js";
 
+/*
+ {{> hero}}
+    {{> services-prev}}
+    {{> advantages-prev}}
+    {{> portfolio-prev}}
+    {{> reviews-prev}}
+    {{> call}}
+    {{> blog-prev}}
+    {{> team-prev}}
+    {{> faq-prev}}
+    {{> contacts-prev}}
+*/
+
 
 
 
