@@ -1,6 +1,8 @@
 @use "../main/mixins-vars"as *;
 
-.faq-prev {}
+.faq-prev {
+    height: auto;
+}
 
 .faq-prev__container {
     display: flex;

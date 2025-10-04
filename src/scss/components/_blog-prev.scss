@@ -1,6 +1,8 @@
 @use "../main/mixins-vars"as *;
 
-.blog-prev {}
+.blog-prev {
+    height: auto;
+}
 
 .blog-prev__container {
     display: flex;
