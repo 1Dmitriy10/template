@@ -51,6 +51,13 @@
     background: linear-gradient(135deg, #f6faff, #6a8db5);
 }
 
+.hero__container h1 {
+    color: var(--text-color-hero);
+    font-size: clamp(2rem, 1.6478873239rem + 1.5023474178vw, 3rem);
+    line-height: 130%;
+    margin-bottom: clamp(1.25rem, 1.161971831rem + 0.3755868545vw, 1.5rem);
+}
+
 .faq-prev {
     height: 706px;
 }
