@@ -46,7 +46,7 @@ import { mask } from "./libs/mask.js";
 
 
 // -----------------------Карта яндекса-------------------
-// import { getYaMap } from "./libs/yamap.js";
+import { getYaMap } from "./libs/yamap.js";
 
 
 //---------------Мой masonry---------------
@@ -93,21 +93,10 @@ import { gitNav } from "./libs/gitNav.js";
 //------------Звездный рейтинг (управление дробным значением)---------------
 // import { setRating } from "./libs/starRatingFractional.js";
 
-//------------Анимация blog---------------
-import { animateOnScroll } from "./components/animatBlogPrev.js";
+//------------Анимация кнопок---------------
+import { animatebutton } from "./components/animatebutton.js";
 
-/*
- {{> hero}}
-    {{> services-prev}}
-    {{> advantages-prev}}
-    {{> portfolio-prev}}
-    {{> reviews-prev}}
-    {{> call}}
-    {{> blog-prev}}
-    {{> team-prev}}
-    {{> faq-prev}}
-    {{> contacts-prev}}
-*/
+
 
 
 

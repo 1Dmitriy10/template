@@ -14,37 +14,318 @@ main.ui-kit {
 }
 
 .btn {
-    border-radius: var(--border-radius-primary);
-    padding: clamp-px(8, 12) clamp-px(15, 32);
     display: flex;
+    gap: 20px;
     align-items: center;
     justify-content: center;
-    background: var(--tertiary-color);
-    font-weight: 500;
+    height: fit-content;
+    border-radius: var(--border-radius);
+    padding: clamp-px(8, 14) clamp-px(20, 40);
+    background: var(--secondary-color);
+    font-family: var(--font-family);
+    font-weight: 700;
     font-size: clamp-px(14, 16);
-    line-height: 140%;
-    color: var(--btn-color);
-    border: 1px solid var(--tertiary-color);
+    text-align: center;
+    color: var(--text-white);
     transition: 0.3s;
-    cursor: pointer;
-    width: auto;
-    height: auto;
 
-    &:hover {
-        transition: 0.3s;
-        background-color: transparent;
-        color: var(--tertiary-color);
+}
+
+.btn-anim {
+    position: relative;
+    // padding: 16px 32px;
+    // background: linear-gradient(45deg, #FF416C, #FF4B2B);
+    // /* Градиент */
+    // color: white;
+    // border: none;
+    // border-radius: 8px;
+    // font-size: 16px;
+    // font-weight: bold;
+    // cursor: pointer;
+    overflow: hidden;
+    transition: transform 0.2s;
+}
+
+// .btn-anim:hover {
+//     transform: translateY(-2px);
+//     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+// }
+
+.ripple {
+    position: absolute;
+    border-radius: 50%;
+    background-color: var(--btn-anim-color);
+    transform: scale(0);
+    animation: ripple-effect 0.6s linear;
+    pointer-events: none;
+}
+
+@keyframes ripple-effect {
+    to {
+        transform: scale(4);
+        opacity: 0;
     }
 }
 
-.btn__second {
+.btn-transparent {
     background-color: transparent;
-    color: var(--tertiary-color);
+    border: 1px solid var(--secondary-color);
+    color: var(--secondary-color);
+    transition: 0.3s;
 
     &:hover {
         transition: 0.3s;
-        background-color: var(--tertiary-color);
-        color: var(--btn-color);
+        color: var(--text-white);
+        background-color: var(--secondary-color);
+    }
+}
+
+.accent {
+    color: var(--secondary-color);
+}
+
+.title-box {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    justify-content: space-between;
+    margin-bottom: clamp-px(30, 50);
+
+    & .block-title {
+        max-width: 400px;
+        margin-bottom: 0;
     }
 
+    @include respond-to('tab') {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+
+.title-box__subtitle {
+    font-weight: 400;
+    font-size: clamp-px(16, 18);
+    line-height: 150%;
+    color: var(--text);
+    max-width: 875px;
+    width: 60%;
+
+    @include respond-to("tab") {
+        width: 100%;
+    }
+}
+
+.link {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    font-family: var(--font-family);
+    font-weight: 500;
+    font-size: clamp-px(14, 16);
+    color: var(--secondary-color);
+    transition: 0.3s;
+
+    &>svg {
+        fill: var(--secondary-color);
+
+        & path {
+            fill: var(--secondary-color);
+        }
+    }
+
+    &:hover {
+        transition: 0.3s;
+        gap: 20px;
+    }
+}
+
+.slider-btn {
+    border-radius: 100%;
+    width: clamp-px(40, 70);
+    min-width: clamp-px(40, 70);
+    height: clamp-px(40, 70);
+    background: rgba(255, 255, 255, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+
+    &>i {
+        transition: 0.3s;
+        font-size: clamp-px(14, 16);
+        color: var(--secondary-color);
+    }
+
+    &>svg {
+        transition: 0.3s;
+        width: clamp-px(18, 20);
+        height: clamp-px(18, 20);
+        fill: var(--secondary-color);
+
+        & path {
+            fill: var(--secondary-color);
+        }
+    }
+}
+
+.slider-btn__next {
+    transition: 0.3s;
+
+    &:hover {
+        &>i {
+            transition: 0.3s;
+            transform: translateX(5px);
+        }
+
+        &>svg {
+            transition: 0.3s;
+            transform: translateX(5px);
+        }
+
+    }
+}
+
+.slider-btn__prev {
+    &:hover {
+        &>i {
+            transition: 0.3s;
+            transform: translateX(-5px);
+        }
+
+        &>svg {
+            transition: 0.3s;
+            transform: translateX(-5px);
+        }
+
+    }
+}
+
+.ping {
+    -webkit-animation: ping 1.8s ease-in-out infinite both;
+    animation: ping 1.8s ease-in-out infinite both;
+}
+
+/**
+ * ----------------------------------------
+ * animation ping
+ * ----------------------------------------
+ */
+@-webkit-keyframes ping {
+    0% {
+        -webkit-transform: scale(1);
+        transform: scale(1);
+        opacity: 0.8;
+    }
+
+    80% {
+        -webkit-transform: scale(1.5);
+        transform: scale(1.5);
+        opacity: 0;
+    }
+
+    100% {
+        -webkit-transform: scale(2.8);
+        transform: scale(2.8);
+        opacity: 0;
+    }
+}
+
+@keyframes ping {
+    0% {
+        -webkit-transform: scale(1);
+        transform: scale(1);
+        opacity: 0.8;
+    }
+
+    80% {
+        -webkit-transform: scale(1.5);
+        transform: scale(1.5);
+        opacity: 0;
+    }
+
+    100% {
+        -webkit-transform: scale(2.8);
+        transform: scale(2.8);
+        opacity: 0;
+    }
+}
+
+.player {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 80px;
+    height: 80px;
+    z-index: 2;
+    border-radius: 100%;
+    background-color: rgb(0 0 0 / 60%);
+
+    &>svg {
+        margin-left: 5px;
+    }
+}
+
+.player-inner {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 80px;
+    height: 80px;
+    z-index: 2;
+    border-radius: 100%;
+    background-color: rgb(0 0 0 / 60%);
+}
+
+.rating-box {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+
+    &>svg {
+        width: 20px;
+        height: 20px;
+
+        & path {
+            stroke: #e1bc38;
+            fill: transparent;
+        }
+    }
+}
+
+.show-more-text {
+
+    width: 100%;
+    height: 1px;
+    background-color: var(--secondary-color);
+    position: relative;
+}
+
+.show-more-text__icon {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 30px;
+    height: 30px;
+    background-color: var(--secondary-color);
+    border-radius: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: translateY(-50%);
+    cursor: pointer;
+}
+
+.slider-btn-box {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+
+    & .slider-btn {
+        position: static;
+    }
+
+    @include respond-to('tab') {
+        display: none;
+    }
 }

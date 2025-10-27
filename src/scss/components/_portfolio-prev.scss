@@ -1,63 +1,210 @@
 @use "../main/mixins-vars"as *;
 
-.portfolio-prev {}
+.portfolio-prev {
+    background-color: var(--primary-color);
 
-.portfolio-prev__container {
-    display: flex;
-    flex-direction: column;
-}
-
-.portfolio-prev__card {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    aspect-ratio: 1/0.5;
-    position: relative;
-
-    &:hover {
-        & .portfolio-prev__card-img {
-            transition: 0.3s;
-            filter: brightness(0.5);
-        }
-
-        & .portfolio-prev__card-title {
-            transition: 0.3s;
-            transform: translateY(0);
-            opacity: 1;
-        }
-    }
-
-    @include respond-to("tel") {
-        &:nth-child(n+4) {
+    & .slider-btn {
+        @include respond-to("tab") {
             display: none;
         }
     }
 }
 
-.portfolio-prev__card-link {
-    position: relative;
-    z-index: 3;
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
+.portfolio-prev__card {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    opacity: 0.7;
+    transition: 0.3s;
     height: 100%;
-    object-fit: cover;
+
 }
 
 .portfolio-prev__card-img {
-    object-fit: cover;
+    width: 100%;
+    aspect-ratio: 1/1;
+    overflow: hidden;
+    position: relative;
+    border-radius: var(--border-radius);
+
+
+    & .img-bg {
+        border-radius: var(--border-radius);
+    }
+}
+
+
+
+.portfolio-prev__card-text-box {
     transition: 0.3s;
+    display: flex;
+    flex-direction: column;
+    padding: clamp-px(15, 25);
+    flex: 1 1 auto;
 }
 
 .portfolio-prev__card-title {
+    font-weight: 400;
+    font-size: clamp-px(14, 16);
+    line-height: 135%;
+    color: var(--title);
+    margin-bottom: clamp-px(20, 35);
+}
+
+.portfolio-prev__card-text {
+    font-family: var(--font-family);
+    font-weight: 400;
+    font-size: clamp-px(12, 14);
+    line-height: 125%;
+    color: var(--text);
+    margin-bottom: 20px;
+}
+
+.portfolio-prev__card-link {
+    margin-top: auto;
+}
+
+.swiper-slide-active {
+    & .portfolio-prev__card {
+        transition: 0.3s;
+        opacity: 1;
+    }
+
+    & .portfolio-prev__card-text-box {
+        transition: 0.3s;
+        border-radius: var(--border-radius);
+
+        box-shadow: 0 12px 18px 0 rgba(11, 98, 172, 0.12);
+        background: var(--light-color);
+    }
+}
+
+.portfolio-prev__slide {
+    height: auto !important;
+}
+
+.portfolio-prev__slider {
     position: relative;
-    z-index: 2;
-    color: var(--text-color-second);
-    font-weight: 700;
-    font-size: clamp-px(18, 20);
-    line-height: 130%;
+    margin-left: -20px !important;
+    width: calc(100% + 40px) !important;
+}
+
+.portfolio-prev {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+
+    @include respond-to("pc") {
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+.portfolio-prev__container {
+    position: absolute;
+    top: clamp-px(0, 80);
+    bottom: clamp-px(0, 80);
+
+    @include respond-to("pc") {
+        position: static;
+        top: auto;
+        bottom: auto;
+    }
+
+}
+
+.portfolio-prev__filter-box {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    background: var(--light-color);
+    z-index: 3;
+    width: clamp-px(300, 546);
+    padding: clamp-px(20, 80) clamp-px(20, 100);
+    justify-content: space-between;
+    gap: 20px;
+
+    &>h2 {
+        font-family: var(--font-family);
+        font-weight: 700;
+        font-size: clamp-px(32, 42);
+        line-height: 120%;
+        color: var(--title);
+    }
+
+    @include respond-to("pc") {
+        position: static;
+        width: 100%;
+    }
+}
+
+.portfolio-prev__filter {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    overflow-y: auto;
+
+    @include respond-to("pc") {
+        flex-direction: row;
+    }
+}
+
+.portfolio-prev__filter-item {
+    border-radius: var(--border-radius) var(--border-radius) var(--border-radius) 0;
+    width: clamp-px(180, 250);
+    padding: clamp-px(12, 15) clamp-px(20, 25);
     transition: 0.3s;
-    transform: translateY(-50px);
-    opacity: 0;
+    font-weight: 600;
+    font-size: clamp-px(14, 16);
+    line-height: 125%;
+    color: var(--title);
+    cursor: pointer;
+
+    &.active {
+        transition: 0.3s;
+        background: var(--secondary-color);
+        color: var(--text-white);
+    }
+
+    &:hover {
+        transition: 0.3s;
+        background: var(--secondary-color);
+        color: var(--text-white);
+    }
+}
+
+.portfolio-prev__btn {
+    &.mob {
+        display: none;
+    }
+
+    @include respond-to("pc") {
+        &.desc {
+            display: none;
+        }
+
+        &.mob {
+            display: flex;
+            align-self: center;
+        }
+    }
+
+
+}
+
+.portfolio-prev__text {
+    font-weight: 600;
+    font-size: clamp-px(12, 14);
+    line-height: 135%;
+    color: var(--text);
+}
+
+#portfolio-slider-btn__prev {
+    @include respond-to('pc') {
+        left: 0;
+    }
 }

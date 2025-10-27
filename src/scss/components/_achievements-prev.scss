@@ -1,0 +1,70 @@
+@use "../main/mixins-vars"as *;
+
+.achievements-prev {}
+
+.achievements-prev__container {
+    display: flex;
+    flex-direction: column;
+}
+
+.achievements-prev__card-box {
+    display: grid;
+    gap: 20px;
+    grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+    margin-bottom: clamp-px(30, 50);
+
+    @include respond-to("nout") {
+        gap: 10px;
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+.achievements-prev__card {
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+
+    &:hover {
+        & .img-bg {
+            transition: 0.3s;
+            transform: scale(102%);
+        }
+    }
+}
+
+.achievements-prev__card-img {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1/1.2;
+    overflow: hidden;
+    border-radius: var(--border-radius);
+    margin-bottom: clamp-px(20, 30);
+
+    & .img-bg {
+        transition: 0.3s;
+        border-radius: var(--border-radius);
+    }
+}
+
+
+
+.achievements-prev__card-title {
+    font-weight: 700;
+    font-size: clamp-px(14, 18);
+    line-height: 135%;
+    text-align: center;
+    color: var(--title);
+    margin-bottom: clamp-px(15, 20);
+}
+
+.achievements-prev__card-subtitle {
+    font-weight: 400;
+    font-size: clamp-px(12, 14);
+    line-height: 125%;
+    text-align: center;
+    color: var(--secondary-color);
+}
+
+.achievements-prev__btn {
+    align-self: center;
+}

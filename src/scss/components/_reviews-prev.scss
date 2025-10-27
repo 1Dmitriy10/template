@@ -1,6 +1,8 @@
 @use "../main/mixins-vars"as *;
 
-.reviews-prev {}
+.reviews-prev {
+    background-color: var(--primary-color);
+}
 
 .reviews-prev__container {
     display: flex;
@@ -10,15 +12,11 @@
 .slider-wrap {}
 
 .reviews-prev__slide {
-    position: relative;
     display: flex;
     flex-direction: column;
-    height: 100%;
-    box-shadow: 0 4px 4px rgba(131, 131, 131, 0.4509803922);
-    padding: clamp(0.9375rem, 0.7394366197rem + 0.8450704225vw, 1.5rem);
-    border-radius: var(--border-radius-primary);
-    background-color: var(--bg-color-primary);
-    transition: 0.3s;
+    background: var(--light-color);
+    border-radius: var(--border-radius);
+    padding: clamp-px(15, 20) clamp-px(20, 25) clamp-px(20, 20) clamp-px(20, 25);
 
 }
 
@@ -28,7 +26,7 @@
     position: relative;
     border-radius: 100%;
     overflow: hidden;
-    margin-bottom: 16px;
+    margin-bottom: clamp-px(20, 30);
     align-self: center;
 
     & .img-bg {
@@ -37,38 +35,36 @@
     }
 }
 
-
-
-.reviews-prev__slide-name {
-    color: var(--text-color);
-    font-weight: 700;
-    font-size: clamp-px(18, 20);
-    line-height: 130%;
-    margin-bottom: 20px;
+.reviews-prev__rating-box {
+    align-self: center;
+    margin-bottom: clamp-px(20, 30);
 }
 
-.rating-box {
+.reviews-prev__text-box {
     display: flex;
-    gap: 10px;
-    margin-bottom: 20px;
+    flex-direction: column;
+    gap: 15px;
+}
 
-    &>svg {
-        width: 20px;
-        height: 20px;
-
-        & path {
-            stroke: #e1bc38;
-            fill: transparent;
-        }
-    }
+.reviews-prev__slide-name {
+    font-weight: 700;
+    font-size: clamp-px(16, 18);
+    line-height: 135%;
+    color: var(--title);
 }
 
 .reviews-prev__slide-text {
-    color: var(--text-color);
     font-weight: 400;
     font-size: clamp-px(14, 16);
-    line-height: 140%;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
+    line-height: 125%;
+    color: var(--text);
+}
+
+.reviews-prev__show-more-text {
+    margin-top: clamp-px(20, 30);
+}
+
+.reviews-prev__slider {
+    margin-left: -20px !important;
+    width: calc(100% + 40px) !important;
 }

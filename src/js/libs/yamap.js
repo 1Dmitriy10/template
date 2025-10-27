@@ -15,21 +15,19 @@ export function getYaMap() {
         });
 
         // ---регистрация метки------- 
-        myPlacemark = new ymaps.Placemark([55.646569, 37.670339], { hintContent: "ООО «Услуги для бизнеса»", balloonContent: "ООО «Услуги для бизнеса»" });
+        myPlacemark = new ymaps.Placemark([55.646569, 37.670339], { 
+            hintContent: "ООО «Услуги для бизнеса»", 
+            balloonContent: "ООО «Услуги для бизнеса»" 
+        });
 
         // ---Добавление метки на карту------- 
         myMap.geoObjects.add(myPlacemark);
 
-        myMap.controls
-            // Кнопка изменения масштаба.
-            .add('zoomControl', { left: 5, top: 5 })
-
-            // Список типов карты
-            .add('typeSelector')
-            // Стандартный набор кнопок
-            .add('mapTools', { left: 35, top: 5 })
-
-
+        // ---Добавление элементов управления-------
+        // Каждый controls.add() вызывается отдельно
+        myMap.controls.add('zoomControl', { left: 5, top: 5 });
+        myMap.controls.add('typeSelector');
+        myMap.controls.add('mapTools', { left: 35, top: 5 });
     }
 };
 getYaMap();

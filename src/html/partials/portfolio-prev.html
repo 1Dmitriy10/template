@@ -1,87 +1,337 @@
 <section class='portfolio-prev'>
     <div class='container portfolio-prev__container'>
 
-        <h2 class="block-title">
-            Наши проекты
-        </h2>
+        <div class="portfolio-prev__filter-box">
+            <h2>
+                Кейсы
+            </h2>
 
-        <div
-            class="grid !mb-8 gap-[clamp(0.625rem,0.396rem+0.98vw,1.25rem)] grid-cols-1 sm:grid-cols-[repeat(auto-fit,minmax(380px,1fr))]">
+            <div class="portfolio-prev__filter scroll-snap">
 
-            <div class="portfolio-prev__card">
-                <a class="portfolio-prev__card-link" href="#"></a>
+                <div class="portfolio-prev__filter-item active scroll-snap__item">
+                    Разработка дизайна
+                </div>
 
-                <img width="390" height="195" class="portfolio-prev__card-img img-bg"
-                    src='@img/portfolio-prev-img-1.jpg' alt='' loading='lazy'>
+                <div class="portfolio-prev__filter-item scroll-snap__item">
+                    Разработка сайтов
+                </div>
 
-                <div class="portfolio-prev__card-title">
-                    Лендинг для стартапа
+                <div class="portfolio-prev__filter-item scroll-snap__item">
+                    Продвижение
                 </div>
 
             </div>
 
-            <div class="portfolio-prev__card">
-                <a class="portfolio-prev__card-link" href="#"></a>
-
-                <img width="390" height="195" class="portfolio-prev__card-img img-bg"
-                    src='@img/portfolio-prev-img-2.jpg' alt='' loading='lazy'>
-
-                <div class="portfolio-prev__card-title">
-                    Корпоративный сайт
-                </div>
-
+            <div class="portfolio-prev__text">
+                С 2019 года внедрили более 100 CRM систем Битрикс24 для наших клиентов
             </div>
 
-            <div class="portfolio-prev__card">
-                <a class="portfolio-prev__card-link" href="#"></a>
+            <button class="btn btn-anim portfolio-prev__btn desc">
+                <span>Все кейсы</span>
+                <i class="fa-solid fa-suitcase"></i>
+            </button>
+        </div>
 
-                <img width="390" height="195" class="portfolio-prev__card-img img-bg"
-                    src='@img/portfolio-prev-img-3.jpg' alt='' loading='lazy'>
 
-                <div class="portfolio-prev__card-title">
-                    E-commerce платформа
+    </div>
+
+    <div class="slider-wrap w-[100%] !p-[clamp(0rem,-0.91rem+3.88vw,3.75rem)_0_clamp(0rem,-0.91rem+3.88vw,3.75rem)_0]">
+        <!-- Слайдер -->
+        <div class='swiper portfolio-prev__slider'>
+            <!-- Обертка слайдера -->
+            <div class='swiper-wrapper items-stretch'>
+                <!-- Слайды -->
+                <div class='swiper-slide portfolio-prev__slide'>
+                    <div class="portfolio-prev__card">
+
+                        <div class="portfolio-prev__card-img">
+                            <img width='' height='' class='img-bg' src='@img/Mask-group.png' alt='' loading='lazy'>
+                        </div>
+
+                        <div class="portfolio-prev__card-text-box">
+                            <div class="portfolio-prev__card-title">
+                                Корпоративный портал
+                                «ТехноПром»
+                            </div>
+
+                            <div class="portfolio-prev__card-text">
+                                Многостраничный сайт для промышленного холдинга. Структурированная подача информации
+                                для партнеров и инвесторов, интегрированная система новостей и документооборота.
+                            </div>
+
+
+
+                            <a class="link portfolio-prev__card-link" href="#">
+                                <span>Подробнее</span>
+
+                                <svg width="19" height="12" viewBox="0 0 19 12" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M18.5303 6.53033C18.8232 6.23744 18.8232 5.76256 18.5303 5.46967L13.7574 0.696699C13.4645 0.403806 12.9896 0.403806 12.6967 0.696699C12.4038 0.989593 12.4038 1.46447 12.6967 1.75736L16.9393 6L12.6967 10.2426C12.4038 10.5355 12.4038 11.0104 12.6967 11.3033C12.9896 11.5962 13.4645 11.5962 13.7574 11.3033L18.5303 6.53033ZM0 6V6.75H18V6V5.25H0V6Z"
+                                        fill="#5C90B4"></path>
+                                </svg>
+                            </a>
+                        </div>
+
+                    </div>
                 </div>
+                <div class='swiper-slide portfolio-prev__slide'>
+                    <div class="portfolio-prev__card">
 
+                        <div class="portfolio-prev__card-img">
+                            <img width='' height='' class='img-bg' src='@img/Mask-group.png' alt='' loading='lazy'>
+                        </div>
+
+                        <div class="portfolio-prev__card-text-box">
+                            <div class="portfolio-prev__card-title">
+                                Корпоративный портал
+                                «ТехноПром»
+                            </div>
+
+                            <div class="portfolio-prev__card-text">
+                                Многостраничный сайт для промышленного холдинга. Структурированная подача информации
+                                для партнеров и инвесторов, интегрированная система новостей и документооборота.
+
+                            </div>
+
+
+
+                            <a class="link portfolio-prev__card-link" href="#">
+                                <span>Подробнее</span>
+
+                                <svg width="19" height="12" viewBox="0 0 19 12" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M18.5303 6.53033C18.8232 6.23744 18.8232 5.76256 18.5303 5.46967L13.7574 0.696699C13.4645 0.403806 12.9896 0.403806 12.6967 0.696699C12.4038 0.989593 12.4038 1.46447 12.6967 1.75736L16.9393 6L12.6967 10.2426C12.4038 10.5355 12.4038 11.0104 12.6967 11.3033C12.9896 11.5962 13.4645 11.5962 13.7574 11.3033L18.5303 6.53033ZM0 6V6.75H18V6V5.25H0V6Z"
+                                        fill="#5C90B4"></path>
+                                </svg>
+                            </a>
+                        </div>
+
+                    </div>
+                </div>
+                <div class='swiper-slide portfolio-prev__slide'>
+                    <div class="portfolio-prev__card">
+
+                        <div class="portfolio-prev__card-img">
+                            <img width='' height='' class='img-bg' src='@img/Mask-group.png' alt='' loading='lazy'>
+                        </div>
+
+                        <div class="portfolio-prev__card-text-box">
+                            <div class="portfolio-prev__card-title">
+                                Корпоративный портал
+                                «ТехноПром»
+                            </div>
+
+                            <div class="portfolio-prev__card-text">
+                                Многостраничный сайт для промышленного холдинга. Структурированная подача информации
+                                для партнеров и инвесторов, интегрированная система новостей и документооборота.
+                            </div>
+
+
+
+                            <a class="link portfolio-prev__card-link" href="#">
+                                <span>Подробнее</span>
+
+                                <svg width="19" height="12" viewBox="0 0 19 12" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M18.5303 6.53033C18.8232 6.23744 18.8232 5.76256 18.5303 5.46967L13.7574 0.696699C13.4645 0.403806 12.9896 0.403806 12.6967 0.696699C12.4038 0.989593 12.4038 1.46447 12.6967 1.75736L16.9393 6L12.6967 10.2426C12.4038 10.5355 12.4038 11.0104 12.6967 11.3033C12.9896 11.5962 13.4645 11.5962 13.7574 11.3033L18.5303 6.53033ZM0 6V6.75H18V6V5.25H0V6Z"
+                                        fill="#5C90B4"></path>
+                                </svg>
+                            </a>
+                        </div>
+
+                    </div>
+                </div>
+                <div class='swiper-slide portfolio-prev__slide'>
+                    <div class="portfolio-prev__card">
+
+                        <div class="portfolio-prev__card-img">
+                            <img width='' height='' class='img-bg' src='@img/Mask-group.png' alt='' loading='lazy'>
+                        </div>
+
+                        <div class="portfolio-prev__card-text-box">
+                            <div class="portfolio-prev__card-title">
+                                Корпоративный портал
+                                «ТехноПром»
+                            </div>
+
+                            <div class="portfolio-prev__card-text">
+                                Многостраничный сайт для промышленного холдинга. Структурированная подача информации
+                                для партнеров и инвесторов, интегрированная система новостей и документооборота.
+                            </div>
+
+
+
+                            <a class="link portfolio-prev__card-link" href="#">
+                                <span>Подробнее</span>
+
+                                <svg width="19" height="12" viewBox="0 0 19 12" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M18.5303 6.53033C18.8232 6.23744 18.8232 5.76256 18.5303 5.46967L13.7574 0.696699C13.4645 0.403806 12.9896 0.403806 12.6967 0.696699C12.4038 0.989593 12.4038 1.46447 12.6967 1.75736L16.9393 6L12.6967 10.2426C12.4038 10.5355 12.4038 11.0104 12.6967 11.3033C12.9896 11.5962 13.4645 11.5962 13.7574 11.3033L18.5303 6.53033ZM0 6V6.75H18V6V5.25H0V6Z"
+                                        fill="#5C90B4"></path>
+                                </svg>
+                            </a>
+                        </div>
+
+                    </div>
+                </div>
+                <div class='swiper-slide portfolio-prev__slide'>
+                    <div class="portfolio-prev__card">
+
+                        <div class="portfolio-prev__card-img">
+                            <img width='' height='' class='img-bg' src='@img/Mask-group.png' alt='' loading='lazy'>
+                        </div>
+
+                        <div class="portfolio-prev__card-text-box">
+                            <div class="portfolio-prev__card-title">
+                                Корпоративный портал
+                                «ТехноПром»
+                            </div>
+
+                            <div class="portfolio-prev__card-text">
+                                Многостраничный сайт для промышленного холдинга. Структурированная подача информации
+                                для партнеров и инвесторов, интегрированная система новостей и документооборота.
+                            </div>
+
+
+
+                            <a class="link portfolio-prev__card-link" href="#">
+                                <span>Подробнее</span>
+
+                                <svg width="19" height="12" viewBox="0 0 19 12" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M18.5303 6.53033C18.8232 6.23744 18.8232 5.76256 18.5303 5.46967L13.7574 0.696699C13.4645 0.403806 12.9896 0.403806 12.6967 0.696699C12.4038 0.989593 12.4038 1.46447 12.6967 1.75736L16.9393 6L12.6967 10.2426C12.4038 10.5355 12.4038 11.0104 12.6967 11.3033C12.9896 11.5962 13.4645 11.5962 13.7574 11.3033L18.5303 6.53033ZM0 6V6.75H18V6V5.25H0V6Z"
+                                        fill="#5C90B4"></path>
+                                </svg>
+                            </a>
+                        </div>
+
+                    </div>
+                </div>
+                <div class='swiper-slide portfolio-prev__slide'>
+                    <div class="portfolio-prev__card">
+
+                        <div class="portfolio-prev__card-img">
+                            <img width='' height='' class='img-bg' src='@img/Mask-group.png' alt='' loading='lazy'>
+                        </div>
+
+                        <div class="portfolio-prev__card-text-box">
+                            <div class="portfolio-prev__card-title">
+                                Корпоративный портал
+                                «ТехноПром»
+                            </div>
+
+                            <div class="portfolio-prev__card-text">
+                                Многостраничный сайт для промышленного холдинга. Структурированная подача информации
+                                для партнеров и инвесторов, интегрированная система новостей и документооборота.
+                            </div>
+
+
+
+                            <a class="link portfolio-prev__card-link" href="#">
+                                <span>Подробнее</span>
+
+                                <svg width="19" height="12" viewBox="0 0 19 12" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M18.5303 6.53033C18.8232 6.23744 18.8232 5.76256 18.5303 5.46967L13.7574 0.696699C13.4645 0.403806 12.9896 0.403806 12.6967 0.696699C12.4038 0.989593 12.4038 1.46447 12.6967 1.75736L16.9393 6L12.6967 10.2426C12.4038 10.5355 12.4038 11.0104 12.6967 11.3033C12.9896 11.5962 13.4645 11.5962 13.7574 11.3033L18.5303 6.53033ZM0 6V6.75H18V6V5.25H0V6Z"
+                                        fill="#5C90B4"></path>
+                                </svg>
+                            </a>
+                        </div>
+
+                    </div>
+                </div>
+                <div class='swiper-slide portfolio-prev__slide'>
+                    <div class="portfolio-prev__card">
+
+                        <div class="portfolio-prev__card-img">
+                            <img width='' height='' class='img-bg' src='@img/Mask-group.png' alt='' loading='lazy'>
+                        </div>
+
+                        <div class="portfolio-prev__card-text-box">
+                            <div class="portfolio-prev__card-title">
+                                Корпоративный портал
+                                «ТехноПром»
+                            </div>
+
+                            <div class="portfolio-prev__card-text">
+                                Многостраничный сайт для промышленного холдинга. Структурированная подача информации
+                                для партнеров и инвесторов, интегрированная система новостей и документооборота.
+                            </div>
+
+
+
+                            <a class="link portfolio-prev__card-link" href="#">
+                                <span>Подробнее</span>
+
+                                <svg width="19" height="12" viewBox="0 0 19 12" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M18.5303 6.53033C18.8232 6.23744 18.8232 5.76256 18.5303 5.46967L13.7574 0.696699C13.4645 0.403806 12.9896 0.403806 12.6967 0.696699C12.4038 0.989593 12.4038 1.46447 12.6967 1.75736L16.9393 6L12.6967 10.2426C12.4038 10.5355 12.4038 11.0104 12.6967 11.3033C12.9896 11.5962 13.4645 11.5962 13.7574 11.3033L18.5303 6.53033ZM0 6V6.75H18V6V5.25H0V6Z"
+                                        fill="#5C90B4"></path>
+                                </svg>
+                            </a>
+                        </div>
+
+                    </div>
+                </div>
+                <div class='swiper-slide portfolio-prev__slide'>
+                    <div class="portfolio-prev__card">
+
+                        <div class="portfolio-prev__card-img">
+                            <img width='' height='' class='img-bg' src='@img/Mask-group.png' alt='' loading='lazy'>
+                        </div>
+
+                        <div class="portfolio-prev__card-text-box">
+                            <div class="portfolio-prev__card-title">
+                                Корпоративный портал
+                                «ТехноПром»
+                            </div>
+
+                            <div class="portfolio-prev__card-text">
+                                Многостраничный сайт для промышленного холдинга. Структурированная подача информации
+                                для партнеров и инвесторов, интегрированная система новостей и документооборота.
+                            </div>
+
+
+
+                            <a class="link portfolio-prev__card-link" href="#">
+                                <span>Подробнее</span>
+
+                                <svg width="19" height="12" viewBox="0 0 19 12" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M18.5303 6.53033C18.8232 6.23744 18.8232 5.76256 18.5303 5.46967L13.7574 0.696699C13.4645 0.403806 12.9896 0.403806 12.6967 0.696699C12.4038 0.989593 12.4038 1.46447 12.6967 1.75736L16.9393 6L12.6967 10.2426C12.4038 10.5355 12.4038 11.0104 12.6967 11.3033C12.9896 11.5962 13.4645 11.5962 13.7574 11.3033L18.5303 6.53033ZM0 6V6.75H18V6V5.25H0V6Z"
+                                        fill="#5C90B4"></path>
+                                </svg>
+                            </a>
+                        </div>
+
+                    </div>
+                </div>
             </div>
 
-            <div class="portfolio-prev__card">
-                <a class="portfolio-prev__card-link" href="#"></a>
-
-                <img class="portfolio-prev__card-img img-bg" src='@img/portfolio-prev-img-4.jpg' alt='' loading='lazy'>
-
-                <div class="portfolio-prev__card-title">
-                    Мобильное приложение
-                </div>
-
+            <!-- Кнопки навигации -->
+            <div id="portfolio-slider-btn__prev" class='slider-btn slider-btn__prev absolute left-[40%] z-[2]
+                top-[50%]'>
+                <i class="fa-solid fa-arrow-left"></i>
             </div>
-
-            <div class="portfolio-prev__card">
-                <a class="portfolio-prev__card-link" href="#"></a>
-
-                <img width="390" height="195" class="portfolio-prev__card-img img-bg"
-                    src='@img/portfolio-prev-img-5.jpg' alt='' loading='lazy'>
-
-                <div class="portfolio-prev__card-title">
-                    Веб-приложение SaaS
-                </div>
-
-            </div>
-
-            <div class="portfolio-prev__card">
-                <a class="portfolio-prev__card-link" href="#"></a>
-
-                <img width="390" height="195" class="portfolio-prev__card-img img-bg"
-                    src='@img/portfolio-prev-img-6.jpg' alt='' loading='lazy'>
-
-                <div class="portfolio-prev__card-title">
-                    Портфолио сайт
-                </div>
-
+            <div id="portfolio-slider-btn__next" class='slider-btn slider-btn__next absolute right-0 z-[2]
+                top-[50%]'>
+                <i class="fa-solid fa-arrow-right"></i>
             </div>
 
         </div>
-
-        <a class="btn self-center" href="#">Все проекты</a>
-
     </div>
+
+    <button class="btn btn-anim portfolio-prev__btn mob">
+        <span>Все кейсы</span>
+        <i class="fa-solid fa-suitcase"></i>
+    </button>
+
 </section>

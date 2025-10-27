@@ -1,45 +1,104 @@
 @use "../main/mixins-vars"as *;
 
-.faq-prev {
-    height: auto;
-}
+.faq-prev {}
 
 .faq-prev__container {
     display: flex;
+    gap: 20px;
+    justify-content: space-between;
+
+    @include respond-to('nout') {
+        flex-direction: column;
+        gap: clamp-px(20, 40);
+    }
+}
+
+.faq-prev__left-col {
+    flex: 0 0 420px;
+    display: flex;
     flex-direction: column;
+
+    @include respond-to('nout') {
+        flex: 1 1 100%;
+    }
+}
+
+.faq-prev__btn-box {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    & .btn {
+        align-self: flex-start;
+        min-width: 200px;
+    }
+
+    @include respond-to('nout') {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    @include respond-to('tel') {
+        flex-direction: column;
+
+        & .btn {
+            align-self: auto;
+            min-width: auto;
+        }
+
+    }
+}
+
+.faq-prev__right-col {
+    flex: 1 1 auto;
+    max-width: 1200px;
+    display: flex;
+    flex-direction: column;
+}
+
+.faq-prev__subtitle {
+    font-weight: 400;
+    font-size: clamp-px(14, 16);
+    line-height: 150%;
+    color: var(--text-gray);
+    margin-bottom: clamp-px(20, 30);
+}
+
+.faq-prev__btn {
+    // margin-bottom: 20px;
 }
 
 .faq-prev__box {
     display: flex;
     flex-direction: column;
     gap: clamp-px(10, 20);
-    margin-bottom: 20px;
 }
 
 .spoiler-content {
-    margin-top: 20px;
-    color: var(--text-color-second);
-    font-size: clamp-px(14, 16);
-    line-height: 140%;
+    margin-top: clamp-px(20, 40);
     font-weight: 400;
+    font-size: clamp-px(14, 16);
+    line-height: 150%;
+    color: var(--text-gray);
 }
 
 .faq-prev__spoiler-wrap {
     padding: clamp-px(10, 20);
-    background-color: var(--secondary-color);
-    border-radius: var(--border-radius-primary);
+    background-color: var(--grey-color);
+    border-radius: var(--border-radius);
 }
 
 .faq-prev__spoiler-js {
-    color: var(--text-color-second);
-    font-size: clamp-px(18, 20);
-    font-weight: 500;
-    line-height: 130%;
+    font-family: var(--font-family);
+    font-weight: 600;
+    font-size: clamp-px(18, 24);
+    line-height: 150%;
+    color: var(--title);
     cursor: pointer;
 
     &::after {
         transition: 0.3s;
-        color: var(--text-color-second);
+        color: var(--title);
         margin-left: auto;
         font-size: clamp-px(18, 20);
     }

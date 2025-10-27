@@ -1,55 +1,36 @@
 @use "./mixins-vars"as *;
 
 :root {
+    // ===========Шрифт===========
+    --font-family: "Roboto", sans-serif;
 
-    //===========Шрифты============
-    --font-family: "OpenSans", sans-serif;
+    // ===========Основные цвета===========
+    --secondary-color: rgb(92, 144, 180);
+    --primary-color: rgba(89, 186, 141, 0.302);
+    --text: #616161;
+    --title: #333;
+    --text-gray: #616161;
+    --text-white: #fff;
+    --input-text: rgba(0, 0, 0, 0.7);
+    --light-color: #fff;
+    --primary-gradient: linear-gradient(90deg, rgba(206, 235, 221, 0.3) 0%, rgba(92, 144, 180, 0.3) 100%);
+    --grey-color: #f7f8fb;
+    //===========Кнопки===========
+    --btn-anim-color: rgba(255, 255, 255, 0.6);
 
-    //===========Цвета===========
-    --white: #FFFFFF;
-    --black: #1D222F;
-    --text-color: #1E293B;
-    --text-color-second: #FFFFFF;
-    --background-color: #D9D9D9;
-    --primary-color: #D9D9D9;
-    --secondary-color: #4E6075;
-    --tertiary-color: #3f91b8;
-    --btn-color: #1E293B;
+    //===========Шапка===========
+    --header-text-color: #232323;
+    --mob-menu-color: #fff;
+    --mob-item-color: #F6F8FB;
+    // ===========Бордер===========
+    --border-radius: 8px;
+    --border-primary-color: #a8a8a8;
 
-    //===========Фон блоков===========
-    --bg-color-primary: #FAFAFA;
+    // ===========Преимущества===========
+    --advantages-col-count: 5;
 
-    //===========Фон сайта===========
-    --bg-color-main: #FAFAFA;
-
-    // ------header
-    --header-color: #FFFFFF;
-    --header-mob-color: #FFFFFF;
-    --header-sub-color: #a09e9e;
-    --header-text-color: #1D222F;
-    --header-text-hover-color: #4E6075;
-    --header-text-sub-color: #1D222F;
-    --header-text-sub-hover-color: #4E6075;
-
-    // ------radius
-    --border-radius-primary: clamp(0.375rem, 0.329rem + 0.2vw, 0.5rem);
-
-    // ------gradient-------
-    --gradient-start: #667eea;
-    --gradient-stop: #764ba2;
-
-    // ------hero-------
-    --gradient-hero-start: #212a35;
-    --gradient-hero-stop: #4e6075;
-    --text-color-hero: #000;
-    --text-btn-color-hero: #000;
-
-    // -------advantages-prev-----
-    --text-color-advantages: #000;
-
-    // -------call-----
-    --text-color-call: #000;
-
+    // ===========Услуги===========
+    --services-col-count: 4;
 
     // ===========gap===========
     --gap: 20px;
@@ -62,7 +43,7 @@
 
     //container
     .container {
-        max-width: 1380px;
+        max-width: 1804px;
         margin: 0 auto;
 
         @include respond-to("pc") {
@@ -92,6 +73,11 @@
     }
 
     section {
-        padding: 0 clamp-px(16, 20);
+        padding: clamp-px(30, 50) clamp-px(15, 20);
+    }
+
+    header,
+    footer {
+        padding: 0 clamp-px(15, 20);
     }
 }

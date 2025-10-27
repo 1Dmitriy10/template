@@ -19,11 +19,15 @@
 @use "./components/advantages-prev.scss";
 @use "./components/portfolio-prev.scss";
 @use "./components/reviews-prev.scss";
-@use "./components/call.scss";
 @use "./components/blog-prev.scss";
 @use "./components/team-prev.scss";
 @use "./components/faq-prev.scss";
-@use "./components/contacts-prev.scss";
+@use "./components/main-form.scss";
+@use "./components/_about-prev.scss";
+@use "./components/achievements-prev.scss";
+@use "./components/partners-prev.scss";
+@use "./components/second-form.scss";
+@use "./components/map-block.scss";
 
 //================Атомарные стили=====================
 @use "./vendor/atomar.scss";
@@ -31,18 +35,4 @@
 //========основные стили============
 body {
     font-family: var(--font-family);
-    background-color: var(--bg-color-main);
-}
-
-main {
-    // display: flex;
-    // flex-direction: column;
-    // gap: clamp-px(50, 120);
-
-    &>section,
-    &>div {
-        margin-bottom: clamp-px(50, 120);
-
-        &:last-child {}
-    }
 }

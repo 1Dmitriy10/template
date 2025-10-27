@@ -1,6 +1,8 @@
 @use "../main/mixins-vars"as *;
 
-.team-prev {}
+.team-prev {
+    background-color: var(--primary-color);
+}
 
 .team-prev__container {
     display: flex;
@@ -17,9 +19,9 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-end;
     gap: 20px;
-    border-radius: var(--border-radius-primary);
+    border-radius: var(--border-radius);
     aspect-ratio: 1/1.5;
     position: relative;
     overflow: hidden;
@@ -28,7 +30,7 @@
     & .img-bg {
         transition: 0.3s;
         object-fit: cover;
-        border-radius: var(--border-radius-primary);
+        border-radius: var(--border-radius);
     }
 
     &:hover {
@@ -37,15 +39,9 @@
             filter: brightness(0.5);
         }
 
-        & .team-prev__slide-name {
-            opacity: 1;
+        & .team-prev__slide-text-box {
             transition: 0.3s;
-            transform: translateY(0);
-        }
-
-        & .team-prev__slide-position {
             opacity: 1;
-            transition: 0.3s;
             transform: translateY(0);
         }
     }
@@ -53,24 +49,34 @@
 
 }
 
-.team-prev__slide-name {
+.team-prev__slide-text-box {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--light-color);
     position: relative;
-    z-index: 2;
-    transform: translateY(-50px);
-    color: var(--text-color-second);
-    font-size: clamp-px(18, 22);
-    font-weight: 600;
+    width: 100%;
+    padding: 20px;
+    border-left: 2px solid var(--secondary-color);
+    border-right: 2px solid var(--secondary-color);
     opacity: 0;
     transition: 0.3s;
+    transform: translateY(50px);
+
+    @include respond-to('tab') {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.team-prev__slide-name {
+
+    color: var(--title);
+    font-size: clamp-px(18, 22);
+    font-weight: 600;
 }
 
 .team-prev__slide-position {
-    position: relative;
-    z-index: 2;
-    transform: translateY(-50px);
-    color: var(--text-color-second);
+    color: var(--text-gray);
     font-size: clamp-px(14, 16);
     font-weight: 400;
-    opacity: 0;
-    transition: 0.3s;
 }

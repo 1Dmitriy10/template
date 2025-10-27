@@ -1,0 +1,50 @@
+@use "../main/mixins-vars"as *;
+
+.second-form__two-row {
+
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-bottom: clamp-px(20, 30);
+
+    &>.form__row {
+        flex: 1 1 auto;
+
+        &>input {
+            background: rgba(217, 217, 217, 0.4);
+            border-radius: var(--border-radius);
+            padding: clamp-px(8, 12) 15px;
+            width: 100%;
+        }
+
+    }
+
+}
+
+.second-form {
+
+    & .form__row {
+        flex: 1 1 auto;
+
+        &>textarea {
+            background: rgba(217, 217, 217, 0.4);
+            border-radius: var(--border-radius);
+            padding: clamp-px(8, 12) 15px;
+            width: 100%;
+            min-height: clamp-px(80, 133);
+            margin-bottom: 20px;
+        }
+
+    }
+
+    & .agree-box {
+        margin-bottom: 20px;
+    }
+
+}
+
+
+
+.second-form {
+    & .btn__submit {}
+}

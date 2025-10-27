@@ -1,0 +1,11 @@
+@use "../main/mixins-vars"as *;
+
+.map {
+    padding: clamp(1.875rem, 1.4348591549rem + 1.8779342723vw, 3.125rem) clamp(0.9375rem, 0.8274647887rem + 0.4694835681vw, 1.25rem);
+}
+
+#map {
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    height: clamp-px(250, 620) !important;
+}

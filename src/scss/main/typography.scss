@@ -1,48 +1,97 @@
 @use "./mixins-vars"as *;
 
-h1 {}
-
-h2 {}
-
-h2.block-title {
-    color: var(--text-color);
+h1 {
+    font-family: var(--font-family);
     font-weight: 600;
-    font-size: clamp-px(22, 36);
+    font-size: clamp-px(36, 48);
     line-height: 130%;
-    margin-bottom: clamp-px(20, 30);
-    text-align: center;
+    color: var(--title);
 }
 
-h3 {}
+h1.hero-title {
+    font-family: var(--font-family);
+    font-weight: 700;
+    font-size: clamp-px(28, 60);
+    line-height: 130%;
+    color: var(--text-white);
+}
 
-h4 {}
+h2 {
+    font-family: var(--font-family);
+    font-weight: 500;
+    font-size: clamp-px(32, 42);
+    line-height: 130%;
+    color: var(--title);
+}
 
-.block-title {}
+.block-title {
+    margin-bottom: clamp-px(30, 50);
+}
 
-p {}
+h3 {
+    font-family: var(--font-family);
+    font-weight: 500;
+    font-size: clamp-px(26, 38);
+    line-height: 130%;
+    color: var(--title);
+}
 
-ul.ul {}
+p {
+    font-family: var(--font-family);
+    font-weight: 400;
+    font-size: clamp-px(16, 18);
+    line-height: 150%;
+    color: var(--text);
+}
 
-ol {}
+
+
+ul.ul {
+    display: flex;
+    flex-direction: column;
+    gap: clamp-px(12, 15);
+
+    & li {
+        font-family: var(--font-family);
+        font-weight: 400;
+        font-size: clamp-px(16, 18);
+        line-height: 150%;
+        color: var(--text);
+    }
+}
+
+ol {
+    display: flex;
+    flex-direction: column;
+    gap: clamp-px(12, 15);
+
+    & li {
+        font-family: var(--font-family);
+        font-weight: 400;
+        font-size: clamp-px(16, 18);
+        line-height: 150%;
+        color: var(--text);
+    }
+}
 
 // Плейсхолдер инпутов
 
 ::-webkit-input-placeholder {
     font-family: var(--ff);
-    color: var(--grey06);
+    color: var(--input-text);
 }
 
 :-ms-input-placeholder {
     font-family: var(--ff);
-    color: var(--grey06);
+    color: var(--input-text);
 }
 
 :-moz-placeholder {
     font-family: var(--ff);
-    color: var(--grey06);
+    color: var(--input-text);
 }
 
 ::-moz-placeholder {
     font-family: var(--ff);
-    color: var(--grey06);
+    color: var(--input-text);
 }

@@ -1,0 +1,32 @@
+@use "../main/mixins-vars"as *;
+
+.partners-prev {
+    background-color: var(--primary-color);
+}
+
+.partners-prev__container {
+    display: flex;
+    flex-direction: column;
+}
+
+.partners-prev__slide {
+    &:not(:last-child) {
+        border-right: 1px solid #e5e5e5;
+    }
+}
+
+.partners-prev__card {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--text-white);
+    aspect-ratio: 1/0.7;
+
+
+
+    & .img-bg {
+        position: static;
+        object-fit: contain;
+        max-width: 80%;
+    }
+}
