@@ -5,18 +5,25 @@ export function setTitlePopupForm() {
 		function searchBtn() {
 			let data = event.target.dataset.src;
 			let el = event.target
-			if (data && data == "#popup-form") {
-				updateTitle(el.dataset.title, data)
+			if (data && data == "#universal-popup-form") {
+				updateTitle(el.dataset.title, el.dataset.subtitle, data)
 			}
 		}
 
-		function updateTitle(text, id) {
+		function updateTitle(titleText,subtitleText, id) {
 			let form = document.querySelector(`${id}`);
 			let title = form.querySelector(".main-form__title");
-			if (!text) {
-				title.innerHTML = `Запишись на бесплатную консультацию`;
+			let subtitle = form.querySelector(".main-form__subtitle");
+			if (!titleText) {
+				title.innerHTML = `Заказать обратный звонок`;
 			} else {
-				title.innerHTML = `${text}`;
+				title.innerHTML = `${titleText}`;
+			}
+
+			if (!subtitleText) {
+				subtitle.innerHTML = `Наш менеджер свяжется с вами в ближайшее время`;
+			} else {
+				subtitle.innerHTML = `${subtitleText}`;
 			}
 
 		}

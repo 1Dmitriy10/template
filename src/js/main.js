@@ -23,7 +23,7 @@ import { stickyHeader } from "./libs/stickyHeader.js";
 import { tabs } from "./libs/tabs.js";
 
 // // -------------------------Заголовок для универсальной формы--------------------
-// import { setTitlePopupForm } from "./libs/setTitlePopupForm.js";
+import { setTitlePopupForm } from "./libs/setTitlePopupForm.js";
 
 
 // ---------------------Слайдер swiper-----------------
@@ -95,6 +95,9 @@ import { gitNav } from "./libs/gitNav.js";
 
 //------------Анимация кнопок---------------
 import { animatebutton } from "./components/animatebutton.js";
+
+//------------Раскрытие отзывов---------------
+import { moreReviews } from "./components/moreReviews.js";
 
 
 

@@ -192,7 +192,9 @@
 
 
 .sub-menu {
-    background-color: var(--primary-color) !important;
+    background-color: rgb(196 237 218) !important;
+    min-width: clamp-px(400, 1000);
+    justify-items: anchor-center;
 
     & .nav-link {
         font-family: var(--font-family);
